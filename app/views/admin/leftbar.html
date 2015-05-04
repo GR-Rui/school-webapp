@@ -1,0 +1,28 @@
+<div class="sidebar-menu sidebar-left col-sm-2">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+
+            <h3 class="panel-title"><span class="icon-list"></span>快捷通道</h3>
+        </div>
+        <div class="panel-body no-padding">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="item in resourceSummary">
+                    {{item.name}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title"><span class="icon-books"></span>热门板块</h3>
+        </div>
+        <div class="panel-body no-padding">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="item in courseSummary">
+                    {{item.name}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
