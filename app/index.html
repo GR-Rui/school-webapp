@@ -21,6 +21,14 @@
     <!-- endbuild -->
 </head>
 <body ng-app="Site">
+<!--[if IE 8]>
+<script src="scripts/es5-shim.min.js"></script>
+<style>
+    .ng-hide {
+        display: none !important;
+    }
+</style>
+<![endif]-->
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
@@ -48,8 +56,9 @@
 <!-- build:js(.) scripts/vendor.js -->
 <!-- bower:js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angularjs-ie8-build/dist/angular.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-cookies/angular-cookies.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
