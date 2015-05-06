@@ -1,9 +1,9 @@
 "use strict";
 
 var express = require("express")
-  , app = express()
-  , Compression = require('compression')
-  , BodyParser = require('body-parser');
+  , app = express();
+  //, Compression = require('compression')
+  //, BodyParser = require('body-parser');
 
 var DEFAULT_PORT = 8078;
 
@@ -33,10 +33,10 @@ app.use(express.static(__dirname + '/app'));
 app.use(express.static(__dirname + '/'));
 
 // gzip compression
-app.use(Compression());
+//app.use(Compression());
 
 // parse the body
-app.use(BodyParser.json());
+//app.use(BodyParser.json());
 //
 app.disable('x-powered-by');
 
