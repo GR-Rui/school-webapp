@@ -10,15 +10,10 @@
  */
 var Site = angular.module('Site', [
   'ngAnimate',
-  'ngCookies',
-  'ngResource',
   'ngRoute',
   'ngSanitize',
-  'ngTouch',
-  'ui.router',
-  'smart-table',
-  "com.2fdevs.videogular",
-  "treeControl"
+  'ngCookies',
+  'ui.router'
 ]);
 
 Site.config(

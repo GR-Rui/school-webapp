@@ -1,26 +1,12 @@
-# packaged angular-cookies
+# bower-angular-cookies
 
-This repo is for distribution on `npm` and `bower`. The source for this module is in the
+This repo is for distribution on `bower`. The source for this module is in the
 [main AngularJS repo](https://github.com/angular/angular.js/tree/master/src/ngCookies).
 Please file issues and pull requests against that repo.
 
 ## Install
 
-You can install this package either with `npm` or with `bower`.
-
-### npm
-
-```shell
-npm install angular-cookies
-```
-
-Then add `ngCookies` as a dependency for your app:
-
-```javascript
-angular.module('myApp', [require('angular-cookies')]);
-```
-
-### bower
+Install with `bower`:
 
 ```shell
 bower install angular-cookies
@@ -32,7 +18,7 @@ Add a `<script>` to your `index.html`:
 <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
 ```
 
-Then add `ngCookies` as a dependency for your app:
+And add `ngCookies` as a dependency for your app:
 
 ```javascript
 angular.module('myApp', ['ngCookies']);
@@ -47,7 +33,7 @@ Documentation is available on the
 
 The MIT License
 
-Copyright (c) 2010-2015 Google, Inc. http://angularjs.org
+Copyright (c) 2010-2012 Google, Inc. http://angularjs.org
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,76 +1,70 @@
 <!doctype html>
-<html class="no-js">
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en-US"> <!--<![endif]-->
 <head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/angular-tree-control/css/tree-control.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
+    <meta charset="UTF-8">
+    <title>cat</title>
+    <!--<base href="/Webapp">-->
+    <!-- build:css css/main.css -->
     <link rel="stylesheet" href="styles/bootstrap/bootstrap.theme.css" />
     <link rel="stylesheet" href="styles/icomoon/style.css">
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/login.css">
-    <link rel="stylesheet" href="styles/teacher/teacher.css">
     <!-- endbuild -->
+
+    <!-- build:css css/otherMain.css -->
+    <!--other-->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+
+    <!--[if lte IE 8]>
+    <script>
+        // The ieshiv takes care of our ui.directives, bootstrap module directives and
+        // AngularJS's ng-view, ng-include, ng-pluralize and ng-switch directives.
+        // IF you have custom directives (yours or someone else's) then
+        // enumerate the list of tags in window.myCustomTags
+        //window.myCustomTags = [ 'ngGrid' ]; // optional
+    </script>
+    <script src="bower_components/angular-ui-utils/modules/ie-shiv/ie-shiv.js"></script>
+    <script type="text/javascript">
+        // Console-polyfill. MIT license.
+        // https://github.com/paulmillr/console-polyfill
+        // Make it safe to do console.log() always.
+        (function (con) {
+            'use strict';
+            var prop, method;
+            var empty = {};
+            var dummy = function () {
+            };
+            var properties = 'memory'.split(',');
+            var methods = ('assert,count,debug,dir,dirxml,error,exception,group,' +
+                    'groupCollapsed,groupEnd,info,log,markTimeline,profile,profileEnd,' +
+                    'time,timeEnd,trace,warn').split(',');
+            while (prop = properties.pop()) con[prop] = con[prop] || empty;
+            while (method = methods.pop()) con[method] = con[method] || dummy;
+        })(window.console = window.console || {});
+    </script>
+    <![endif]-->
+    <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+        your browser</a> to improve your experience.</p>
+    <![endif]-->
 </head>
 <body ng-app="Site">
-<!--[if IE 8]>
-<script src="scripts/es5-shim.min.js"></script>
-<style>
-    .ng-hide {
-        display: none !important;
-    }
-</style>
-<![endif]-->
-<!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-    your browser</a> to improve your experience.</p>
-<![endif]-->
-
 <!-- Add your site or application content here -->
 <div class="main-container">
     <div ui-view></div>
 </div>
 
-
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-<script>
-    /*!function (A, n, g, u, l, a, r) {
-        A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
-            (A[l].q = A[l].q || []).push(arguments)
-        }, A[l].l = +new Date, a = n.createElement(g),
-                r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
-    }(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-XXXXX-X');
-    ga('send', 'pageview');*/
-</script>
-
 <!-- build:js(.) scripts/vendor.js -->
-<!-- bower:js -->
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/angularjs-ie8-build/dist/angular.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<!-- bower:js -->   
+<script src="bower_components/jquery/jquery.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-cookies/angular-cookies.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-<script src="bower_components/angular-touch/angular-touch.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-<script src="bower_components/angular-smart-table/dist/smart-table.js"></script>
-<script src="bower_components/lodash/lodash.js"></script>
-<script src="bower_components/moment/moment.js"></script>
-<script src="bower_components/videogular/videogular.js"></script>
-<script src="bower_components/angular-tree-control/angular-tree-control.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -79,12 +73,12 @@
 <script src="scripts/config.js"></script>
 
 <!-- controllers-->
-<script src="scripts/controllers/login.js"></script>
+<!-- <script src="scripts/controllers/login.js"></script> -->
 <script src="scripts/controllers/admin/header.js"></script>
 <script src="scripts/controllers/admin/home.js"></script>
 <script src="scripts/controllers/admin/course-manager.js"></script>
 <script src="scripts/controllers/admin/group-manager.js"></script>
-<script src="scripts/controllers/admin/video-home.js"></script>
+<!-- <script src="scripts/controllers/admin/video-home.js"></script> -->
 <script src="scripts/controllers/admin/textbook.js"></script>
 <script src="scripts/controllers/admin/paper.js"></script>
 
