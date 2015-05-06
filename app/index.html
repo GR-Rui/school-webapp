@@ -3,18 +3,22 @@
 <!--[if gt IE 8]><!--><html class="no-js" lang="en-US"> <!--<![endif]-->
 <head>
     <meta charset="UTF-8">
-    <title>cat</title>
+    <title>云讲台</title>
     <!--<base href="/Webapp">-->
     <!-- build:css css/main.css -->
     <!-- <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" /> -->
     <link rel="stylesheet" href="styles/bootstrap/bootstrap.theme.css" />
     <link rel="stylesheet" href="styles/icomoon/style.css">
+    <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+    <link rel="stylesheet" href="styles/admin/jquery.fileupload.css">
+    <link rel="stylesheet" href="styles/admin/jquery.fileupload-ui.css">
     <!-- endbuild -->
 
     <!-- build:css css/otherMain.css -->
     <!--other-->
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/teacher/teacher.css">
+    <link rel="stylesheet" href="styles/admin/admin.css">
+
     <!-- endbuild -->
 
 
@@ -62,6 +66,7 @@
 <!-- build:js(.) scripts/vendor.js -->
 <!-- bower:js -->   
 <script src="bower_components/jquery/jquery.js"></script>
+<script src="scripts/libs/upload/vendor/jquery.ui.widget.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
@@ -72,6 +77,30 @@
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
+<!-- plugin-->
+<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+<script src="//blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
+<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+<script src="//blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+<!-- blueimp Gallery script -->
+<script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="scripts/libs/upload/jquery.iframe-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="scripts/libs/upload/jquery.fileupload.js"></script>
+<!-- The File Upload processing plugin -->
+<script src="scripts/libs/upload/jquery.fileupload-process.js"></script>
+<!-- The File Upload image preview & resize plugin -->
+<script src="scripts/libs/upload/jquery.fileupload-image.js"></script>
+<!-- The File Upload audio preview plugin -->
+<script src="scripts/libs/upload/jquery.fileupload-audio.js"></script>
+<!-- The File Upload video preview plugin -->
+<script src="scripts/libs/upload/jquery.fileupload-video.js"></script>
+<!-- The File Upload validation plugin -->
+<script src="scripts/libs/upload/jquery.fileupload-validate.js"></script>
+<!-- The File Upload Angular JS module -->
+<script src="scripts/libs/upload/jquery.fileupload-angular.js"></script>
+<!-- plugin-->
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
@@ -83,7 +112,7 @@
 <script src="scripts/controllers/admin/home.js"></script>
 <script src="scripts/controllers/admin/course-manager.js"></script>
 <script src="scripts/controllers/admin/group-manager.js"></script>
-<!-- <script src="scripts/controllers/admin/video-home.js"></script> -->
+ <script src="scripts/controllers/admin/video-manger.js"></script>
 <script src="scripts/controllers/admin/textbook.js"></script>
 <script src="scripts/controllers/admin/paper.js"></script>
 
