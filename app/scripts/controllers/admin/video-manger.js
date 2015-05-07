@@ -8,16 +8,17 @@
  * Controller of the cimWebappApp
  */
 Site.controller('VideoManagerCtrl', ['$scope', '$http','$filter', '$window', function ($scope, $http, $filter, $window) {
+
   var uploadObj = $("#fileUpload").uploadFile({
     url : "upload.php",
-    allowedTypes : "xml,png",
-    multiple : false,
+    allowedTypes : "png,gif,jpg,jpeg,mp4,wmv",
+    multiple : true,
     autoSubmit : false,
     fileName : "file",
-    maxFileSize : 1024 * 1024 * 1,
-    maxFileCount : 1,
+    maxFileSize : 1024 * 1024 * 20,
+    maxFileCount : 2,
     showProgress : true,
-    showFileCounter : false,
+    showFileCounter : true,
     showStatusAfterSuccess : true,
     uploadButtonClass : "ajax-file-upload-blue",
     onSubmit:function(files) {
@@ -34,4 +35,5 @@ Site.controller('VideoManagerCtrl', ['$scope', '$http','$filter', '$window', fun
   $("#startUpload").on('click', function() {
     uploadObj.startUpload();
   });
+
 }]);
