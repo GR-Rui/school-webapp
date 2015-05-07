@@ -76,3 +76,17 @@ body {
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
 }
+legend{
+    padding: 5px 10px;
+}
+
+.form-horizontal .control-label {
+    padding-right: 0px;
+    padding-top: 5px;
+}
+
+.form-control{
+    line-height: 30px;
+    height: 30px;
+    padding: 4px 5px;
+}
