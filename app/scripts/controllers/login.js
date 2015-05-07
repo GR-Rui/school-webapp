@@ -21,11 +21,5 @@ Site.controller('LoginCtrl',['$scope', 'AuthSrv', '$state', '$location', functio
           $state.go('admin.home',{id: user.userId});
         }
       })
-      .catch(function () {
-        $scope.loginFailed = true;
-      })
-      .finally(function () {
-        $scope.loggingIn = false;
-      });
   };
 }]);
