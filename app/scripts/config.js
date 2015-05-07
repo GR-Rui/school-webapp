@@ -2,12 +2,12 @@ Site.constant('ConfigConst', (function () {
   "use strict";
 
   var _version = "0.0.1";
-  var _build = "2015-04-01";
+  var _build = "2015-05-04";
   var _env = 'dev';  //DEV or PRD
 
   var _devURLs = {
-    api: 'http://localhost:9000/cloud/data/api/',
-    baseUrl: 'http://localhost:9000/'
+    api: 'http://localhost:8078/data/api/',
+    baseUrl: 'http://localhost:8078/'
   };
 
   var _prdURLs = {

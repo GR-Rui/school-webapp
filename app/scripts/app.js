@@ -36,6 +36,6 @@ Site.config(
         .state('admin.profile', {url: '/profile', templateUrl: 'views/admin/profile.html'})
 
         .state('login', {url: '/login', templateUrl: 'views/login.html', controller: 'LoginCtrl'});
-      $urlRouterProvider.otherwise('/admin/SG0822888');
+      $urlRouterProvider.otherwise('/login');
 
     }]);

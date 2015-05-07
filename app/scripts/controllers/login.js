@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name cimWebappApp.controller:LoginCtrl
+ * @name webappApp.controller:LoginCtrl
  * @description
  * # LoginCtrl
- * Controller of the cimWebappApp
+ * Controller of the webappApp
  */
-Site.controller('LoginCtrl',['$scope', 'AuthSrv', '$state', function ($scope, AuthSrv, $state) {
+Site.controller('LoginCtrl',['$scope', 'AuthSrv', '$state', '$location', function ($scope, AuthSrv, $state, $location) {
 
   $scope.login = function () {
     AuthSrv.login($scope.form.user, $scope.form.pass)
@@ -18,20 +18,7 @@ Site.controller('LoginCtrl',['$scope', 'AuthSrv', '$state', function ($scope, Au
         if (redirectUrl) {
           $location.path(redirectUrl);
         } else {
-          switch(user.position) {
-            case 'teacher':
-              $state.go('teacher',{id: user.userId});
-              break;
-            case 'student':
-              $state.go('student.center',{id: user.userId});
-              break;
-            case 'admin':
-              $state.go('admin.center',{id: user.userId});
-              break;
-            case 'systemAdmin':
-              $state.go('systemadmin.center',{id: user.userId});
-              break;
-          }
+          $state.go('admin.home',{id: user.userId});
         }
       })
       .catch(function () {
