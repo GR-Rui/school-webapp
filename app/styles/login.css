@@ -1,7 +1,8 @@
 /* login page */
 .container-green {
     background: linear-gradient(135deg, #12a37f 0%,#41af48 100%);
-    min-height: 800px;
+    min-height: 650px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#12a37f',EndColorStr='#41af48', GradientType=1);
 }
 .container-green h2{
     color: #FFF;
