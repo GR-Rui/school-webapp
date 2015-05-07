@@ -90,3 +90,7 @@ legend{
     height: 30px;
     padding: 4px 5px;
 }
+.btn {
+    padding-left: 24px;
+    padding-right: 24px;
+}

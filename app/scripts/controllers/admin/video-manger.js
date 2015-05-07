@@ -15,7 +15,7 @@ Site.controller('VideoManagerCtrl', ['$scope', '$http','$filter', '$window', fun
     multiple : true,
     autoSubmit : false,
     fileName : "file",
-    maxFileSize : 1024 * 1024 * 20,
+    maxFileSize : 1024 * 1024 * 200,
     maxFileCount : 2,
     showProgress : true,
     showFileCounter : true,
@@ -35,5 +35,7 @@ Site.controller('VideoManagerCtrl', ['$scope', '$http','$filter', '$window', fun
   $("#startUpload").on('click', function() {
     uploadObj.startUpload();
   });
+
+  flowplayer("player", "scripts/libs/flowplayer-3.2.18.swf");
 
 }]);
