@@ -94,3 +94,7 @@ legend{
     padding-left: 24px;
     padding-right: 24px;
 }
+.form-group {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}

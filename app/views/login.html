@@ -17,8 +17,9 @@
                         </label>
 
                         <div class="col-sm-8">
+                            <span ng-show="userMsg" class="error-msg">{{userMsg}}</span>
                             <input type="text" class="form-control" id="userName" name="userName" autofocus
-                                   placeholder="用户名" data-ng-model="form.user">
+                                   placeholder="用户名" data-ng-model="form.user" ng-keyup="validation()" ng-blur="validation()">
                         </div>
                     </div>
                     <div class="form-group">
@@ -27,9 +28,10 @@
                         </label>
 
                         <div class="col-sm-8">
+                            <span ng-show="passMsg" class="error-msg">{{passMsg}}</span>
                             <input type="text" class="form-control" id="password" name="password" autofocus
                                    placeholder="密码"
-                                   data-ng-model="form.pass">
+                                   data-ng-model="form.pass" ng-keyup="validation()" ng-blur="validation()">
                         </div>
                     </div>
                     <div class="form-group">
@@ -38,20 +40,21 @@
                         </label>
 
                         <div class="col-sm-9">
+                            <span ng-show="codeMsg" class="error-msg">{{codeMsg}}</span>
                             <span class="col-sm-5">
                                 <input type="text" class="form-control" id="validCode" name="validCode" autofocus
                                        placeholder="验证码"
-                                       data-ng-model="form.code">
+                                       data-ng-model="form.code" ng-keyup="validation()" ng-blur="validation()">
                             </span>
                             <span class="col-sm-5">
-                                <input type="text" data-ng-click="createCode()" readonly="readonly" id="checkCode" class="unchanged col-sm-5"  />
+                                <input type="text" data-ng-click="createCode()" readonly="readonly" id="checkCode" class="col-sm-5"  />
                             </span>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-lg-10 col-lg-offset-3">
                             <button type="button" class="btn btn-primary" data-ng-click="login()"
-                                    data-ng-disabled="loginDisabled()">登录
+                                    data-ng-disabled="loginDisabled">登录
                             </button>
                             <a href="" id="forgot-pass" class="login-link forgot-pass" target="_blank"
                                data-ng-click="forgotPassword()">忘记密码？</a>

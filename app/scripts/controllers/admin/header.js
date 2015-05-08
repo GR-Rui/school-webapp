@@ -39,14 +39,15 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, 
     {
       name: "教学管理",
       subList: [
-        {name: "视频管理", link: "admin.video"}
+        {name: "视频管理", link: "admin.video"},
+        {name: "视频上传", link: "admin.upload"}
       ]
     }
   ];
 
   $scope.profile = [
     {name: "个人信息管理", link: "admin.profile"},
-    {name: "注销系统", link: "admin.profile"}
+    {name: "注销系统", link: "login"}
   ];
 
   // left slide bar

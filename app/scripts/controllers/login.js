@@ -9,6 +9,34 @@
  */
 Site.controller('LoginCtrl', ['$scope', 'AuthSrv', '$state', '$location', function ($scope, AuthSrv, $state, $location) {
 
+  $scope.loginDisabled = true;
+  $scope.userMsg = undefined;
+  $scope.passMsg = undefined;
+  $scope.codeMsg = undefined;
+
+  $scope.validation = function() {
+    if(!$scope.form || $scope.form.user == '') {
+      $scope.userMsg = '用户名不能为空！';
+    }else{
+      $scope.userMsg = undefined;
+    }
+    if(!$scope.form || $scope.form.pass == '') {
+      $scope.passMsg = '密码不能为空！';
+    }else{
+      $scope.passMsg = undefined;
+    }
+    if(!$scope.form || $scope.form.code != $scope.code) {
+      $scope.codeMsg = '验证码不正确！';
+    }else{
+      $scope.codeMsg = undefined;
+    }
+    if($scope.userMsg || $scope.passMsg || $scope.codeMsg) {
+      $scope.loginDisabled = true;
+    }else{
+      $scope.loginDisabled = false;
+    }
+  };
+
   $scope.login = function () {
     AuthSrv.login($scope.form.user, $scope.form.pass)
       .then(function (session) {
@@ -24,21 +52,22 @@ Site.controller('LoginCtrl', ['$scope', 'AuthSrv', '$state', '$location', functi
   };
 
   $scope.createCode = function () {
-    var code = "";
+    $scope.code = "";
     var codeLength = 6;//验证码的长度
     var checkCode = document.getElementById("checkCode");
     var selectChar = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');//所有候选组成验证码的字符，当然也可以用中文的
     for (var i = 0; i < codeLength; i++) {
       var charIndex = Math.floor(Math.random() * 36);
-      code += selectChar[charIndex];
+      $scope.code += selectChar[charIndex];
     }
     if (checkCode) {
       checkCode.className = "code";
-      checkCode.value = code;
+      checkCode.value = $scope.code;
       checkCode.blur();
     }
   };
 
+  // init
   $scope.createCode();
 
 

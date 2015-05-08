@@ -33,6 +33,8 @@ Site.config(
         .state('admin.class-textbook', {url: '/class-textbook', templateUrl: 'views/admin/class.textbook.relation.html'})
         .state('admin.teacher-class', {url: '/teacher-class', templateUrl: 'views/admin/teacher.class.relation.html'})
         .state('admin.video', {url: '/video-manager', templateUrl: 'views/admin/video.manager.html'})
+        .state('admin.upload', {url: '/video-upload', templateUrl: 'views/admin/video.upload.html'})
+        .state('admin.player', {url: '/video-player/:id', templateUrl: 'views/admin/video.player.html'})
         .state('admin.profile', {url: '/profile', templateUrl: 'views/admin/profile.html'})
 
         .state('login', {url: '/login', templateUrl: 'views/login.html', controller: 'LoginCtrl'});

@@ -43,3 +43,10 @@
     border: none;
     height: 30px;
 }
+.login-form .error-msg{
+    position: absolute;
+    top: -20px;
+    font-size: 12px;
+    color: red;
+    right: 25px;
+}

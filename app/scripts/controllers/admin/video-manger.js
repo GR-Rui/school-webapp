@@ -9,6 +9,15 @@
  */
 Site.controller('VideoManagerCtrl', ['$scope', '$http','$filter', '$window', function ($scope, $http, $filter, $window) {
 
+  $scope.shareVideos = [
+    {id: 1, name: '五单元练习第3题', type: 'mp4', dataTime: '2014-05-04 17:24:59'},
+    {id: 2, name: '五单元练习第3题', type: 'mp4', dataTime: '2014-05-04 17:24:59'},
+    {id: 3, name: '五单元练习第3题', type: 'mp4', dataTime: '2014-05-04 17:24:59'},
+    {id: 4, name: '五单元练习第3题', type: 'mp4', dataTime: '2014-05-04 17:24:59'},
+    {id: 4, name: '五单元练习第3题', type: 'mp4', dataTime: '2014-05-04 17:24:59'},
+    {id: 4, name: '五单元练习第3题', type: 'mp4', dataTime: '2014-05-04 17:24:59'}
+  ];
+
   var uploadObj = $("#fileUpload").uploadFile({
     url : "upload.php",
     allowedTypes : "png,gif,jpg,jpeg,mp4,wmv",
@@ -35,7 +44,5 @@ Site.controller('VideoManagerCtrl', ['$scope', '$http','$filter', '$window', fun
   $("#startUpload").on('click', function() {
     uploadObj.startUpload();
   });
-
-  flowplayer("player", "scripts/libs/flowplayer-3.2.18.swf");
 
 }]);
