@@ -14,22 +14,36 @@ Site.controller('LoginCtrl', ['$scope', 'AuthSrv', '$state', '$location', functi
   $scope.passMsg = undefined;
   $scope.codeMsg = undefined;
 
-  $scope.validation = function() {
-    if(!$scope.form || $scope.form.user == '') {
+  $scope.nameValidation = function() {
+    if (!$scope.form || $scope.form.user == '') {
       $scope.userMsg = '用户名不能为空！';
-    }else{
+    } else {
       $scope.userMsg = undefined;
     }
-    if(!$scope.form || $scope.form.pass == '') {
+    activeSubmitBtn();
+  };
+
+  $scope.passValidation = function() {
+    if (!$scope.form || $scope.form.pass == '') {
       $scope.passMsg = '密码不能为空！';
-    }else{
+    } else {
       $scope.passMsg = undefined;
     }
-    if(!$scope.form || $scope.form.code != $scope.code) {
-      $scope.codeMsg = '验证码不正确！';
-    }else{
+    activeSubmitBtn();
+  };
+
+  $scope.codeValidation = function() {
+    if (!$scope.form || ($scope.form.code.toLocaleUpperCase() != $scope.code && $scope.form.code.length >= 6)) {
+      $scope.codeMsg = '验证码输入不正确！';
+    } else {
       $scope.codeMsg = undefined;
     }
+    if($scope.form && $scope.form.code.length >= 6) {
+      activeSubmitBtn();
+    }
+  };
+
+  var activeSubmitBtn = function() {
     if($scope.userMsg || $scope.passMsg || $scope.codeMsg) {
       $scope.loginDisabled = true;
     }else{
@@ -65,6 +79,10 @@ Site.controller('LoginCtrl', ['$scope', 'AuthSrv', '$state', '$location', functi
       checkCode.value = $scope.code;
       checkCode.blur();
     }
+  };
+
+  $scope.forgotPassword = function () {
+    //TODO
   };
 
   // init
