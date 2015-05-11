@@ -1,6 +1,6 @@
 /* Common Setting  */
 body {
-  padding: 0;
+    padding: 0;
 }
 .header,
 .footer {
@@ -10,8 +10,8 @@ body {
 
 /* Site header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 10px;
 }
 .header .navbar {
     border-radius: 0;
@@ -23,9 +23,9 @@ body {
 
 /* Site footer */
 .footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
 }
 
 .footer p {
@@ -97,4 +97,71 @@ legend{
 .form-group {
     margin-bottom: 20px;
     margin-top: 20px;
+}
+
+/**
+ *
+ */
+.panel .no-padding {
+    padding: 0;
+}
+.panel.no-border {
+    border: none;
+}
+.panel .panel-heading span {
+    padding-right: 8px;
+}
+.panel .list-group {
+    margin-bottom: 0;
+}
+.panel .list-group-item:first-child {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-top: none;
+}
+.panel .list-group-item {
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+}
+.panel .list-group-item:hover {
+    background-color: #f5f5f5;
+}
+
+.common-container a.abs-link{
+    position: absolute;
+    right: 0;
+    font-size: 14px;
+    top: 5px;
+}
+.common-container span.abs-icon {
+    position: absolute;
+    right: 60px;
+    font-size: 14px;
+    top: 8px;
+}
+.video-page .template{
+    font-size: 12px;
+}
+.video-page .template .album-options{
+    padding: 5px 0px;
+}
+.video-page .template p{
+    margin: 0;
+    padding-bottom: 2px;
+}
+
+.panel-body .stu-list .opt-buttons {
+    top: 55px;
+}
+.panel-body .stu-list .opt-buttons a {
+    margin: 5px;
+}
+.panel-body .stu-list .option-bars {
+    margin-top: 10px;
+}
+.input-control {
+    line-height: 30px;
+    height: 30px;
+    margin-bottom: 5px;
 }

@@ -1,9 +1,75 @@
-<div class="" data-ng-controller="TeacherHomeCtrl">
+<div class="" data-ng-controller="ClassManagerCtrl">
     <div class="panel panel-default">
         <div class="panel-heading"><span class="icon-share2"></span>班级管理</div>
         <div class="panel-body">
             <h1>班级管理</h1>
-            <div class="align-right"><a href="javascript:void(0)">查看全部<span class="icon-forward"></span></a></div>
+            <div class="panel panel-default">
+                <div class="panel-heading"><span class="icon-share2"></span>添加班级</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" id="addForm">
+                        <fieldset class="col-sm-12">
+                            <div class="form-group">
+                                <label for="name" class="col-sm-4 control-label">名字</label>
+                                <div class="col-sm-8">
+                                    <input name="name" type="text" class="form-control" id="name" ng-model="form.name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="school_id" class="col-sm-4 control-label">学校</label>
+                                <div class="col-sm-8">
+                                    <!--<input name="school_id" type="text" class="form-control" id="school_id">-->
+                                    <select name="school_id" id="school_id" class="form-control" ng-model="form.school">
+                                        <option value="1" selected>1111</option>
+                                        <option value="2">22222</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="school_code" class="col-sm-4 control-label">学校代码</label>
+                                <div class="col-sm-8">
+                                    <input name="school_code" type="text" class="form-control" id="school_code" ng-model="form.code">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="grade" class="col-sm-4 control-label">所属年级</label>
+                                <div class="col-sm-8">
+                                    <input name="grade" type="text" class="form-control" id="grade" ng-model="form.grade">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="enter_year" class="col-sm-4 control-label">入学年份</label>
+                                <div class="col-sm-8">
+                                    <input name="enter_year" type="text" class="form-control" id="enter_year" ng-model="form.year">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="charge_teacher" class="col-sm-4 control-label">校长姓名</label>
+                                <div class="col-sm-8">
+                                    <input name="charge_teacher" type="text" class="form-control" id="charge_teacher" ng-model="form.charge">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact_mobile" class="col-sm-4 control-label">联系方式</label>
+                                <div class="col-sm-8">
+                                    <input name="contact_mobile" type="text" class="form-control" id="contact_mobile" ng-model="form.contact">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="remark" class="col-sm-4 control-label">备注</label>
+                                <div class="col-sm-8">
+
+                                    <input type="text" name="remark" class="form-control" id="remark" ng-model="form.remark">
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="col-lg-12 col-lg-offset-2">
+                            <button type="submit" class="btn btn-primary" data-ng-click="addClass()">保存</button>
+                            <button type="reset" class="btn btn-default">重置</button>
+                        </div>
+                    </form>
+                </div>
+                <!--panel-body-->
+            </div>
         </div>
     </div>
 </div>
