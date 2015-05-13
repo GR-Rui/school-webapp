@@ -2,10 +2,10 @@
 
 /**
  * @ngdoc function
- * @name cimWebappApp.controller:GroupManagerCtrl
+ * @name webApp.controller:GroupManagerCtrl
  * @description
  * # GroupManagerCtrl
- * Controller of the cimWebappApp
+ * Controller of the webApp
  */
 Site.controller('GroupManagerCtrl', function ($scope) {
   $scope.awesomeThings = [

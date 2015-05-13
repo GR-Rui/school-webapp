@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc overview
- * @name cimWebappApp
+ * @name webApp
  * @description
- * # cimWebappApp
+ * # webApp
  *
  * Main module of the application.
  */

@@ -7,7 +7,7 @@ Site.factory('ClassManagerSrv', ['$http', 'ConfigConst', function ($http, Config
 
     addClass: function (data) {
       return $http
-        .get(ConfigConst.urls.api + 'NewClass?info=' + data, {headers: {}})
+        .post(ConfigConst.urls.api + 'NewClass?info=' + data, {}, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {

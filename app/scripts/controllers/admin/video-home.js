@@ -2,10 +2,10 @@
 
 /**
  * @ngdoc function
- * @name cimWebappApp.controller:VideoHomeCtrl
+ * @name webApp.controller:VideoHomeCtrl
  * @description
  * # VideoHomeCtrl
- * Controller of the cimWebappApp
+ * Controller of the webApp
  */
 Site.controller('VideoHomeCtrl', ['$scope', '$sce', function ($scope, $sce) {
 

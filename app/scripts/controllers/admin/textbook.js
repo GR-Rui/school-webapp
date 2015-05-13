@@ -2,10 +2,10 @@
 
 /**
  * @ngdoc function
- * @name cimWebappApp.controller:TeacherTextbookCtrl
+ * @name webApp.controller:TeacherTextbookCtrl
  * @description
  * # TeacherTextbookCtrl
- * Controller of the cimWebappApp
+ * Controller of the webApp
  */
 Site.controller('TeacherTextbookCtrl', function ($scope) {
   console.log('TeacherTextbookCtrl');

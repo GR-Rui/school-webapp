@@ -2,10 +2,10 @@
 
 /**
  * @ngdoc function
- * @name cimWebappApp.controller:VideoManagerCtrl
+ * @name webApp.controller:VideoManagerCtrl
  * @description
  * # VideoManagerCtrl
- * Controller of the cimWebappApp
+ * Controller of the webApp
  */
 Site.controller('VideoManagerCtrl', ['$scope', '$http','$filter', '$window', function ($scope, $http, $filter, $window) {
 
