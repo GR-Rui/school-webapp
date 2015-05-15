@@ -10,7 +10,7 @@
 Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, AuthSrv, $state) {
   console.log("HeaderCtrl");
 
-  $scope.userData = {userId: "SG0822888", name: "ruigao", password: "19851012", position: "teacher"};
+  $scope.userData = {id: "SG0822888", name: "ruigao", password: "19851012", position: "teacher"};
 
   $scope.headerArray = [
     {
@@ -24,7 +24,8 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, 
       name: "学籍管理",
       subList: [
         {name: "学校管理", link: "admin.school"},
-        {name: "班级管理", link: "admin.class"}
+        {name: "班级管理", link: "admin.class-list"},
+        {name: "新增班级", link: "admin.class-add"}
       ]
     },
     {
@@ -39,8 +40,9 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, 
     {
       name: "教学管理",
       subList: [
-        {name: "视频管理", link: "admin.video"},
-        {name: "视频上传", link: "admin.upload"}
+        {name: "视频管理", link: "admin.video-manager"},
+        {name: "视频列表", link: "admin.video-list"},
+        {name: "添加视频", link: "admin.video-add"}
       ]
     }
   ];

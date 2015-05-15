@@ -1,0 +1,21 @@
+/* Main container */
+.main-container .common-container {
+    background-color: #fff;
+    border: 1px solid #DDD;
+    padding: 0;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+.common-container a.abs-link{
+    position: absolute;
+    right: 0;
+    font-size: 14px;
+    top: 5px;
+}
+.common-container span.abs-icon {
+    position: absolute;
+    right: 60px;
+    font-size: 14px;
+    top: 8px;
+}
+

@@ -1,4 +1,4 @@
-Site.factory('ClassManagerSrv', ['$http', '$filter', 'ConfigConst', function ($http, $filter, ConfigConst) {
+Site.factory('VideoManagerSrv', ['$http', '$filter', 'ConfigConst', function ($http, $filter, ConfigConst) {
   "use strict";
 
   // get the existing session so we have the security token
@@ -7,10 +7,10 @@ Site.factory('ClassManagerSrv', ['$http', '$filter', 'ConfigConst', function ($h
   return {
 
     // insert
-    insertClass: function (data) {
+    insertVideo: function (data) {
       var jsonStr = JSON.stringify(data);
       return $http
-        .post(ConfigConst.urls.api + 'NewClass?info=' + jsonStr, data, {headers: {}})
+        .post(ConfigConst.urls.api + 'NewVideo?info=' + jsonStr, data, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -19,10 +19,10 @@ Site.factory('ClassManagerSrv', ['$http', '$filter', 'ConfigConst', function ($h
     },
 
     // update
-    updateClass: function (id, data) {
+    updateVideo: function (id, data) {
       var jsonStr = JSON.stringify(data);
       return $http
-        .put(ConfigConst.urls.api + 'UpdateClass?info=' + jsonStr, data, {headers: {}})
+        .put(ConfigConst.urls.api + 'UpdateVideo?info=' + jsonStr, data, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -31,9 +31,9 @@ Site.factory('ClassManagerSrv', ['$http', '$filter', 'ConfigConst', function ($h
     },
 
     // delete
-    deleteClass: function (id) {
+    deleteVideo: function (id) {
       return $http
-        .delete(ConfigConst.urls.api + 'deleteClass?info=' + id, {headers: {}})
+        .delete(ConfigConst.urls.api + 'deleteVideo?info=' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -42,9 +42,9 @@ Site.factory('ClassManagerSrv', ['$http', '$filter', 'ConfigConst', function ($h
     },
 
     // get one object by id
-    getClassById: function (id) {
+    getVideoById: function (id) {
       return $http
-        .get(ConfigConst.urls.api + 'OneClass?info=' + id, {headers: {}})
+        .get(ConfigConst.urls.api + 'OneVideo?info=' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -53,9 +53,9 @@ Site.factory('ClassManagerSrv', ['$http', '$filter', 'ConfigConst', function ($h
     },
 
     // get all objects
-    getAllClasses: function () {
+    getAllVideos: function () {
       return $http
-        .get(ConfigConst.urls.api + 'AllClass?info=', {headers: {}})
+        .get(ConfigConst.urls.api + 'AllVideos?info=', {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {

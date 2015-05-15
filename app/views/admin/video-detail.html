@@ -1,0 +1,64 @@
+<div class="" data-ng-controller="VideoManagerCtrl">
+    <div class="panel panel-default">
+        <div class="panel-heading relative">
+            <span class="icon-share2"></span>班级详细信息
+            <div class="align-right">
+                <a class="text-decoration" ui-sref="admin.video-edit({id:userData.id, vid:video.id})">编辑<span class="icon-pencil"></span></a>
+                <a class="text-decoration" href="javascript:void(0)" data-ng-click="delete(video.id)">删除<span class="icon-pencil"></span></a>
+                <a class="text-decoration" ui-sref="admin.video-list({id:userData.id})">返回<span class="icon-forward"></span></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span class="col-left">名字</span>
+                    <span class="col-right">{{video.name}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">视频类型</span>
+                    <span class="col-right">{{video.mime}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">文件路径</span>
+                    <span>{{video.location}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">访问URL</span>
+                    <span class="col-right">{{video.url}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">土豆网址</span>
+                    <span class="col-right">{{video.tudouUrl}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">视频时长</span>
+                    <span class="col-right">{{video.duration}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">封面类型</span>
+                    <span class="col-right">{{video.cover_mime}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">封面路径</span>
+                    <span class="col-right">{{video.cover_location}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">封面URL</span>
+                    <span class="col-right">{{video.cover_url}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">封面大小</span>
+                    <span class="col-right">{{video.cover_size}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">封面高度</span>
+                    <span class="col-right">{{video.cover_height}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">封面宽度</span>
+                    <span class="col-right">{{video.cover_width}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

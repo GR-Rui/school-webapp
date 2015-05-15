@@ -1,0 +1,163 @@
+/*
+ * common Setting
+ */
+body {
+    padding: 0;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.relative {
+    position: relative;
+}
+.pointer {
+    cursor: pointer;
+}
+a.text-decoration:hover {
+    text-decoration: none;
+}
+
+/*
+ * common icons
+ */
+.img-pdf {
+    background: linear-gradient(135deg, #f70000 0%,#930000 100%);
+    font-size: 36px;
+    color: #fff;
+    border-radius: 4px;
+    padding: 4px;
+}
+.img-word {
+    background: linear-gradient(135deg, #42adb7 0%,#0072ab 100%);
+    font-size: 36px;
+    color: #fff;
+    border-radius: 4px;
+    padding: 4px;
+}
+.img-excel {
+    background: linear-gradient(135deg, #82d900 0%,#138600 100%);
+    font-size: 36px;
+    color: #fff;
+    border-radius: 4px;
+    padding: 4px;
+}
+/*
+ * refactor bootstrap css
+ */
+.btn {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+/**
+ * form
+ */
+.form-horizontal .control-label {
+    padding-right: 0px;
+    padding-top: 5px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.input-control {
+    line-height: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+legend{
+    padding: 5px 10px;
+}
+
+/**
+ * panel
+ */
+.panel .no-padding {
+    padding: 0;
+}
+.panel.no-border {
+    border: none;
+}
+.panel .panel-heading span {
+    padding-right: 8px;
+}
+
+.panel-body .stu-list .opt-buttons {
+    top: 55px;
+}
+.panel-body .stu-list .opt-buttons a {
+    margin: 5px;
+}
+.panel-body .stu-list .option-bars {
+    margin-top: 10px;
+}
+
+.panel .panel-heading .align-right{
+    position: absolute;
+    top: 12px;
+    right: 20px;
+}
+
+/**
+ * panel
+ */
+.list-group {
+    margin-bottom: 0;
+}
+.list-group-item:first-child {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-top: none;
+}
+.list-group-item {
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+}
+.list-group-item:hover {
+    background-color: #f5f5f5;
+}
+
+.list-group .list-group-item .col-left {
+    display: inline-block;
+    width: 20%;
+}
+.list-group .list-group-item .col-right {
+    display: inline-block;
+    width: 75%;
+}
+
+/* Site header */
+.header,
+.footer {
+    padding-left: 0;
+    padding-right: 0;
+}
+.header {
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 10px;
+}
+.header .navbar {
+    border-radius: 0;
+    margin-bottom: 0;
+}
+.header .navbar .navbar-header {
+    padding-left: 50px;
+}
+
+/* Site footer */
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+.footer p {
+    text-align: right;
+    padding-right: 20px;
+}
+
