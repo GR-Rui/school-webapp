@@ -1,0 +1,84 @@
+<div class="" data-ng-controller="ClassManagerCtrl">
+    <div class="panel panel-default">
+        <div class="panel-heading relative">
+            <span class="icon-share2"></span>老师详细信息
+            <div class="align-right">
+                <a class="text-decoration" ui-sref="admin.student-edit({id:userData.id, sid:student.id})">编辑<span class="icon-pencil"></span></a>
+                <a class="text-decoration" href="javascript:void(0)" data-ng-click="delete(student.id)">删除<span class="icon-pencil"></span></a>
+                <a class="text-decoration" ui-sref="admin.student-list({id:userData.id})">返回<span class="icon-forward"></span></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span class="col-left">真实姓名</span>
+                    <span class="col-right">{{student.real_name}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">学籍号</span>
+                    <span class="col-right">{{student.roll_no}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">登录密码</span>
+                    <span>{{student.signin_password}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">安全key</span>
+                    <span class="col-right">{{student.security_key}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">注册时间</span>
+                    <span class="col-right">{{student.signup_time}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">注册IP地址</span>
+                    <span class="col-right">{{student.signup_ip}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">学校ID</span>
+                    <span class="col-right">{{student.school_id}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">电子邮箱</span>
+                    <span class="col-right">{{teacher.email}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">电子邮箱验证</span>
+                    <span class="col-right">{{student.contact_verified_flag}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">电子邮箱验证时间</span>
+                    <span class="col-right">{{student.contact_verified_time}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">手机号码</span>
+                    <span class="col-right">{{student.mobile}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">手机号码验证</span>
+                    <span class="col-right">{{student.mobile_verified_flag}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">手机号码验证时间</span>
+                    <span class="col-right">{{student.mobile_verified_time}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">状态</span>
+                    <span class="col-right">{{student.status}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">锁定标记</span>
+                    <span class="col-right">{{student.lock_flag}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">删除标记</span>
+                    <span class="col-right">{{student.delete_flag}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">备注</span>
+                    <span class="col-right">{{student.remark}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

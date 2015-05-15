@@ -1,0 +1,88 @@
+<div class="" data-ng-controller="ClassManagerCtrl">
+    <div class="panel panel-default">
+        <div class="panel-heading"><span class="icon-share2"></span>添加教材</div>
+        <div class="panel-body">
+            <form class="form-horizontal" id="addForm">
+                <fieldset class="col-sm-12">
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">名字</label>
+                        <div class="col-sm-8">
+                            <input name="name" type="text" class="form-control input-sm" id="name" ng-model="form.name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="press" class="col-sm-2 control-label">出版社</label>
+                        <div class="col-sm-8">
+                            <input name="press" type="text" class="form-control input-sm" id="press" ng-model="form.press">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="publishing_date" class="col-sm-2 control-label">出版日期</label>
+                        <div class="col-sm-8">
+                            <input name="publishing_date" type="text" class="form-control input-sm" id="publishing_date" ng-model="form.publishing_date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="publishing_edtion" class="col-sm-2 control-label">出版版次</label>
+                        <div class="col-sm-8">
+                            <input name="publishing_edtion" type="text" class="form-control input-sm" id="publishing_edtion" ng-model="form.publishing_edtion">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="printing_batch" class="col-sm-2 control-label">印刷批次</label>
+                        <div class="col-sm-8">
+                            <input name="printing_batch" type="text" class="form-control input-sm" id="printing_batch" ng-model="form.printing_batch">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="isbn" class="col-sm-2 control-label">书号</label>
+                        <div class="col-sm-8">
+                            <input name="isbn" type="text" class="form-control input-sm" id="isbn" ng-model="form.isbn">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="level" class="col-sm-2 control-label">所属级别</label>
+                        <div class="col-sm-8">
+                            <input name="level" type="text" class="form-control input-sm" id="level" ng-model="form.level">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="version" class="col-sm-2 control-label">所属版本</label>
+                        <div class="col-sm-8">
+                            <input name="version" type="text" class="form-control input-sm" id="version" ng-model="form.version">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="grade" class="col-sm-2 control-label">所属年级</label>
+                        <div class="col-sm-8">
+                            <input name="grade" type="text" class="form-control input-sm" id="grade" ng-model="form.grade">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="discipline" class="col-sm-2 control-label">所属学科</label>
+                        <div class="col-sm-8">
+                            <input name="discipline" type="text" class="form-control input-sm" id="discipline" ng-model="form.discipline">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="term" class="col-sm-2 control-label">学期</label>
+                        <div class="col-sm-8">
+                            <input name="term" type="text" class="form-control input-sm" id="term" ng-model="form.term">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="remark" class="col-sm-2 control-label">备注</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control input-sm" id="remark" ng-model="form.remark"></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="col-lg-12 col-lg-offset-2">
+                    <button type="submit" class="btn btn-primary" data-ng-click="create()">保存</button>
+                    <button type="reset" class="btn btn-default">重置</button>
+                </div>
+            </form>
+        </div>
+        <!--panel-body-->
+    </div>
+</div>

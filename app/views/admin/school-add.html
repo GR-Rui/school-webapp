@@ -1,0 +1,112 @@
+<div class="" data-ng-controller="ClassManagerCtrl">
+    <div class="panel panel-default">
+        <div class="panel-heading"><span class="icon-share2"></span>添加学校</div>
+        <div class="panel-body">
+            <form class="form-horizontal" id="addForm">
+                <fieldset class="col-sm-12">
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">名字</label>
+                        <div class="col-sm-8">
+                            <input name="name" type="text" class="form-control input-sm" id="name" ng-model="form.name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edu_no" class="col-sm-2 control-label">教育编号</label>
+                        <div class="col-sm-8">
+                            <input name="edu_no" type="text" class="form-control input-sm" id="edu_no" ng-model="form.edu_no">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="code" class="col-sm-2 control-label">学校代码</label>
+                        <div class="col-sm-8">
+                            <input name="code" type="text" class="form-control input-sm" id="code" ng-model="form.code">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="level" class="col-sm-2 control-label">所属级别</label>
+                        <div class="col-sm-8">
+                            <input name="level" type="text" class="form-control input-sm" id="level" ng-model="form.level">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="principal" class="col-sm-2 control-label">校长</label>
+                        <div class="col-sm-8">
+                            <input name="principal" type="text" class="form-control input-sm" id="principal" ng-model="form.principal">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="province_id" class="col-sm-2 control-label">省份</label>
+                        <div class="col-sm-8">
+                            <input name="province_id" type="text" class="form-control input-sm" id="province_id" ng-model="form.province_id">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="city_id" class="col-sm-2 control-label">城市</label>
+                        <div class="col-sm-8">
+                            <input name="city_id" type="text" class="form-control input-sm" id="city_id" ng-model="form.city_id">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="district_id" class="col-sm-2 control-label">区县</label>
+                        <div class="col-sm-8">
+                            <input name="district_id" type="text" class="form-control input-sm" id="district_id" ng-model="form.district_id">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="official_email" class="col-sm-2 control-label">官方电子邮箱</label>
+                        <div class="col-sm-8">
+                            <input name="official_email" type="text" class="form-control input-sm" id="official_email" ng-model="form.official_email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="official_tel" class="col-sm-2 control-label">官方固定电话</label>
+                        <div class="col-sm-8">
+                            <input name="official_tel" type="text" class="form-control input-sm" id="official_tel" ng-model="form.official_tel">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address" class="col-sm-2 control-label">地址</label>
+                        <div class="col-sm-8">
+                            <input name="address" type="text" class="form-control input-sm" id="address" ng-model="form.address">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="postal_code" class="col-sm-2 control-label">邮政编码</label>
+                        <div class="col-sm-8">
+                            <input name="postal_code" type="text" class="form-control input-sm" id="postal_code" ng-model="form.postal_code">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact" class="col-sm-2 control-label">联系人</label>
+                        <div class="col-sm-8">
+                            <input name="contact" type="text" class="form-control input-sm" id="contact" ng-model="form.contact">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact_mobile" class="col-sm-2 control-label">联系人移动电话</label>
+                        <div class="col-sm-8">
+                            <input name="contact_mobile" type="text" class="form-control input-sm" id="contact_mobile" ng-model="form.contact_mobile">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact_tel" class="col-sm-2 control-label">联系人固定电话</label>
+                        <div class="col-sm-8">
+                            <input name="contact_tel" type="text" class="form-control input-sm" id="contact_tel" ng-model="form.contact_tel">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="remark" class="col-sm-2 control-label">备注</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control input-sm" id="remark" ng-model="form.remark"></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="col-lg-12 col-lg-offset-2">
+                    <button type="submit" class="btn btn-primary" data-ng-click="create()">保存</button>
+                    <button type="reset" class="btn btn-default">重置</button>
+                </div>
+            </form>
+        </div>
+        <!--panel-body-->
+    </div>
+</div>

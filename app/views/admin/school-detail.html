@@ -1,0 +1,104 @@
+<div class="" data-ng-controller="ClassManagerCtrl">
+    <div class="panel panel-default">
+        <div class="panel-heading relative">
+            <span class="icon-share2"></span>班级详细信息
+            <div class="align-right">
+                <a class="text-decoration" ui-sref="admin.school-edit({id:userData.id, sid:school.id})">编辑<span class="icon-pencil"></span></a>
+                <a class="text-decoration" href="javascript:void(0)" data-ng-click="delete(school.id)">删除<span class="icon-pencil"></span></a>
+                <a class="text-decoration" ui-sref="admin.school-list({id:userData.id})">返回<span class="icon-forward"></span></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span class="col-left">名称</span>
+                    <span class="col-right">{{school.name}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">学校代码</span>
+                    <span>{{class.code}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">教育编号</span>
+                    <span class="col-right">{{school.edu_no}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">所属级别</span>
+                    <span class="col-right">{{school.level}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">校长</span>
+                    <span class="col-right">{{school.principal}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">省份ID</span>
+                    <span class="col-right">{{school.province_id}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">城市ID</span>
+                    <span class="col-right">{{school.city_id}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">区县ID</span>
+                    <span class="col-right">{{school.district_id}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">官方电子邮箱</span>
+                    <span class="col-right">{{school.official_email}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">官方固定电话</span>
+                    <span class="col-right">{{school.official_tel}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">地址</span>
+                    <span class="col-right">{{school.address}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">邮政编码</span>
+                    <span class="col-right">{{school.postal_code}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">联系人</span>
+                    <span class="col-right">{{school.contact}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">联系人移动电话</span>
+                    <span class="col-right">{{school.contact_mobile}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">联系人固定电话</span>
+                    <span class="col-right">{{school.contact_tel}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">状态</span>
+                    <span class="col-right">{{school.status}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">删除标记</span>
+                    <span class="col-right">{{school.delete_flag}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">创建的系统用户ID</span>
+                    <span class="col-right">{{school.created_by_sys}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">系统用户创建时间</span>
+                    <span class="col-right">{{school.created_time_sys}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">修改的系统用户ID</span>
+                    <span class="col-right">{{school.modified_by_sys}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">系统用户修改时间</span>
+                    <span class="col-right">{{school.modified_time_sys}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">备注</span>
+                    <span class="col-right">{{school.remark}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
