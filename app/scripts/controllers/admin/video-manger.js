@@ -23,7 +23,7 @@ Site.controller('VideoManagerCtrl', ['$scope', '$state', '$location', '$statePar
     VideoManagerSrv.getVideoById(vid)
       .then(function (res) {
         if (res.ack == 'success') {
-          var object = res.data[0];
+          var object = res.data;
 //          object.createDate = moment().format('LLLL');
           $scope.video = object;
         }

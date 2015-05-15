@@ -2,30 +2,30 @@
 
 /**
  * @ngdoc function
- * @name webApp.controller:ClassManagerCtrl
+ * @name webApp.controller:SchoolManagerCtrl
  * @description
- * # ClassManagerCtrl
+ * # SchoolManagerCtrl
  * Controller of the webApp
  */
-Site.controller('ClassManagerCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'ClassManagerSrv', function ($scope, $state, $location, $stateParams, $q, ClassManagerSrv) {
-  console.log('ClassManagerCtrl');
+Site.controller('SchoolManagerCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'SchoolManagerSrv', function ($scope, $state, $location, $stateParams, $q, SchoolManagerSrv) {
+  console.log('SchoolManagerCtrl');
 
-  var cid = $stateParams.cid;
+  var sid = $stateParams.sid;
   var path = $location.path();
   var userId = $scope.userData.id;
 
-  if (path.indexOf('class-list') > 0) {
-    getAllClasses();
+  if (path.indexOf('school-list') > 0) {
+    getAllSchools();
   }
 
   //
-  if (cid) {
-    ClassManagerSrv.getClassById(cid)
+  if (sid) {
+    SchoolManagerSrv.getSchoolById(sid)
       .then(function (res) {
         if (res.ack == 'success') {
           var object = res.data;
 //          object.createDate = moment().format('LLLL');
-          $scope.class = object;
+          $scope.school = object;
         }
       });
   }
@@ -56,42 +56,42 @@ Site.controller('ClassManagerCtrl', ['$scope', '$state', '$location', '$statePar
   $scope.create = function () {
     var object = $scope.form;
 //    object.operId = userId;
-    ClassManagerSrv.insertClass(object)
+    SchoolManagerSrv.insertSchool(object)
       .then(function (res) {
         if (res.ack == 'success') {
-          var cid = res.data.id;
-          $state.go('super-admin.class-detail', {id: userId, cid: cid});
+          var sid = res.data.id;
+          $state.go('super-admin.school-detail', {id: userId, sid: sid});
         }
       });
   };
 
   // update
-  $scope.update = function (cid) {
-    var object = _.pick($scope.class, ['name', 'description']);
-    ClassManagerSrv.updateClass(cid, object)
+  $scope.update = function (sid) {
+    var object = _.pick($scope.school, ['name', 'description']);
+    SchoolManagerSrv.updateSchool(sid, object)
       .then(function (res) {
         if (res.ack == 'success') {
-          $state.go('super-admin.class-detail', {id: userId, cid: cid});
+          $state.go('super-admin.school-detail', {id: userId, sid: sid});
         }
       });
   };
 
   // Delete
-  $scope.delete = function (cid) {
-    ClassManagerSrv.deleteClass(cid)
+  $scope.delete = function (sid) {
+    SchoolManagerSrv.deleteSchool(sid)
       .then(function (res) {
         if (res.ack == 'success') {
           var b = res.data;
-          $state.go('super-admin.class-list', {id: userId});
+          $state.go('super-admin.school-list', {id: userId});
         }
       });
   };
 
-  function getAllClasses() {
-    ClassManagerSrv.getAllClasses()
+  function getAllSchools() {
+    SchoolManagerSrv.getAllSchools()
       .then(function (res) {
         if (res.ack == 'success') {
-          $scope.classes = res.data;
+          $scope.schools = res.data;
           // default sort column
           $scope.getters = {
             name: function (value) {
@@ -104,12 +104,12 @@ Site.controller('ClassManagerCtrl', ['$scope', '$state', '$location', '$statePar
   }
 
   ///////////// test data
-  $scope.classes = [
+  $scope.schools = [
     {'id': 1, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"},
     {'id': 2, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"},
     {'id': 3, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"}
   ];
-  $scope.class = {'id': 1, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"};
+  $scope.school = {'id': 1, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"};
 
 }]);
 

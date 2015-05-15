@@ -1,4 +1,4 @@
-<div class="" data-ng-controller="ClassManagerCtrl">
+<div class="" data-ng-controller="StudentManagerCtrl">
     <div class="panel panel-default">
         <div class="panel-heading"><span class="icon-share2"></span>学校信息列表</div>
         <div class="panel-body">
@@ -21,8 +21,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="item in classes">
-                    <td><a ui-sref="admin.class-detail({id:userData.id, cid:item.id})" title="详细信息">{{item.name}}</a></td>
+                <tr ng-repeat="item in students">
+                    <td><a ui-sref="admin.student-detail({id:userData.id, sid:item.id})" title="详细信息">{{item.name}}</a></td>
                     <td>{{item.school_id}}</td>
                     <td>{{item.grade}}</td>
                     <td>{{item.enter_year}}</td>

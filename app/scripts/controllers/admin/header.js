@@ -16,14 +16,17 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, 
     {
       name: "前台系统管理",
       subList: [
-        {name: "教师用户管理", link: "admin.teacher"},
-        {name: "学生用户管理", link: "admin.student"}
+        {name: "教师用户管理", link: "admin.teacher-list"},
+        {name: "新增教师", link: "admin.teacher-add"},
+        {name: "学生用户管理", link: "admin.student-list"},
+        {name: "新增学生", link: "admin.student-add"}
       ]
     },
     {
       name: "学籍管理",
       subList: [
-        {name: "学校管理", link: "admin.school"},
+        {name: "学校管理", link: "admin.school-list"},
+        {name: "新增学校", link: "admin.school-add"},
         {name: "班级管理", link: "admin.class-list"},
         {name: "新增班级", link: "admin.class-add"}
       ]
@@ -31,8 +34,11 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, 
     {
       name: "课本管理",
       subList: [
-        {name: "教材管理", link: "admin.textbook"},
+        {name: "教材管理", link: "admin.textbook-list"},
+        {name: "教材添加", link: "admin.textbook-add"},
         {name: "章节管理", link: "admin.chapter"},
+        {name: "教材－章节管理", link: "admin.textbook-section-list"},
+        {name: "教材－章节添加", link: "admin.textbook-section-add"},
         {name: "班级－教材关联管理", link: "admin.class-textbook"},
         {name: "教师－班级关联管理", link: "admin.teacher-class"}
       ]

@@ -2,30 +2,30 @@
 
 /**
  * @ngdoc function
- * @name webApp.controller:ClassManagerCtrl
+ * @name webApp.controller:TextbookSectionManagerCtrl
  * @description
- * # ClassManagerCtrl
+ * # TextbookSectionManagerCtrl
  * Controller of the webApp
  */
-Site.controller('ClassManagerCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'ClassManagerSrv', function ($scope, $state, $location, $stateParams, $q, ClassManagerSrv) {
-  console.log('ClassManagerCtrl');
+Site.controller('TextbookSectionManagerCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'TextbookSectionManagerSrv', function ($scope, $state, $location, $stateParams, $q, TextbookSectionManagerSrv) {
+  console.log('TextbookSectionManagerCtrl');
 
-  var cid = $stateParams.cid;
+  var tsid = $stateParams.tsid;
   var path = $location.path();
   var userId = $scope.userData.id;
 
-  if (path.indexOf('class-list') > 0) {
-    getAllClasses();
+  if (path.indexOf('textbook-section-list') > 0) {
+    getAllTextbookSections();
   }
 
   //
-  if (cid) {
-    ClassManagerSrv.getClassById(cid)
+  if (tsid) {
+    TextbookSectionManagerSrv.getTextbookSectionById(tsid)
       .then(function (res) {
         if (res.ack == 'success') {
           var object = res.data;
 //          object.createDate = moment().format('LLLL');
-          $scope.class = object;
+          $scope.textbookSection = object;
         }
       });
   }
@@ -56,42 +56,42 @@ Site.controller('ClassManagerCtrl', ['$scope', '$state', '$location', '$statePar
   $scope.create = function () {
     var object = $scope.form;
 //    object.operId = userId;
-    ClassManagerSrv.insertClass(object)
+    TextbookSectionManagerSrv.insertTextbookSection(object)
       .then(function (res) {
         if (res.ack == 'success') {
-          var cid = res.data.id;
-          $state.go('super-admin.class-detail', {id: userId, cid: cid});
+          var tid = res.data.id;
+          $state.go('super-admin.textbook-section-detail', {id: userId, tsid: tsid});
         }
       });
   };
 
   // update
-  $scope.update = function (cid) {
-    var object = _.pick($scope.class, ['name', 'description']);
-    ClassManagerSrv.updateClass(cid, object)
+  $scope.update = function (tsid) {
+    var object = _.pick($scope.textbook, ['name', 'description']);
+    TextbookSectionManagerSrv.updateTextbookSection(tsid, object)
       .then(function (res) {
         if (res.ack == 'success') {
-          $state.go('super-admin.class-detail', {id: userId, cid: cid});
+          $state.go('super-admin.textbook-section-detail', {id: userId, tsid: tsid});
         }
       });
   };
 
   // Delete
-  $scope.delete = function (cid) {
-    ClassManagerSrv.deleteClass(cid)
+  $scope.delete = function (tsid) {
+    TextbookSectionManagerSrv.deleteTextbookSection(tsid)
       .then(function (res) {
         if (res.ack == 'success') {
           var b = res.data;
-          $state.go('super-admin.class-list', {id: userId});
+          $state.go('super-admin.textbook-section-list', {id: userId});
         }
       });
   };
 
-  function getAllClasses() {
-    ClassManagerSrv.getAllClasses()
+  function getAllTextbookSections() {
+    TextbookSectionManagerSrv.getAllTextbookSections()
       .then(function (res) {
         if (res.ack == 'success') {
-          $scope.classes = res.data;
+          $scope.textbookSections = res.data;
           // default sort column
           $scope.getters = {
             name: function (value) {
@@ -104,12 +104,12 @@ Site.controller('ClassManagerCtrl', ['$scope', '$state', '$location', '$statePar
   }
 
   ///////////// test data
-  $scope.classes = [
+  $scope.textbookSections = [
     {'id': 1, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"},
     {'id': 2, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"},
     {'id': 3, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"}
   ];
-  $scope.class = {'id': 1, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"};
+  $scope.textbookSection = {'id': 1, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"};
 
 }]);
 
