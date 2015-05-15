@@ -1,0 +1,104 @@
+<div class="" data-ng-controller="ClassManagerCtrl">
+    <div class="panel panel-default">
+        <div class="panel-heading relative">
+            <span class="icon-share2"></span>教材详细信息
+            <div class="align-right">
+                <a class="text-decoration" ui-sref="admin.textbook-edit({id:userData.id, tid:textbook.id})">编辑<span class="icon-pencil"></span></a>
+                <a class="text-decoration" href="javascript:void(0)" data-ng-click="delete(textbook.id)">删除<span class="icon-pencil"></span></a>
+                <a class="text-decoration" ui-sref="admin.textbook-list({id:userData.id})">返回<span class="icon-forward"></span></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span class="col-left">名称</span>
+                    <span class="col-right">{{textbook.name}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">出版社</span>
+                    <span class="col-right">{{textbook.press}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">出版日期</span>
+                    <span>{{textbook.publishing_date}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">出版版次</span>
+                    <span class="col-right">{{textbook.publishing_edtion}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">印刷批次</span>
+                    <span class="col-right">{{textbook.printing_batch}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">书号</span>
+                    <span class="col-right">{{textbook.isbn}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">所属级别</span>
+                    <span class="col-right">{{textbook.level}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">所属版本</span>
+                    <span class="col-right">{{textbook.version}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">所属年级</span>
+                    <span class="col-right">{{textbook.grade}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">所属学科</span>
+                    <span class="col-right">{{textbook.discipline}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">学期</span>
+                    <span class="col-right">{{teacher.term}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">状态</span>
+                    <span class="col-right">{{textbook.status}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">删除标记</span>
+                    <span class="col-right">{{textbook.delete_flag}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">创建的系统用户ID</span>
+                    <span class="col-right">{{textbook.created_by_sys}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">系统用户创建时间</span>
+                    <span class="col-right">{{textbook.created_time_sys}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">修改的系统用户ID</span>
+                    <span class="col-right">{{textbook.modified_by_sys}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">系统用户修改时间</span>
+                    <span class="col-right">{{textbook.modified_time_sys}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">创建的用户ID</span>
+                    <span class="col-right">{{textbook.created_by}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">用户创建时间</span>
+                    <span class="col-right">{{textbook.created_time}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">修改的用户ID</span>
+                    <span class="col-right">{{textbook.modified_by}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">用户修改时间</span>
+                    <span class="col-right">{{textbook.modified_time}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">备注</span>
+                    <span class="col-right">{{textbook.remark}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

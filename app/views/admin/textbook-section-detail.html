@@ -1,0 +1,68 @@
+<div class="" data-ng-controller="ClassManagerCtrl">
+    <div class="panel panel-default">
+        <div class="panel-heading relative">
+            <span class="icon-share2"></span>教材章节详细信息
+            <div class="align-right">
+                <a class="text-decoration" ui-sref="admin.textbook-section-edit({id:userData.id, tsid:textbookSection.id})">编辑<span class="icon-pencil"></span></a>
+                <a class="text-decoration" href="javascript:void(0)" data-ng-click="delete(textbookSection.id)">删除<span class="icon-pencil"></span></a>
+                <a class="text-decoration" ui-sref="admin.textbook-section-list({id:userData.id})">返回<span class="icon-forward"></span></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span class="col-left">章节名称</span>
+                    <span class="col-right">{{textbookSection.real_name}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">教材ID</span>
+                    <span class="col-right">{{textbookSection.roll_no}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">上级章节ID</span>
+                    <span class="col-right">{{textbookSection.signin_password}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">删除标记</span>
+                    <span class="col-right">{{textbookSection.delete_flag}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">创建的系统用户ID</span>
+                    <span class="col-right">{{textbookSection.created_by_sys}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">系统用户创建时间</span>
+                    <span class="col-right">{{textbookSection.created_time_sys}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">修改的系统用户ID</span>
+                    <span class="col-right">{{textbookSection.modified_by_sys}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">系统用户修改时间</span>
+                    <span class="col-right">{{textbookSection.modified_time_sys}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">创建的用户ID</span>
+                    <span class="col-right">{{textbookSection.created_by}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">用户创建时间</span>
+                    <span class="col-right">{{textbookSection.created_time}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">修改的用户ID</span>
+                    <span class="col-right">{{textbookSection.modified_by}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">用户修改时间</span>
+                    <span class="col-right">{{textbookSection.modified_time}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">备注</span>
+                    <span class="col-right">{{textbookSection.remark}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
