@@ -9,25 +9,51 @@
             <form class="form-horizontal" id="addForm">
                 <fieldset class="col-sm-12">
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">名字</label>
+                        <label for="name" class="col-sm-2 control-label">名称</label>
                         <div class="col-sm-8">
                             <input name="name" type="text" class="form-control input-sm" id="name" ng-model="textbook.name">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="school_id" class="col-sm-2 control-label">学校</label>
+                        <label for="press" class="col-sm-2 control-label">出版社</label>
                         <div class="col-sm-8">
-                            <!--<input name="school_id" type="text" class="form-control" id="school_id">-->
-                            <select name="school_id" id="school_id" class="form-control input-sm" ng-model="textbook.school_id">
-                                <option value="1" selected>1111</option>
-                                <option value="2">22222</option>
-                            </select>
+                            <input name="press" type="text" class="form-control input-sm" id="press" ng-model="textbook.press">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="school_code" class="col-sm-2 control-label">学校代码</label>
+                        <label for="publishing_date" class="col-sm-2 control-label">出版日期</label>
                         <div class="col-sm-8">
-                            <input name="school_code" type="text" class="form-control input-sm" id="school_code" ng-model="textbook.school_code">
+                            <input name="publishing_date" type="text" class="form-control input-sm" id="publishing_date" ng-model="textbook.publishing_date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="publishing_edtion" class="col-sm-2 control-label">出版版次</label>
+                        <div class="col-sm-8">
+                            <input name="publishing_edtion" type="text" class="form-control input-sm" id="publishing_edtion" ng-model="textbook.publishing_edtion">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="printing_batch" class="col-sm-2 control-label">印刷批次</label>
+                        <div class="col-sm-8">
+                            <input name="printing_batch" type="text" class="form-control input-sm" id="printing_batch" ng-model="textbook.printing_batch">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="isbn" class="col-sm-2 control-label">书号</label>
+                        <div class="col-sm-8">
+                            <input name="isbn" type="text" class="form-control input-sm" id="isbn" ng-model="textbook.isbn">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="level" class="col-sm-2 control-label">所属级别</label>
+                        <div class="col-sm-8">
+                            <input name="level" type="text" class="form-control input-sm" id="level" ng-model="textbook.level">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="version" class="col-sm-2 control-label">所属版本</label>
+                        <div class="col-sm-8">
+                            <input name="version" type="text" class="form-control input-sm" id="version" ng-model="textbook.version">
                         </div>
                     </div>
                     <div class="form-group">
@@ -37,21 +63,15 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="enter_year" class="col-sm-2 control-label">入学年份</label>
+                        <label for="discipline" class="col-sm-2 control-label">所属学科</label>
                         <div class="col-sm-8">
-                            <input name="enter_year" type="text" class="form-control input-sm" id="enter_year" ng-model="textbook.enter_year">
+                            <input name="discipline" type="text" class="form-control input-sm" id="discipline" ng-model="textbook.discipline">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="charge_teacher" class="col-sm-2 control-label">校长姓名</label>
+                        <label for="term" class="col-sm-2 control-label">学期</label>
                         <div class="col-sm-8">
-                            <input name="charge_teacher" type="text" class="form-control input-sm" id="charge_teacher" ng-model="textbook.charge_teacher">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact_mobile" class="col-sm-2 control-label">联系方式</label>
-                        <div class="col-sm-8">
-                            <input name="contact_mobile" type="text" class="form-control input-sm" id="contact_mobile" ng-model="textbook.contact_mobile">
+                            <input name="term" type="text" class="form-control input-sm" id="term" ng-model="textbook.term">
                         </div>
                     </div>
                     <div class="form-group">

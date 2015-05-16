@@ -105,11 +105,11 @@ Site.controller('SchoolManagerCtrl', ['$scope', '$state', '$location', '$statePa
 
   ///////////// test data
   $scope.schools = [
-    {'id': 1, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"},
-    {'id': 2, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"},
-    {'id': 3, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"}
+    {id: 1, "name":"333","edu_no":"333","code":"333","level":"333","principal":"333","province_id":"333","city_id":"3333","district_id":"33333","official_email":"3333","official_tel":"3333","address":"3333","postal_code":"3333","contact":"3333","contact_mobile":"333","contact_tel":"333","remark":"3333"},
+    {id: 2, "name":"333","edu_no":"333","code":"333","level":"333","principal":"333","province_id":"333","city_id":"3333","district_id":"33333","official_email":"3333","official_tel":"3333","address":"3333","postal_code":"3333","contact":"3333","contact_mobile":"333","contact_tel":"333","remark":"3333"},
+    {id: 3, "name":"333","edu_no":"333","code":"333","level":"333","principal":"333","province_id":"333","city_id":"3333","district_id":"33333","official_email":"3333","official_tel":"3333","address":"3333","postal_code":"3333","contact":"3333","contact_mobile":"333","contact_tel":"333","remark":"3333"}
   ];
-  $scope.school = {'id': 1, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"};
+  $scope.school = {id: 3, "name":"333","edu_no":"333","code":"333","level":"333","principal":"333","province_id":"333","city_id":"3333","district_id":"33333","official_email":"3333","official_tel":"3333","address":"3333","postal_code":"3333","contact":"3333","contact_mobile":"333","contact_tel":"333","remark":"3333"};
 
 }]);
 

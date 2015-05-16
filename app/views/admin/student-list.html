@@ -1,6 +1,6 @@
 <div class="" data-ng-controller="StudentManagerCtrl">
     <div class="panel panel-default">
-        <div class="panel-heading"><span class="icon-share2"></span>学校信息列表</div>
+        <div class="panel-heading"><span class="icon-share2"></span>学生信息列表</div>
         <div class="panel-body">
             <div class="col-sm-6">
                 <div class="input-group">
@@ -13,20 +13,20 @@
             <table st-table="classes" class="table table-striped table-hover ">
                 <thead>
                 <tr>
-                    <th st-sort="name" class="col-sm-3 pointer">名字</th>
-                    <th class="col-sm-2">学校</th>
-                    <th class="col-sm-3">所属年级</th>
-                    <th class="col-sm-2">入学年份</th>
-                    <th class="col-sm-2">校长姓名</th>
+                    <th st-sort="name" class="col-sm-3 pointer">真实姓名</th>
+                    <th class="col-sm-2">学籍号</th>
+                    <th class="col-sm-2">学校ID</th>
+                    <th class="col-sm-3">电子邮箱</th>
+                    <th class="col-sm-2">手机号码</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="item in students">
-                    <td><a ui-sref="admin.student-detail({id:userData.id, sid:item.id})" title="详细信息">{{item.name}}</a></td>
+                    <td><a ui-sref="admin.student-detail({id:userData.id, sid:item.id})" title="详细信息">{{item.real_name}}</a></td>
+                    <td>{{item.roll_no}}</td>
                     <td>{{item.school_id}}</td>
-                    <td>{{item.grade}}</td>
-                    <td>{{item.enter_year}}</td>
-                    <td>{{item.charge_teacher}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.mobile}}</td>
                 </tr>
                 </tbody>
             </table>

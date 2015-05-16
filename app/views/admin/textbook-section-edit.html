@@ -9,49 +9,24 @@
             <form class="form-horizontal" id="addForm">
                 <fieldset class="col-sm-12">
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">名字</label>
+                        <label for="textbook_id" class="col-sm-2 control-label">教材ID</label>
                         <div class="col-sm-8">
-                            <input name="name" type="text" class="form-control input-sm" id="name" ng-model="textbookSection.name">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="school_id" class="col-sm-2 control-label">学校</label>
-                        <div class="col-sm-8">
-                            <!--<input name="school_id" type="text" class="form-control" id="school_id">-->
-                            <select name="school_id" id="school_id" class="form-control input-sm" ng-model="textbookSection.school_id">
+                            <select name="textbook_id" id="textbook_id" class="form-control input-sm" ng-model="textbookSection.textbook_id">
                                 <option value="1" selected>1111</option>
                                 <option value="2">22222</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="school_code" class="col-sm-2 control-label">学校代码</label>
+                        <label for="name" class="col-sm-2 control-label">章节名称</label>
                         <div class="col-sm-8">
-                            <input name="school_code" type="text" class="form-control input-sm" id="school_code" ng-model="textbookSection.school_code">
+                            <input name="name" type="text" class="form-control input-sm" id="name" ng-model="textbookSection.name">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="grade" class="col-sm-2 control-label">所属年级</label>
+                        <label for="pre_section_id" class="col-sm-2 control-label">上级章节ID</label>
                         <div class="col-sm-8">
-                            <input name="grade" type="text" class="form-control input-sm" id="grade" ng-model="textbookSection.grade">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="enter_year" class="col-sm-2 control-label">入学年份</label>
-                        <div class="col-sm-8">
-                            <input name="enter_year" type="text" class="form-control input-sm" id="enter_year" ng-model="textbookSection.enter_year">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="charge_teacher" class="col-sm-2 control-label">校长姓名</label>
-                        <div class="col-sm-8">
-                            <input name="charge_teacher" type="text" class="form-control input-sm" id="charge_teacher" ng-model="textbookSection.charge_teacher">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact_mobile" class="col-sm-2 control-label">联系方式</label>
-                        <div class="col-sm-8">
-                            <input name="contact_mobile" type="text" class="form-control input-sm" id="contact_mobile" ng-model="textbookSection.contact_mobile">
+                            <input name="pre_section_id" type="text" class="form-control input-sm" id="pre_section_id" ng-model="textbookSection.pre_section_id">
                         </div>
                     </div>
                     <div class="form-group">

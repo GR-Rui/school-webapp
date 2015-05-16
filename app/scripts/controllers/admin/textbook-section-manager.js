@@ -105,11 +105,11 @@ Site.controller('TextbookSectionManagerCtrl', ['$scope', '$state', '$location', 
 
   ///////////// test data
   $scope.textbookSections = [
-    {'id': 1, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"},
-    {'id': 2, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"},
-    {'id': 3, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"}
+    {id:1, "textbook_id":"1","name":"111","pre_section_id":"111","remark":"1111"},
+    {id:2, "textbook_id":"1","name":"111","pre_section_id":"111","remark":"1111"},
+    {id:3, "textbook_id":"1","name":"111","pre_section_id":"111","remark":"1111"}
   ];
-  $scope.textbookSection = {'id': 1, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"};
+  $scope.textbookSection = {id:3, "textbook_id":"1","name":"111","pre_section_id":"111","remark":"1111"};
 
 }]);
 

@@ -9,49 +9,63 @@
             <form class="form-horizontal" id="addForm">
                 <fieldset class="col-sm-12">
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">名字</label>
+                        <label for="real_name" class="col-sm-2 control-label">真实姓名</label>
                         <div class="col-sm-8">
-                            <input name="name" type="text" class="form-control input-sm" id="name" ng-model="teacher.name">
+                            <input name="real_name" type="text" class="form-control input-sm" id="real_name" ng-model="teacher.real_name">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="school_id" class="col-sm-2 control-label">学校</label>
+                        <label for="roll_no" class="col-sm-2 control-label">教师编号</label>
                         <div class="col-sm-8">
-                            <!--<input name="school_id" type="text" class="form-control" id="school_id">-->
-                            <select name="school_id" id="school_id" class="form-control input-sm" ng-model="teacher.school_id">
-                                <option value="1" selected>1111</option>
-                                <option value="2">22222</option>
-                            </select>
+                            <input name="roll_no" type="text" class="form-control input-sm" id="roll_no" ng-model="teacher.roll_no">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="school_code" class="col-sm-2 control-label">学校代码</label>
+                        <label for="signin_password" class="col-sm-2 control-label">登录密码</label>
                         <div class="col-sm-8">
-                            <input name="school_code" type="text" class="form-control input-sm" id="school_code" ng-model="teacher.school_code">
+                            <input name="signin_password" type="text" class="form-control input-sm" id="signin_password" ng-model="teacher.signin_password">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="grade" class="col-sm-2 control-label">所属年级</label>
+                        <label for="security_key" class="col-sm-2 control-label">安全key</label>
                         <div class="col-sm-8">
-                            <input name="grade" type="text" class="form-control input-sm" id="grade" ng-model="teacher.grade">
+                            <input name="security_key" type="text" class="form-control input-sm" id="security_key" ng-model="teacher.security_key">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="enter_year" class="col-sm-2 control-label">入学年份</label>
+                        <label for="signup_ip" class="col-sm-2 control-label">注册IP地址</label>
                         <div class="col-sm-8">
-                            <input name="enter_year" type="text" class="form-control input-sm" id="enter_year" ng-model="teacher.enter_year">
+                            <input name="signup_ip" type="text" class="form-control input-sm" id="signup_ip" ng-model="teacher.signup_ip">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="charge_teacher" class="col-sm-2 control-label">校长姓名</label>
+                        <label for="school_id" class="col-sm-2 control-label">学校ID</label>
                         <div class="col-sm-8">
-                            <input name="charge_teacher" type="text" class="form-control input-sm" id="charge_teacher" ng-model="teacher.charge_teacher">
+                            <input name="school_id" type="text" class="form-control input-sm" id="school_id" ng-model="teacher.school_id">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="contact_mobile" class="col-sm-2 control-label">联系方式</label>
+                        <label for="discipline" class="col-sm-2 control-label">学科</label>
                         <div class="col-sm-8">
-                            <input name="contact_mobile" type="text" class="form-control input-sm" id="contact_mobile" ng-model="teacher.contact_mobile">
+                            <input name="discipline" type="text" class="form-control input-sm" id="discipline" ng-model="teacher.discipline">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="position" class="col-sm-2 control-label">职务</label>
+                        <div class="col-sm-8">
+                            <input name="position" type="text" class="form-control input-sm" id="position" ng-model="teacher.position">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label">电子邮箱</label>
+                        <div class="col-sm-8">
+                            <input name="email" type="text" class="form-control input-sm" id="email" ng-model="teacher.email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile" class="col-sm-2 control-label">手机号码</label>
+                        <div class="col-sm-8">
+                            <input name="mobile" type="text" class="form-control input-sm" id="mobile" ng-model="teacher.mobile">
                         </div>
                     </div>
                     <div class="form-group">

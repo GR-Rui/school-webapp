@@ -105,11 +105,11 @@ Site.controller('TextbookManagerCtrl', ['$scope', '$state', '$location', '$state
 
   ///////////// test data
   $scope.textbooks = [
-    {'id': 1, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"},
-    {'id': 2, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"},
-    {'id': 3, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"}
+    {id:1, "name":"111","press":"111","publishing_date":"111","publishing_edtion":"111","printing_batch":"111","isbn":"1111","level":"111111","version":"11","grade":"11","discipline":"111","term":"111","remark":"1111"},
+    {id:2, "name":"111","press":"111","publishing_date":"111","publishing_edtion":"111","printing_batch":"111","isbn":"1111","level":"111111","version":"11","grade":"11","discipline":"111","term":"111","remark":"1111"},
+    {id:3, "name":"111","press":"111","publishing_date":"111","publishing_edtion":"111","printing_batch":"111","isbn":"1111","level":"111111","version":"11","grade":"11","discipline":"111","term":"111","remark":"1111"}
   ];
-  $scope.textbook = {'id': 1, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"};
+  $scope.textbook = {id:3, "name":"111","press":"111","publishing_date":"111","publishing_edtion":"111","printing_batch":"111","isbn":"1111","level":"111111","version":"11","grade":"11","discipline":"111","term":"111","remark":"1111"};
 
 }]);
 
