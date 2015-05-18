@@ -1,6 +1,6 @@
 <div class="" data-ng-controller="VideoManagerCtrl">
     <div class="panel panel-default">
-        <div class="panel-heading"><span class="icon-share2"></span>视频管理</div>
+        <div class="panel-heading"><span class="icon-share2"></span>视频封面管理</div>
         <div class="panel-body">
             <div id="fileUploadPost">选择视频封面</div>
             <div id="startUploadPost" class="ajax-file-upload-blue inline-block space">开始上传</div>
@@ -82,6 +82,12 @@
                         <label for="cover_width" class="col-sm-2 control-label">封面宽度</label>
                         <div class="col-sm-8">
                             <input name="cover_width" type="text" class="form-control input-sm" id="cover_width" ng-model="form.cover_width">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="teacher_id" class="col-sm-2 control-label">老师ID</label>
+                        <div class="col-sm-8">
+                            <input name="teacher_id" type="text" class="form-control input-sm" id="teacher_id" ng-model="form.teacher_id">
                         </div>
                     </div>
                 </fieldset>

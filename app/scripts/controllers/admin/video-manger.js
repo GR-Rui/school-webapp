@@ -109,7 +109,7 @@ Site.controller('VideoManagerCtrl', ['$scope', '$state', '$location', '$statePar
     multiple: true,
     autoSubmit: false,
     fileName: "file",
-    maxFileSize: 1024 * 1024 * 200,
+    maxFileSize: 1024 * 1024 * 20,
     maxFileCount: 1,
     showProgress: true,
     showFileCounter: true,

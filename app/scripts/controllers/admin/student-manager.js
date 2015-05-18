@@ -102,6 +102,33 @@ Site.controller('StudentManagerCtrl', ['$scope', '$state', '$location', '$stateP
         }//if
       });
   }
+  //////// upload file
+  var uploadObj = $("#fileUpload").uploadFile({
+    url: "upload.php",
+    allowedTypes: "xls",
+    multiple: true,
+    autoSubmit: false,
+    fileName: "file",
+    maxFileSize: 1024 * 1024 * 20,
+    maxFileCount: 1,
+    showProgress: true,
+    showFileCounter: true,
+    showStatusAfterSuccess: true,
+    uploadButtonClass: "ajax-file-upload-blue",
+    onSubmit: function (files) {
+      $("#eventsmessage").html($("#eventsmessage").html() + "<br/>Submitting:" + JSON.stringify(files));
+    },
+    onSuccess: function (files, data, xhr) {
+
+    },
+    onError: function (files, status, errMsg) {
+      $("#eventsmessage").html($("#eventsmessage").html() + "<br/>Error for: " + JSON.stringify(files));
+    }
+  });
+
+  $("#startUpload").on('click', function () {
+    uploadObj.startUpload();
+  });
 
   ///////////// test data
   $scope.students = [

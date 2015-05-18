@@ -103,6 +103,34 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
       });
   }
 
+  //////// upload file
+  var uploadObj = $("#fileUpload").uploadFile({
+    url: "upload.php",
+    allowedTypes: "xls",
+    multiple: true,
+    autoSubmit: false,
+    fileName: "file",
+    maxFileSize: 1024 * 1024 * 20,
+    maxFileCount: 1,
+    showProgress: true,
+    showFileCounter: true,
+    showStatusAfterSuccess: true,
+    uploadButtonClass: "ajax-file-upload-blue",
+    onSubmit: function (files) {
+      $("#eventsmessage").html($("#eventsmessage").html() + "<br/>Submitting:" + JSON.stringify(files));
+    },
+    onSuccess: function (files, data, xhr) {
+
+    },
+    onError: function (files, status, errMsg) {
+      $("#eventsmessage").html($("#eventsmessage").html() + "<br/>Error for: " + JSON.stringify(files));
+    }
+  });
+
+  $("#startUpload").on('click', function () {
+    uploadObj.startUpload();
+  });
+
   ///////////// test data
   $scope.teachers = [
     {id:1, "real_name":"22","roll_no":"222","signin_password":"222","security_key":"222","signup_ip":"2222","school_id":"2222","discipline":"2222","position":"22222","email":"2222","mobile":"22222","remark":"2222222"},

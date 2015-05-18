@@ -47,7 +47,7 @@ Site.controller('LoginCtrl', ['$scope', 'AuthSrv', '$state', '$location', functi
     if($scope.userMsg=='' && $scope.passMsg=='' && $scope.codeMsg=='') {
       $scope.loginDisabled = false;
     }else{
-      $scope.loginDisabled = true;
+      $scope.loginDisabled = false;//TODO true
     }
   };
 
