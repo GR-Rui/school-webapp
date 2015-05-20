@@ -10,7 +10,7 @@ Site.factory('TextbookManagerSrv', ['$http', '$filter', 'ConfigConst', function 
     insertTextbook: function (data) {
       var jsonStr = JSON.stringify(data);
       return $http
-        .post(ConfigConst.urls.api + 'NewTextbook?info=' + jsonStr, data, {headers: {}})
+        .post(ConfigConst.urls.api + 'NewBook?info=' + jsonStr, data, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -22,7 +22,7 @@ Site.factory('TextbookManagerSrv', ['$http', '$filter', 'ConfigConst', function 
     updateTextbook: function (id, data) {
       var jsonStr = JSON.stringify(data);
       return $http
-        .put(ConfigConst.urls.api + 'UpdateTextbook?info=' + jsonStr, data, {headers: {}})
+        .put(ConfigConst.urls.api + 'UpdateBook?info=' + jsonStr, data, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -33,7 +33,7 @@ Site.factory('TextbookManagerSrv', ['$http', '$filter', 'ConfigConst', function 
     // delete
     deleteTextbook: function (id) {
       return $http
-        .delete(ConfigConst.urls.api + 'deleteTextbook?info=' + id, {headers: {}})
+        .delete(ConfigConst.urls.api + 'DeleteBookById?id=' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -44,7 +44,7 @@ Site.factory('TextbookManagerSrv', ['$http', '$filter', 'ConfigConst', function 
     // get one object by id
     getTextbookById: function (id) {
       return $http
-        .get(ConfigConst.urls.api + 'OneTextbook?info=' + id, {headers: {}})
+        .get(ConfigConst.urls.api + 'GetBookPager/?name=' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -55,7 +55,7 @@ Site.factory('TextbookManagerSrv', ['$http', '$filter', 'ConfigConst', function 
     // get all objects
     getAllTextbooks: function () {
       return $http
-        .get(ConfigConst.urls.api + 'AllTextbooks?info=', {headers: {}})
+        .get(ConfigConst.urls.api + 'GetBookPager/?pageIndex=1&pageSize=100', {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {

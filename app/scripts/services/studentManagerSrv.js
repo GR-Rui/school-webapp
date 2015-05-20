@@ -33,7 +33,7 @@ Site.factory('StudentManagerSrv', ['$http', '$filter', 'ConfigConst', function (
     // delete
     deleteStudent: function (id) {
       return $http
-        .delete(ConfigConst.urls.api + 'deleteStudent?info=' + id, {headers: {}})
+        .delete(ConfigConst.urls.api + 'DeleteStudentById?id=' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -44,7 +44,7 @@ Site.factory('StudentManagerSrv', ['$http', '$filter', 'ConfigConst', function (
     // get one object by id
     getStudentById: function (id) {
       return $http
-        .get(ConfigConst.urls.api + 'OneStudent?info=' + id, {headers: {}})
+        .get(ConfigConst.urls.api + 'GetTeacherPager/?name' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -55,7 +55,7 @@ Site.factory('StudentManagerSrv', ['$http', '$filter', 'ConfigConst', function (
     // get all objects
     getAllStudents: function () {
       return $http
-        .get(ConfigConst.urls.api + 'AllStudents?info=', {headers: {}})
+        .get(ConfigConst.urls.api + 'GetTeacherPager/?pageIndex=1&pageSize=100', {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {

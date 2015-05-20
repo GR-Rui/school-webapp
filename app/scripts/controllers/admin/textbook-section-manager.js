@@ -22,56 +22,34 @@ Site.controller('TextbookSectionManagerCtrl', ['$scope', '$state', '$location', 
   if (tsid) {
     TextbookSectionManagerSrv.getTextbookSectionById(tsid)
       .then(function (res) {
-        if (res.ack == 'success') {
-          var object = res.data;
-//          object.createDate = moment().format('LLLL');
-          $scope.textbookSection = object;
-        }
+        var temp = JSON.parse(res);
+        $scope.textbookSection = JSON.parse(temp);
       });
   }
 
-  /*
-  $scope.checkAll = function () {
-    $scope.selectedAll = !$scope.selectedAll;
-    angular.forEach($scope.classes, function (item) {
-      item.selected = $scope.selectedAll;
-    });
-  };
-
-  $scope.deleteItems = function () {
-    var promiseArray = [];
-    var classes = _.filter($scope.classes, {'selected': true});
-    _.forEach(classes, function (item) {
-      promiseArray.push(ClassManagerSrv.deleteClass(item.id));
-    });
-    $q.all(promiseArray)
-      .then(function (responseArray) {
-        if (responseArray.length == classes.length) {
-          $scope.classes = _.xor($scope.classes, classes);
-        }
-      })
-  };*/
-
   // create
+  $scope.form = {};
+  $scope.form.textbook_id = 1;
+  $scope.form.pre_section_id = 1;
   $scope.create = function () {
     var object = $scope.form;
 //    object.operId = userId;
     TextbookSectionManagerSrv.insertTextbookSection(object)
       .then(function (res) {
-        if (res.ack == 'success') {
-          var tid = res.data.id;
-          $state.go('super-admin.textbook-section-detail', {id: userId, tsid: tsid});
+        if (res) {
+          $state.go('super-admin.textbook-section-list', {id: userId});
         }
       });
   };
 
   // update
   $scope.update = function (tsid) {
-    var object = _.pick($scope.textbook, ['name', 'description']);
-    TextbookSectionManagerSrv.updateTextbookSection(tsid, object)
+//    var object = _.pick($scope.textbook, ['name', 'description']);
+    var object = $scope.textbook;
+      TextbookSectionManagerSrv.updateTextbookSection(tsid, object)
       .then(function (res) {
-        if (res.ack == 'success') {
-          $state.go('super-admin.textbook-section-detail', {id: userId, tsid: tsid});
+        if (res) {
+          $state.go('super-admin.textbook-section-list', {id: userId});
         }
       });
   };
@@ -80,8 +58,7 @@ Site.controller('TextbookSectionManagerCtrl', ['$scope', '$state', '$location', 
   $scope.delete = function (tsid) {
     TextbookSectionManagerSrv.deleteTextbookSection(tsid)
       .then(function (res) {
-        if (res.ack == 'success') {
-          var b = res.data;
+        if (res) {
           $state.go('super-admin.textbook-section-list', {id: userId});
         }
       });
@@ -90,26 +67,18 @@ Site.controller('TextbookSectionManagerCtrl', ['$scope', '$state', '$location', 
   function getAllTextbookSections() {
     TextbookSectionManagerSrv.getAllTextbookSections()
       .then(function (res) {
-        if (res.ack == 'success') {
-          $scope.textbookSections = res.data;
-          // default sort column
-          $scope.getters = {
-            name: function (value) {
-              //this will sort by the length of the first name string
-              return value.name.length;
-            }
-          };
-        }//if
+        var temp = JSON.parse(res);
+        $scope.textbookSections = JSON.parse(temp);
       });
   }
 
   ///////////// test data
-  $scope.textbookSections = [
+  /*$scope.textbookSections = [
     {id:1, "textbook_id":"1","name":"111","pre_section_id":"111","remark":"1111"},
     {id:2, "textbook_id":"1","name":"111","pre_section_id":"111","remark":"1111"},
     {id:3, "textbook_id":"1","name":"111","pre_section_id":"111","remark":"1111"}
   ];
   $scope.textbookSection = {id:3, "textbook_id":"1","name":"111","pre_section_id":"111","remark":"1111"};
-
+*/
 }]);
 

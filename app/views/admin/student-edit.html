@@ -2,7 +2,7 @@
     <div class="panel panel-default">
         <div class="panel-heading relative"><span class="icon-share2"></span>变更班级信息
             <div class="align-right">
-                <a class="text-decoration" ui-sref="admin.student-detail({id:userData.id, sid:student.id})">返回<span class="icon-forward"></span></a>
+                <a class="text-decoration" ui-sref="admin.student-detail({id:userData.id, sid:student.real_name})">返回<span class="icon-forward"></span></a>
             </div>
         </div>
         <div class="panel-body">
@@ -41,8 +41,8 @@
                     <div class="form-group">
                         <label for="school_id" class="col-sm-2 control-label">学校ID</label>
                         <div class="col-sm-8">
-                            <select name="school_id" id="school_id" class="form-control input-sm" ng-model="form.student_id">
-                                <option value="1" ng-selected="true">1111</option>
+                            <select name="school_id" id="school_id" class="form-control input-sm" ng-model="student.student_id">
+                                <option value="1">1111</option>
                                 <option value="2">22222</option>
                             </select>
                         </div>

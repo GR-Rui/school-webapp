@@ -22,56 +22,33 @@ Site.controller('ClassManagerCtrl', ['$scope', '$state', '$location', '$statePar
   if (cid) {
     ClassManagerSrv.getClassById(cid)
       .then(function (res) {
-        if (res.ack == 'success') {
-          var object = res.data;
-//          object.createDate = moment().format('LLLL');
-          $scope.class = object;
-        }
+        var temp = JSON.parse(res);
+        $scope.class = JSON.parse(temp);
       });
   }
 
-  /*
-  $scope.checkAll = function () {
-    $scope.selectedAll = !$scope.selectedAll;
-    angular.forEach($scope.classes, function (item) {
-      item.selected = $scope.selectedAll;
-    });
-  };
-
-  $scope.deleteItems = function () {
-    var promiseArray = [];
-    var classes = _.filter($scope.classes, {'selected': true});
-    _.forEach(classes, function (item) {
-      promiseArray.push(ClassManagerSrv.deleteClass(item.id));
-    });
-    $q.all(promiseArray)
-      .then(function (responseArray) {
-        if (responseArray.length == classes.length) {
-          $scope.classes = _.xor($scope.classes, classes);
-        }
-      })
-  };*/
-
   // create
+  $scope.form = {};
+  $scope.form.school_id = 1;
   $scope.create = function () {
     var object = $scope.form;
 //    object.operId = userId;
     ClassManagerSrv.insertClass(object)
       .then(function (res) {
-        if (res.ack == 'success') {
-          var cid = res.data.id;
-          $state.go('super-admin.class-detail', {id: userId, cid: cid});
+        if (res) {
+          $state.go('super-admin.class-list', {id: userId});
         }
       });
   };
 
   // update
   $scope.update = function (cid) {
-    var object = _.pick($scope.class, ['name', 'description']);
-    ClassManagerSrv.updateClass(cid, object)
+//    var object = _.pick($scope.class, ['name', 'description']);
+    var object = $scope.class;
+      ClassManagerSrv.updateClass(cid, object)
       .then(function (res) {
-        if (res.ack == 'success') {
-          $state.go('super-admin.class-detail', {id: userId, cid: cid});
+        if (res) {
+          $state.go('super-admin.class-list', {id: userId});
         }
       });
   };
@@ -80,8 +57,7 @@ Site.controller('ClassManagerCtrl', ['$scope', '$state', '$location', '$statePar
   $scope.delete = function (cid) {
     ClassManagerSrv.deleteClass(cid)
       .then(function (res) {
-        if (res.ack == 'success') {
-          var b = res.data;
+        if (res) {
           $state.go('super-admin.class-list', {id: userId});
         }
       });
@@ -90,26 +66,18 @@ Site.controller('ClassManagerCtrl', ['$scope', '$state', '$location', '$statePar
   function getAllClasses() {
     ClassManagerSrv.getAllClasses()
       .then(function (res) {
-        if (res.ack == 'success') {
-          $scope.classes = res.data;
-          // default sort column
-          $scope.getters = {
-            name: function (value) {
-              //this will sort by the length of the first name string
-              return value.name.length;
-            }
-          };
-        }//if
+        var temp = JSON.parse(res);
+        $scope.classes = JSON.parse(temp);
       });
   }
 
   ///////////// test data
-  $scope.classes = [
+  /*$scope.classes = [
     {'id': 1, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"},
     {'id': 2, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"},
     {'id': 3, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"}
   ];
   $scope.class = {'id': 1, "name": "111", "school_id": "1", "school_code": "111", "grade": "111", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"};
-
+*/
 }]);
 

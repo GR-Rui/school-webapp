@@ -22,7 +22,7 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="item in students">
-                    <td><a ui-sref="admin.student-detail({id:userData.id, sid:item.id})" title="详细信息">{{item.real_name}}</a></td>
+                    <td><a ui-sref="admin.student-detail({id:userData.id, sid:item.real_name})" title="详细信息">{{item.real_name}}</a></td>
                     <td>{{item.roll_no}}</td>
                     <td>{{item.school_id}}</td>
                     <td>{{item.email}}</td>

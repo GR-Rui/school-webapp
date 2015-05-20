@@ -10,7 +10,7 @@ Site.factory('TextbookSectionManagerSrv', ['$http', '$filter', 'ConfigConst', fu
     insertTextbookSection: function (data) {
       var jsonStr = JSON.stringify(data);
       return $http
-        .post(ConfigConst.urls.api + 'NewTextbookSection?info=' + jsonStr, data, {headers: {}})
+        .post(ConfigConst.urls.api + 'NewSection?info=' + jsonStr, data, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -22,7 +22,7 @@ Site.factory('TextbookSectionManagerSrv', ['$http', '$filter', 'ConfigConst', fu
     updateTextbookSection: function (id, data) {
       var jsonStr = JSON.stringify(data);
       return $http
-        .put(ConfigConst.urls.api + 'UpdateTextbookSection?info=' + jsonStr, data, {headers: {}})
+        .put(ConfigConst.urls.api + 'UpdateSection?info=' + jsonStr, data, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -33,7 +33,7 @@ Site.factory('TextbookSectionManagerSrv', ['$http', '$filter', 'ConfigConst', fu
     // delete
     deleteTextbookSection: function (id) {
       return $http
-        .delete(ConfigConst.urls.api + 'deleteTextbookSection?info=' + id, {headers: {}})
+        .delete(ConfigConst.urls.api + 'DeleteSectionById?id=' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -44,7 +44,7 @@ Site.factory('TextbookSectionManagerSrv', ['$http', '$filter', 'ConfigConst', fu
     // get one object by id
     getTextbookSectionById: function (id) {
       return $http
-        .get(ConfigConst.urls.api + 'OneTextbookSection?info=' + id, {headers: {}})
+        .get(ConfigConst.urls.api + 'GetSectionPager/?name=' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -55,7 +55,7 @@ Site.factory('TextbookSectionManagerSrv', ['$http', '$filter', 'ConfigConst', fu
     // get all objects
     getAllTextbookSections: function () {
       return $http
-        .get(ConfigConst.urls.api + 'AllTextbookSections?info=', {headers: {}})
+        .get(ConfigConst.urls.api + 'GetSectionPager/?pageIndex=1&pageSize=100', {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {

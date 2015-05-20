@@ -1,6 +1,6 @@
 <div class="" data-ng-controller="TextbookSectionManagerCtrl">
     <div class="panel panel-default">
-        <div class="panel-heading"><span class="icon-share2"></span>学校信息列表</div>
+        <div class="panel-heading"><span class="icon-share2"></span>教材章节信息列表</div>
         <div class="panel-body">
             <div class="col-sm-6">
                 <div class="input-group">
@@ -20,7 +20,7 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="item in textbookSections">
-                    <td><a ui-sref="admin.textbook-section-detail({id:userData.id, tsid:item.id})" title="详细信息">{{item.name}}</a></td>
+                    <td><a ui-sref="admin.textbook-section-detail({id:userData.id, tsid:item.name})" title="详细信息">{{item.name}}</a></td>
                     <td>{{item.textbook_id}}</td>
                     <td>{{item.pre_section_id}}</td>
                 </tr>

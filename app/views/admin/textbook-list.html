@@ -28,7 +28,7 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="item in textbooks">
-                    <td><a ui-sref="admin.textbook-detail({id:userData.id, tid:item.id})" title="详细信息">{{item.name}}</a></td>
+                    <td><a ui-sref="admin.textbook-detail({id:userData.id, tid:item.name})" title="详细信息">{{item.name}}</a></td>
                     <td>{{item.press}}</td>
                     <td>{{item.publishing_date}}</td>
                     <td>{{item.publishing_edtion}}</td>

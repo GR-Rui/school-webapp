@@ -24,7 +24,7 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="item in schools">
-                    <td><a ui-sref="admin.school-detail({id:userData.id, sid:item.id})" title="详细信息">{{item.name}}</a></td>
+                    <td><a ui-sref="admin.school-detail({id:userData.id, sid:item.name})" title="详细信息">{{item.name}}</a></td>
                     <td>{{item.edu_no}}</td>
                     <td>{{item.code}}</td>
                     <td>{{item.level}}</td>
