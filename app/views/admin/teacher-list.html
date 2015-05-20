@@ -24,7 +24,7 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="item in teachers">
-                    <td><a ui-sref="admin.teacher-detail({id:userData.id, tid:item.real_name})" title="详细信息">{{item.real_name}}</a></td>
+                    <td><a ui-sref="admin.teacher-detail({id:userData.id, tid:item.id})" title="详细信息">{{item.real_name}}</a></td>
                     <td>{{item.roll_no}}</td>
                     <td>{{item.school_id}}</td>
                     <td>{{item.discipline}}</td>
@@ -36,13 +36,8 @@
             </table>
             <nav class="text-right">
                 <ul class="pagination">
-                    <li class="disabled"><a href="javascript:void(0)" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                    <li class="active"><a href="javascript:void(0)">1 <span class="sr-only">(current)</span></a></li>
-                    <li><a href="javascript:void(0)">2</a></li>
-                    <li><a href="javascript:void(0)">3</a></li>
-                    <li><a href="javascript:void(0)">4</a></li>
-                    <li><a href="javascript:void(0)">5</a></li>
-                    <li><a href="javascript:void(0)" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                    <li ng-class="{'disabled': pageIndex==1}"><a data-ng-click="prePage()" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                    <li ng-class="{'disabled': pageIndex==pageNum}"><a data-ng-click="nextPage()" aria-label="Next"><span aria-hidden="true">»</span></a></li>
                 </ul>
             </nav>
 

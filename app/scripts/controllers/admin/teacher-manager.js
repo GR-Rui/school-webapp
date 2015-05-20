@@ -29,7 +29,7 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
 
   // create
   $scope.form = {};
-  $scope.form.school_id = 1;
+  $scope.form.school_id = 1;//TODO
   $scope.create = function () {
     var object = $scope.form;
 //    object.operId = userId;
@@ -38,6 +38,8 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
         if (res) {
           //var tid = res.data.id;
           $state.go('super-admin.teacher-list', {id: userId});
+        } else {
+          alert('保存失败！');
         }
       });
   };
@@ -49,6 +51,8 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
       .then(function (res) {
         if (res) {
           $state.go('super-admin.teacher-list', {id: userId});
+        } else {
+          alert('保存失败！');
         }
       });
   };
@@ -60,6 +64,8 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
         if (res) {
 //          var b = res.data;
           $state.go('super-admin.teacher-list', {id: userId});
+        } else {
+          alert('删除失败！');
         }
       });
   };
@@ -71,6 +77,43 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
         $scope.teachers = JSON.parse(temp);
       });
   }
+
+  /*
+   ** pagination
+   */
+  var pageSize = 10;
+  var params = $location.search();
+  if (!_.isEmpty(params)) {
+    $scope.pageIndex = params.pageIndex;
+  } else {
+    $scope.pageIndex = 1;
+  }
+
+  TeacherManagerSrv.getTeacherCount()
+    .then(function (res) {
+      $scope.count = res;
+      $scope.pageNum = Math.ceil($scope.count/pageSize);
+    });
+
+  $scope.prePage = function () {
+    var index = $scope.pageIndex;
+    if (index <= 1) {
+      return;
+    } else {
+      $location.path('/admin/' + userId + '/teacher-list');
+      $location.search('pageIndex', index - 1);
+    }
+  };
+
+  $scope.nextPage = function () {
+    var index = $scope.pageIndex;
+    if (index >= $scope.pageNum) {
+      return;
+    } else {
+      $location.path('/admin/' + userId + '/teacher-list');
+      $location.search('pageIndex', index + 1);
+    }
+  };
 
   //////// upload file
   var uploadObj = $("#fileUpload").uploadFile({
@@ -101,12 +144,12 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
   });
 
   ///////////// test data
-  /*$scope.teachers = [
-    {id:1, "real_name":"122","roll_no":"222","signin_password":"222","security_key":"222","signup_ip":"2222","school_id":"2","discipline":"2222","position":"22222","email":"2222","mobile":"22222","remark":"2222222"},
-    {id:2, "real_name":"222","roll_no":"222","signin_password":"222","security_key":"222","signup_ip":"2222","school_id":"2","discipline":"2222","position":"22222","email":"2222","mobile":"22222","remark":"2222222"},
-    {id:3, "real_name":"322","roll_no":"222","signin_password":"222","security_key":"222","signup_ip":"2222","school_id":"2","discipline":"2222","position":"22222","email":"2222","mobile":"22222","remark":"2222222"}
+  $scope.teachers = [
+    {id: 1, "real_name": "122", "roll_no": "222", "signin_password": "222", "security_key": "222", "signup_ip": "2222", "school_id": "2", "discipline": "2222", "position": "22222", "email": "2222", "mobile": "22222", "remark": "2222222"},
+    {id: 2, "real_name": "222", "roll_no": "222", "signin_password": "222", "security_key": "222", "signup_ip": "2222", "school_id": "2", "discipline": "2222", "position": "22222", "email": "2222", "mobile": "22222", "remark": "2222222"},
+    {id: 3, "real_name": "322", "roll_no": "222", "signin_password": "222", "security_key": "222", "signup_ip": "2222", "school_id": "2", "discipline": "2222", "position": "22222", "email": "2222", "mobile": "22222", "remark": "2222222"}
   ];
-  $scope.teacher = {id:3, "real_name":"122","roll_no":"222","signin_password":"222","security_key":"222","signup_ip":"2222","school_id":"2","discipline":"2222","position":"22222","email":"2222","mobile":"22222","remark":"2222222"};
-*/
+  $scope.teacher = {id: 3, "real_name": "122", "roll_no": "222", "signin_password": "222", "security_key": "222", "signup_ip": "2222", "school_id": "2", "discipline": "2222", "position": "22222", "email": "2222", "mobile": "22222", "remark": "2222222"};
+
 }]);
 

@@ -44,7 +44,7 @@ Site.factory('TeacherManagerSrv', ['$http', '$filter', 'ConfigConst', function (
     // get one object by id
     getTeacherById: function (id) {
       return $http
-        .get(ConfigConst.urls.api + 'GetTeacherPager?name=' + id, {headers: {}})
+        .get(ConfigConst.urls.api + 'GetStudentById?id=' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -56,6 +56,17 @@ Site.factory('TeacherManagerSrv', ['$http', '$filter', 'ConfigConst', function (
     getAllTeachers: function () {
       return $http
         .get(ConfigConst.urls.api + 'GetTeacherPager/?pageIndex=1&pageSize=100', {headers: {}})
+        .then(function (res) {
+          return res.data;
+        }, function (err) {
+          return err;
+        });
+    },
+
+    // get count
+    getTeacherCount: function () {
+      return $http
+        .get(ConfigConst.urls.api + 'GetTeacherCount', {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
