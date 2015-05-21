@@ -75,11 +75,13 @@ Site.controller('TextbookManagerCtrl', ['$scope', '$state', '$location', '$state
   /*
    ** pagination
    */
-  var params = $location.search();
-  if (!_.isEmpty(params)) {
-    $scope.pageIndex = params.pageIndex;
-  } else {
-    $scope.pageIndex = 1;
+  function getPageParams() {
+    var params = $location.search();
+    if (!_.isEmpty(params)) {
+      $scope.pageIndex = parseInt(params.pageIndex, 10);
+    } else {
+      $scope.pageIndex = 1;
+    }
   }
 
   TextbookManagerSrv.getTextbookCount()
@@ -89,23 +91,27 @@ Site.controller('TextbookManagerCtrl', ['$scope', '$state', '$location', '$state
     });
 
   $scope.prePage = function () {
+    getPageParams();
     var index = $scope.pageIndex;
     if (index <= 1) {
       return;
     } else {
       $location.path('/admin/' + userId + '/textbook-list');
       $location.search('pageIndex', index - 1);
+      getAllTextbooks();
       $route.reload();
     }
   };
 
   $scope.nextPage = function () {
+    getPageParams();
     var index = $scope.pageIndex;
     if (index >= $scope.pageNum) {
       return;
     } else {
       $location.path('/admin/' + userId + '/textbook-list');
       $location.search('pageIndex', index + 1);
+      getAllTextbooks();
       $route.reload();
     }
   };

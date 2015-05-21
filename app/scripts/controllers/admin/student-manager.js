@@ -76,11 +76,13 @@ Site.controller('StudentManagerCtrl', ['$scope', '$state', '$location', '$stateP
   /*
    ** pagination
    */
-  var params = $location.search();
-  if (!_.isEmpty(params)) {
-    $scope.pageIndex = params.pageIndex;
-  } else {
-    $scope.pageIndex = 1;
+  function getPageParams() {
+    var params = $location.search();
+    if (!_.isEmpty(params)) {
+      $scope.pageIndex = parseInt(params.pageIndex, 10);
+    } else {
+      $scope.pageIndex = 1;
+    }
   }
 
   StudentManagerSrv.getStudentCount()
@@ -90,23 +92,27 @@ Site.controller('StudentManagerCtrl', ['$scope', '$state', '$location', '$stateP
     });
 
   $scope.prePage = function () {
+    getPageParams();
     var index = $scope.pageIndex;
     if (index <= 1) {
       return;
     } else {
       $location.path('/admin/' + userId + '/student-list');
       $location.search('pageIndex', index - 1);
+      getAllStudents();
       $route.reload();
     }
   };
 
   $scope.nextPage = function () {
+    getPageParams();
     var index = $scope.pageIndex;
     if (index >= $scope.pageNum) {
       return;
     } else {
       $location.path('/admin/' + userId + '/student-list');
       $location.search('pageIndex', index + 1);
+      getAllStudents();
       $route.reload();
     }
   };

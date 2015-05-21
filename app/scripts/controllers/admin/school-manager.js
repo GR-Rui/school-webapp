@@ -75,11 +75,13 @@ Site.controller('SchoolManagerCtrl', ['$scope', '$state', '$location', '$statePa
   /*
    ** pagination
    */
-  var params = $location.search();
-  if (!_.isEmpty(params)) {
-    $scope.pageIndex = params.pageIndex;
-  } else {
-    $scope.pageIndex = 1;
+  function getPageParams() {
+    var params = $location.search();
+    if (!_.isEmpty(params)) {
+      $scope.pageIndex = parseInt(params.pageIndex, 10);
+    } else {
+      $scope.pageIndex = 1;
+    }
   }
 
   SchoolManagerSrv.getSchoolCount()
@@ -89,23 +91,27 @@ Site.controller('SchoolManagerCtrl', ['$scope', '$state', '$location', '$statePa
     });
 
   $scope.prePage = function () {
+    getPageParams();
     var index = $scope.pageIndex;
     if (index <= 1) {
       return;
     } else {
       $location.path('/admin/' + userId + '/school-list');
       $location.search('pageIndex', index - 1);
+      getAllSchools();
       $route.reload();
     }
   };
 
   $scope.nextPage = function () {
+    getPageParams();
     var index = $scope.pageIndex;
     if (index >= $scope.pageNum) {
       return;
     } else {
       $location.path('/admin/' + userId + '/school-list');
       $location.search('pageIndex', index + 1);
+      getAllSchools();
       $route.reload();
     }
   };

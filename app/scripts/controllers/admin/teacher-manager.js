@@ -78,11 +78,13 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
   /*
    ** pagination
    */
-  var params = $location.search();
-  if (!_.isEmpty(params)) {
-    $scope.pageIndex = params.pageIndex;
-  } else {
-    $scope.pageIndex = 1;
+  function getPageParams() {
+    var params = $location.search();
+    if (!_.isEmpty(params)) {
+      $scope.pageIndex = parseInt(params.pageIndex, 10);
+    } else {
+      $scope.pageIndex = 1;
+    }
   }
 
   TeacherManagerSrv.getTeacherCount()
@@ -92,23 +94,27 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
     });
 
   $scope.prePage = function () {
+    getPageParams();
     var index = $scope.pageIndex;
     if (index <= 1) {
       return;
     } else {
       $location.path('/admin/' + userId + '/teacher-list');
       $location.search('pageIndex', index - 1);
+      getAllTeachers();
       $route.reload();
     }
   };
 
   $scope.nextPage = function () {
+    getPageParams();
     var index = $scope.pageIndex;
     if (index >= $scope.pageNum) {
       return;
     } else {
       $location.path('/admin/' + userId + '/teacher-list');
       $location.search('pageIndex', index + 1);
+      getAllTeachers();
       $route.reload();
     }
   };
@@ -146,12 +152,12 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
   });
 
   ///////////// test data
-  /*$scope.teachers = [
+  $scope.teachers = [
     {id: 1, "real_name": "122", "roll_no": "222", "signin_password": "222", "security_key": "222", "signup_ip": "2222", "school_id": "2", "discipline": "2222", "position": "22222", "email": "2222", "mobile": "22222", "remark": "2222222"},
     {id: 2, "real_name": "222", "roll_no": "222", "signin_password": "222", "security_key": "222", "signup_ip": "2222", "school_id": "2", "discipline": "2222", "position": "22222", "email": "2222", "mobile": "22222", "remark": "2222222"},
     {id: 3, "real_name": "322", "roll_no": "222", "signin_password": "222", "security_key": "222", "signup_ip": "2222", "school_id": "2", "discipline": "2222", "position": "22222", "email": "2222", "mobile": "22222", "remark": "2222222"}
   ];
   $scope.teacher = {id: 3, "real_name": "122", "roll_no": "222", "signin_password": "222", "security_key": "222", "signup_ip": "2222", "school_id": "2", "discipline": "2222", "position": "22222", "email": "2222", "mobile": "22222", "remark": "2222222"};
-*/
+
 }]);
 
