@@ -44,7 +44,7 @@ Site.factory('ClassManagerSrv', ['$http', '$filter', 'ConfigConst', function ($h
     // get one object by id
     getClassById: function (id) {
       return $http
-        .get(ConfigConst.urls.api + 'GetClassPager/?name=' + id, {headers: {}})
+        .get(ConfigConst.urls.api + 'GetClassById?id=' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -53,9 +53,20 @@ Site.factory('ClassManagerSrv', ['$http', '$filter', 'ConfigConst', function ($h
     },
 
     // get all objects
-    getAllClasses: function () {
+    getAllClasses: function (size, index) {
       return $http
-        .get(ConfigConst.urls.api + 'GetClassPager/?pageIndex=1&pageSize=100', {headers: {}})
+        .get(ConfigConst.urls.api + 'GetClassPager/?pageIndex='+index+'&pageSize='+size, {headers: {}})
+        .then(function (res) {
+          return res.data;
+        }, function (err) {
+          return err;
+        });
+    },
+
+    // get count
+    getClassCount: function () {
+      return $http
+        .get(ConfigConst.urls.api + 'GetClassCount', {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {

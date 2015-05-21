@@ -7,23 +7,20 @@
  * # SchoolManagerCtrl
  * Controller of the webApp
  */
-Site.controller('SchoolManagerCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'SchoolManagerSrv', function ($scope, $state, $location, $stateParams, $q, SchoolManagerSrv) {
+Site.controller('SchoolManagerCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'SchoolManagerSrv', '$route', function ($scope, $state, $location, $stateParams, $q, SchoolManagerSrv, $route) {
   console.log('SchoolManagerCtrl');
 
   var sid = $stateParams.sid;
   var path = $location.path();
   var userId = $scope.userData.id;
 
-  if (path.indexOf('school-list') > 0) {
-    getAllSchools();
-  }
-
   //
   if (sid) {
     SchoolManagerSrv.getSchoolById(sid)
       .then(function (res) {
         var temp = JSON.parse(res);
-        $scope.school = JSON.parse(temp);
+        var school = JSON.parse(temp);
+        $scope.teacher = school[0];
       });
   }
 
@@ -33,8 +30,10 @@ Site.controller('SchoolManagerCtrl', ['$scope', '$state', '$location', '$statePa
 //    object.operId = userId;
     SchoolManagerSrv.insertSchool(object)
       .then(function (res) {
-        if (res) {
-          $state.go('super-admin.school-list', {id: userId});
+        if (res=='true') {
+          $state.go('admin.school-list', {id: userId});
+        } else {
+          alert('保存失败！');
         }
       });
   };
@@ -45,8 +44,10 @@ Site.controller('SchoolManagerCtrl', ['$scope', '$state', '$location', '$statePa
     var object = $scope.school;
     SchoolManagerSrv.updateSchool(sid, object)
       .then(function (res) {
-        if (res) {
-          $state.go('super-admin.school-list', {id: userId});
+        if (res=='true') {
+          $state.go('admin.school-list', {id: userId});
+        } else {
+          alert('保存失败！');
         }
       });
   };
@@ -55,18 +56,62 @@ Site.controller('SchoolManagerCtrl', ['$scope', '$state', '$location', '$statePa
   $scope.delete = function (sid) {
     SchoolManagerSrv.deleteSchool(sid)
       .then(function (res) {
-        if (res) {
-          $state.go('super-admin.school-list', {id: userId});
+        if (res=='true') {
+          $state.go('admin.school-list', {id: userId});
+        } else {
+          alert('保存失败！');
         }
       });
   };
 
   function getAllSchools() {
-    SchoolManagerSrv.getAllSchools()
+    SchoolManagerSrv.getAllSchools($scope.pageSize, $scope.pageIndex)
       .then(function (res) {
         var temp = JSON.parse(res);
         $scope.schools = JSON.parse(temp);
       });
+  }
+
+  /*
+   ** pagination
+   */
+  var params = $location.search();
+  if (!_.isEmpty(params)) {
+    $scope.pageIndex = params.pageIndex;
+  } else {
+    $scope.pageIndex = 1;
+  }
+
+  SchoolManagerSrv.getSchoolCount()
+    .then(function (res) {
+      $scope.count = res;
+      $scope.pageNum = Math.ceil($scope.count/$scope.pageSize);
+    });
+
+  $scope.prePage = function () {
+    var index = $scope.pageIndex;
+    if (index <= 1) {
+      return;
+    } else {
+      $location.path('/admin/' + userId + '/school-list');
+      $location.search('pageIndex', index - 1);
+      $route.reload();
+    }
+  };
+
+  $scope.nextPage = function () {
+    var index = $scope.pageIndex;
+    if (index >= $scope.pageNum) {
+      return;
+    } else {
+      $location.path('/admin/' + userId + '/school-list');
+      $location.search('pageIndex', index + 1);
+      $route.reload();
+    }
+  };
+
+  if (path.indexOf('school-list') > 0) {
+    getAllSchools();
   }
 
   ///////////// test data

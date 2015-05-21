@@ -68,7 +68,7 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
   };
 
   function getAllTeachers() {
-    TeacherManagerSrv.getAllTeachers(pageSize, $scope.pageIndex)
+    TeacherManagerSrv.getAllTeachers($scope.pageSize, $scope.pageIndex)
       .then(function (res) {
         var temp = JSON.parse(res);
         $scope.teachers = JSON.parse(temp);
@@ -78,8 +78,7 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
   /*
    ** pagination
    */
-  var pageSize = 10;
-  var params = $location.search();$scope.pageNum =10;
+  var params = $location.search();
   if (!_.isEmpty(params)) {
     $scope.pageIndex = params.pageIndex;
   } else {
@@ -89,7 +88,7 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
   TeacherManagerSrv.getTeacherCount()
     .then(function (res) {
       $scope.count = res;
-      $scope.pageNum = Math.ceil($scope.count/pageSize);
+      $scope.pageNum = Math.ceil($scope.count/$scope.pageSize);
     });
 
   $scope.prePage = function () {

@@ -7,23 +7,20 @@
  * # TeacherManagerCtrl
  * Controller of the webApp
  */
-Site.controller('StudentManagerCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'StudentManagerSrv', function ($scope, $state, $location, $stateParams, $q, StudentManagerSrv) {
+Site.controller('StudentManagerCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'StudentManagerSrv','$route' , function ($scope, $state, $location, $stateParams, $q, StudentManagerSrv, $route) {
   console.log('StudentManagerCtrl');
 
   var sid = $stateParams.sid;
   var path = $location.path();
   var userId = $scope.userData.id;
 
-  if (path.indexOf('student-list') > 0) {
-    getAllStudents();
-  }
-
   //
   if (sid) {
     StudentManagerSrv.getStudentById(sid)
       .then(function (res) {
         var temp = JSON.parse(res);
-        $scope.student = JSON.parse(temp);
+        var student = JSON.parse(temp);
+        $scope.student = student[0];
       });
   }
 
@@ -35,8 +32,10 @@ Site.controller('StudentManagerCtrl', ['$scope', '$state', '$location', '$stateP
 //    object.operId = userId;
     StudentManagerSrv.insertStudent(object)
       .then(function (res) {
-        if (res) {
-          $state.go('super-admin.student-list', {id: userId});
+        if (res=='true') {
+          $state.go('admin.student-list', {id: userId});
+        } else {
+          alert('保存失败！');
         }
       });
   };
@@ -47,8 +46,10 @@ Site.controller('StudentManagerCtrl', ['$scope', '$state', '$location', '$stateP
     var object = $scope.student;
     StudentManagerSrv.updateStudent(sid, object)
       .then(function (res) {
-        if (res) {
-          $state.go('super-admin.student-list', {id: userId});
+        if (res=='true') {
+          $state.go('admin.student-list', {id: userId});
+        } else {
+          alert('保存失败！');
         }
       });
   };
@@ -57,19 +58,63 @@ Site.controller('StudentManagerCtrl', ['$scope', '$state', '$location', '$stateP
   $scope.delete = function (sid) {
     StudentManagerSrv.deleteStudent(sid)
       .then(function (res) {
-        if (res) {
-          $state.go('super-admin.student-list', {id: userId});
+        if (res=='true') {
+          $state.go('admin.student-list', {id: userId});
+        } else {
+          alert('删除失败！');
         }
       });
   };
 
   function getAllStudents() {
-    StudentManagerSrv.getAllStudents()
+    StudentManagerSrv.getAllStudents($scope.pageSize, $scope.pageIndex)
       .then(function (res) {
         var temp = JSON.parse(res);
         $scope.students = JSON.parse(temp);
       });
   }
+  /*
+   ** pagination
+   */
+  var params = $location.search();
+  if (!_.isEmpty(params)) {
+    $scope.pageIndex = params.pageIndex;
+  } else {
+    $scope.pageIndex = 1;
+  }
+
+  StudentManagerSrv.getStudentCount()
+    .then(function (res) {
+      $scope.count = res;
+      $scope.pageNum = Math.ceil($scope.count/$scope.pageSize);
+    });
+
+  $scope.prePage = function () {
+    var index = $scope.pageIndex;
+    if (index <= 1) {
+      return;
+    } else {
+      $location.path('/admin/' + userId + '/student-list');
+      $location.search('pageIndex', index - 1);
+      $route.reload();
+    }
+  };
+
+  $scope.nextPage = function () {
+    var index = $scope.pageIndex;
+    if (index >= $scope.pageNum) {
+      return;
+    } else {
+      $location.path('/admin/' + userId + '/student-list');
+      $location.search('pageIndex', index + 1);
+      $route.reload();
+    }
+  };
+
+  if (path.indexOf('student-list') > 0) {
+    getAllStudents();
+  }
+
   //////// upload file
   var uploadObj = $("#fileUpload").uploadFile({
     url: "upload.php",

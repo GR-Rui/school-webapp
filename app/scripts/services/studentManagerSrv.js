@@ -44,7 +44,7 @@ Site.factory('StudentManagerSrv', ['$http', '$filter', 'ConfigConst', function (
     // get one object by id
     getStudentById: function (id) {
       return $http
-        .get(ConfigConst.urls.api + 'GetTeacherPager/?name' + id, {headers: {}})
+        .get(ConfigConst.urls.api + 'GetStudentById?id=' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -53,9 +53,20 @@ Site.factory('StudentManagerSrv', ['$http', '$filter', 'ConfigConst', function (
     },
 
     // get all objects
-    getAllStudents: function () {
+    getAllStudents: function (size, index) {
       return $http
-        .get(ConfigConst.urls.api + 'GetTeacherPager/?pageIndex=1&pageSize=100', {headers: {}})
+        .get(ConfigConst.urls.api + 'GetStudentPager/?pageIndex='+index+'&pageSize='+size, {headers: {}})
+        .then(function (res) {
+          return res.data;
+        }, function (err) {
+          return err;
+        });
+    },
+
+    // get count
+    getStudentCount: function () {
+      return $http
+        .get(ConfigConst.urls.api + 'getStudentCount', {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {

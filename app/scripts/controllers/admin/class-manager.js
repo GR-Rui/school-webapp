@@ -7,23 +7,20 @@
  * # ClassManagerCtrl
  * Controller of the webApp
  */
-Site.controller('ClassManagerCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'ClassManagerSrv', function ($scope, $state, $location, $stateParams, $q, ClassManagerSrv) {
+Site.controller('ClassManagerCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'ClassManagerSrv', '$route', function ($scope, $state, $location, $stateParams, $q, ClassManagerSrv, $route) {
   console.log('ClassManagerCtrl');
 
   var cid = $stateParams.cid;
   var path = $location.path();
   var userId = $scope.userData.id;
 
-  if (path.indexOf('class-list') > 0) {
-    getAllClasses();
-  }
-
   //
   if (cid) {
     ClassManagerSrv.getClassById(cid)
       .then(function (res) {
         var temp = JSON.parse(res);
-        $scope.class = JSON.parse(temp);
+        var obj = JSON.parse(temp);
+        $scope.class = obj[0];
       });
   }
 
@@ -35,8 +32,10 @@ Site.controller('ClassManagerCtrl', ['$scope', '$state', '$location', '$statePar
 //    object.operId = userId;
     ClassManagerSrv.insertClass(object)
       .then(function (res) {
-        if (res) {
-          $state.go('super-admin.class-list', {id: userId});
+        if (res=='true') {
+          $state.go('admin.class-list', {id: userId});
+        } else {
+          alert('保存失败！');
         }
       });
   };
@@ -47,8 +46,10 @@ Site.controller('ClassManagerCtrl', ['$scope', '$state', '$location', '$statePar
     var object = $scope.class;
       ClassManagerSrv.updateClass(cid, object)
       .then(function (res) {
-        if (res) {
+        if (res=='true') {
           $state.go('super-admin.class-list', {id: userId});
+        } else {
+          alert('保存失败！');
         }
       });
   };
@@ -57,18 +58,62 @@ Site.controller('ClassManagerCtrl', ['$scope', '$state', '$location', '$statePar
   $scope.delete = function (cid) {
     ClassManagerSrv.deleteClass(cid)
       .then(function (res) {
-        if (res) {
+        if (res=='true') {
           $state.go('super-admin.class-list', {id: userId});
+        } else {
+          alert('删除失败！');
         }
       });
   };
 
   function getAllClasses() {
-    ClassManagerSrv.getAllClasses()
+    ClassManagerSrv.getAllClasses($scope.pageSize, $scope.pageIndex)
       .then(function (res) {
         var temp = JSON.parse(res);
         $scope.classes = JSON.parse(temp);
       });
+  }
+
+  /*
+   ** pagination
+   */
+  var params = $location.search();
+  if (!_.isEmpty(params)) {
+    $scope.pageIndex = params.pageIndex;
+  } else {
+    $scope.pageIndex = 1;
+  }
+
+  ClassManagerSrv.getClassCount()
+    .then(function (res) {
+      $scope.count = res;
+      $scope.pageNum = Math.ceil($scope.count/$scope.pageSize);
+    });
+
+  $scope.prePage = function () {
+    var index = $scope.pageIndex;
+    if (index <= 1) {
+      return;
+    } else {
+      $location.path('/admin/' + userId + '/class-list');
+      $location.search('pageIndex', index - 1);
+      $route.reload();
+    }
+  };
+
+  $scope.nextPage = function () {
+    var index = $scope.pageIndex;
+    if (index >= $scope.pageNum) {
+      return;
+    } else {
+      $location.path('/admin/' + userId + '/class-list');
+      $location.search('pageIndex', index + 1);
+      $route.reload();
+    }
+  };
+
+  if (path.indexOf('class-list') > 0) {
+    getAllClasses();
   }
 
   ///////////// test data

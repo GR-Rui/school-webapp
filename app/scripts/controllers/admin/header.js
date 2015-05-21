@@ -11,6 +11,7 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, 
   console.log("HeaderCtrl");
 
   $scope.userData = {id: "SG0822888", name: "ruigao", password: "19851012", position: "teacher"};
+  $scope.pageSize = 10;
 
   $scope.headerArray = [
     {

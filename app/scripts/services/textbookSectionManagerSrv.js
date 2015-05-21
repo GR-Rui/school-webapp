@@ -44,7 +44,7 @@ Site.factory('TextbookSectionManagerSrv', ['$http', '$filter', 'ConfigConst', fu
     // get one object by id
     getTextbookSectionById: function (id) {
       return $http
-        .get(ConfigConst.urls.api + 'GetSectionPager/?name=' + id, {headers: {}})
+        .get(ConfigConst.urls.api + 'GetSectionById?id=' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -53,9 +53,20 @@ Site.factory('TextbookSectionManagerSrv', ['$http', '$filter', 'ConfigConst', fu
     },
 
     // get all objects
-    getAllTextbookSections: function () {
+    getAllTextbookSections: function (size, index) {
       return $http
-        .get(ConfigConst.urls.api + 'GetSectionPager/?pageIndex=1&pageSize=100', {headers: {}})
+        .get(ConfigConst.urls.api + 'GetSectionPager/?pageIndex='+index+'&pageSize='+size, {headers: {}})
+        .then(function (res) {
+          return res.data;
+        }, function (err) {
+          return err;
+        });
+    },
+
+    // get count
+    getTextbookSectionCount: function () {
+      return $http
+        .get(ConfigConst.urls.api + 'GetSectionCount', {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {

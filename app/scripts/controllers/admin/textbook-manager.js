@@ -7,23 +7,20 @@
  * # TextbookManagerCtrl
  * Controller of the webApp
  */
-Site.controller('TextbookManagerCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'TextbookManagerSrv', function ($scope, $state, $location, $stateParams, $q, TextbookManagerSrv) {
+Site.controller('TextbookManagerCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'TextbookManagerSrv', '$route', function ($scope, $state, $location, $stateParams, $q, TextbookManagerSrv, $route) {
   console.log('TextbookManagerCtrl');
 
   var tid = $stateParams.tid;
   var path = $location.path();
   var userId = $scope.userData.id;
 
-  if (path.indexOf('textbook-list') > 0) {
-    getAllTextbooks();
-  }
-
   //
   if (tid) {
     TextbookManagerSrv.getTextbookById(tid)
       .then(function (res) {
         var temp = JSON.parse(res);
-        $scope.textbook = JSON.parse(temp);
+        var textbook = JSON.parse(temp);
+        $scope.teacher = textbook[0];
       });
   }
 
@@ -33,8 +30,10 @@ Site.controller('TextbookManagerCtrl', ['$scope', '$state', '$location', '$state
 //    object.operId = userId;
     TextbookManagerSrv.insertTextbook(object)
       .then(function (res) {
-        if (res) {
-          $state.go('super-admin.textbook-list', {id: userId});
+        if (res=='true') {
+          $state.go('admin.textbook-list', {id: userId});
+        } else {
+          alert('保存失败！');
         }
       });
   };
@@ -45,8 +44,10 @@ Site.controller('TextbookManagerCtrl', ['$scope', '$state', '$location', '$state
     var object = $scope.textbook;
       TextbookManagerSrv.updateTextbook(tid, object)
       .then(function (res) {
-        if (res) {
-          $state.go('super-admin.textbook-list', {id: userId});
+        if (res=='true') {
+          $state.go('admin.textbook-list', {id: userId});
+        } else {
+          alert('保存失败！');
         }
       });
   };
@@ -55,18 +56,62 @@ Site.controller('TextbookManagerCtrl', ['$scope', '$state', '$location', '$state
   $scope.delete = function (tid) {
     TextbookManagerSrv.deleteTextbook(tid)
       .then(function (res) {
-        if (res) {
-          $state.go('super-admin.textbook-list', {id: userId});
+        if (res=='true') {
+          $state.go('admin.textbook-list', {id: userId});
+        } else {
+          alert('删除失败！');
         }
       });
   };
 
   function getAllTextbooks() {
-    TextbookManagerSrv.getAllTextbooks()
+    TextbookManagerSrv.getAllTextbooks($scope.pageSize, $scope.pageIndex)
       .then(function (res) {
         var temp = JSON.parse(res);
         $scope.textbooks = JSON.parse(temp);
       });
+  }
+
+  /*
+   ** pagination
+   */
+  var params = $location.search();
+  if (!_.isEmpty(params)) {
+    $scope.pageIndex = params.pageIndex;
+  } else {
+    $scope.pageIndex = 1;
+  }
+
+  TextbookManagerSrv.getTextbookCount()
+    .then(function (res) {
+      $scope.count = res;
+      $scope.pageNum = Math.ceil($scope.count/$scope.pageSize);
+    });
+
+  $scope.prePage = function () {
+    var index = $scope.pageIndex;
+    if (index <= 1) {
+      return;
+    } else {
+      $location.path('/admin/' + userId + '/textbook-list');
+      $location.search('pageIndex', index - 1);
+      $route.reload();
+    }
+  };
+
+  $scope.nextPage = function () {
+    var index = $scope.pageIndex;
+    if (index >= $scope.pageNum) {
+      return;
+    } else {
+      $location.path('/admin/' + userId + '/textbook-list');
+      $location.search('pageIndex', index + 1);
+      $route.reload();
+    }
+  };
+
+  if (path.indexOf('textbook-list') > 0) {
+    getAllTextbooks();
   }
 
   ///////////// test data

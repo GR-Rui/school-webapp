@@ -44,7 +44,7 @@ Site.factory('TextbookManagerSrv', ['$http', '$filter', 'ConfigConst', function 
     // get one object by id
     getTextbookById: function (id) {
       return $http
-        .get(ConfigConst.urls.api + 'GetBookPager/?name=' + id, {headers: {}})
+        .get(ConfigConst.urls.api + 'GetBookById?id=' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -53,9 +53,20 @@ Site.factory('TextbookManagerSrv', ['$http', '$filter', 'ConfigConst', function 
     },
 
     // get all objects
-    getAllTextbooks: function () {
+    getAllTextbooks: function (size, index) {
       return $http
-        .get(ConfigConst.urls.api + 'GetBookPager/?pageIndex=1&pageSize=100', {headers: {}})
+        .get(ConfigConst.urls.api + 'GetBookPager/?pageIndex='+index+'&pageSize='+size, {headers: {}})
+        .then(function (res) {
+          return res.data;
+        }, function (err) {
+          return err;
+        });
+    },
+
+    // get count
+    getTextbookCount: function () {
+      return $http
+        .get(ConfigConst.urls.api + 'GetBookCount', {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {

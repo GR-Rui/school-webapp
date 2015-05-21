@@ -20,7 +20,7 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="item in textbookSections">
-                    <td><a ui-sref="admin.textbook-section-detail({id:userData.id, tsid:item.name})" title="详细信息">{{item.name}}</a></td>
+                    <td><a ui-sref="admin.textbook-section-detail({id:userData.id, tsid:item.id})" title="详细信息">{{item.name}}</a></td>
                     <td>{{item.textbook_id}}</td>
                     <td>{{item.pre_section_id}}</td>
                 </tr>
@@ -28,13 +28,8 @@
             </table>
             <nav class="text-right">
                 <ul class="pagination">
-                    <li class="disabled"><a href="javascript:void(0)" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                    <li class="active"><a href="javascript:void(0)">1 <span class="sr-only">(current)</span></a></li>
-                    <li><a href="javascript:void(0)">2</a></li>
-                    <li><a href="javascript:void(0)">3</a></li>
-                    <li><a href="javascript:void(0)">4</a></li>
-                    <li><a href="javascript:void(0)">5</a></li>
-                    <li><a href="javascript:void(0)" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                    <li ng-class="{'disabled': pageIndex==1}"><a href="javascript:void(0)" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                    <li ng-class="{'disabled': pageIndex==pageNum}"><a href="javascript:void(0)" aria-label="Next"><span aria-hidden="true">»</span></a></li>
                 </ul>
             </nav>
 
