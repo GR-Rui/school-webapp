@@ -7,23 +7,20 @@
  * # TeacherManagerCtrl
  * Controller of the webApp
  */
-Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'TeacherManagerSrv', function ($scope, $state, $location, $stateParams, $q, TeacherManagerSrv) {
+Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'TeacherManagerSrv', '$route', function ($scope, $state, $location, $stateParams, $q, TeacherManagerSrv, $route) {
   console.log('TeacherManagerCtrl');
 
   var tid = $stateParams.tid;
   var path = $location.path();
   var userId = $scope.userData.id;
 
-  if (path.indexOf('teacher-list') > 0) {
-    getAllTeachers();
-  }
-
   //
   if (tid) {
     TeacherManagerSrv.getTeacherById(tid)
       .then(function (res) {
         var temp = JSON.parse(res);
-        $scope.teacher = JSON.parse(temp);
+        var teacher = JSON.parse(temp);
+        $scope.teacher = teacher[0];
       });
   }
 
@@ -35,9 +32,9 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
 //    object.operId = userId;
     TeacherManagerSrv.insertTeacher(object)
       .then(function (res) {
-        if (res) {
+        if (res=='true') {
           //var tid = res.data.id;
-          $state.go('super-admin.teacher-list', {id: userId});
+          $state.go('admin.teacher-list', {id: userId});
         } else {
           alert('保存失败！');
         }
@@ -49,8 +46,8 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
     var object = $scope.teacher;
     TeacherManagerSrv.updateTeacher(tid, object)
       .then(function (res) {
-        if (res) {
-          $state.go('super-admin.teacher-list', {id: userId});
+        if (res=='true') {
+          $state.go('admin.teacher-list', {id: userId});
         } else {
           alert('保存失败！');
         }
@@ -61,9 +58,9 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
   $scope.delete = function (tid) {
     TeacherManagerSrv.deleteTeacher(tid)
       .then(function (res) {
-        if (res) {
+        if (res=='true') {
 //          var b = res.data;
-          $state.go('super-admin.teacher-list', {id: userId});
+          $state.go('admin.teacher-list', {id: userId});
         } else {
           alert('删除失败！');
         }
@@ -71,7 +68,7 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
   };
 
   function getAllTeachers() {
-    TeacherManagerSrv.getAllTeachers()
+    TeacherManagerSrv.getAllTeachers(pageSize, $scope.pageIndex)
       .then(function (res) {
         var temp = JSON.parse(res);
         $scope.teachers = JSON.parse(temp);
@@ -82,7 +79,7 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
    ** pagination
    */
   var pageSize = 10;
-  var params = $location.search();
+  var params = $location.search();$scope.pageNum =10;
   if (!_.isEmpty(params)) {
     $scope.pageIndex = params.pageIndex;
   } else {
@@ -102,6 +99,7 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
     } else {
       $location.path('/admin/' + userId + '/teacher-list');
       $location.search('pageIndex', index - 1);
+      $route.reload();
     }
   };
 
@@ -112,8 +110,13 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
     } else {
       $location.path('/admin/' + userId + '/teacher-list');
       $location.search('pageIndex', index + 1);
+      $route.reload();
     }
   };
+
+  if (path.indexOf('teacher-list') > 0) {
+    getAllTeachers();
+  }
 
   //////// upload file
   var uploadObj = $("#fileUpload").uploadFile({
@@ -144,12 +147,12 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
   });
 
   ///////////// test data
-  $scope.teachers = [
+  /*$scope.teachers = [
     {id: 1, "real_name": "122", "roll_no": "222", "signin_password": "222", "security_key": "222", "signup_ip": "2222", "school_id": "2", "discipline": "2222", "position": "22222", "email": "2222", "mobile": "22222", "remark": "2222222"},
     {id: 2, "real_name": "222", "roll_no": "222", "signin_password": "222", "security_key": "222", "signup_ip": "2222", "school_id": "2", "discipline": "2222", "position": "22222", "email": "2222", "mobile": "22222", "remark": "2222222"},
     {id: 3, "real_name": "322", "roll_no": "222", "signin_password": "222", "security_key": "222", "signup_ip": "2222", "school_id": "2", "discipline": "2222", "position": "22222", "email": "2222", "mobile": "22222", "remark": "2222222"}
   ];
   $scope.teacher = {id: 3, "real_name": "122", "roll_no": "222", "signin_password": "222", "security_key": "222", "signup_ip": "2222", "school_id": "2", "discipline": "2222", "position": "22222", "email": "2222", "mobile": "22222", "remark": "2222222"};
-
+*/
 }]);
 
