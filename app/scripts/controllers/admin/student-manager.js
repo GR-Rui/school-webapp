@@ -118,6 +118,7 @@ Site.controller('StudentManagerCtrl', ['$scope', '$state', '$location', '$stateP
   };
 
   if (path.indexOf('student-list') > 0) {
+    getPageParams();
     getAllStudents();
   }
 

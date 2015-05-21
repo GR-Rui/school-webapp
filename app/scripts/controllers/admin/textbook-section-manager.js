@@ -120,6 +120,7 @@ Site.controller('TextbookSectionManagerCtrl', ['$scope', '$state', '$location', 
   };
 
   if (path.indexOf('textbook-section-list') > 0) {
+    getPageParams();
     getAllTextbookSections();
   }
 

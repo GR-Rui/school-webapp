@@ -117,6 +117,7 @@ Site.controller('SchoolManagerCtrl', ['$scope', '$state', '$location', '$statePa
   };
 
   if (path.indexOf('school-list') > 0) {
+    getPageParams();
     getAllSchools();
   }
 

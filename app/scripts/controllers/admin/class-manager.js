@@ -119,6 +119,7 @@ Site.controller('ClassManagerCtrl', ['$scope', '$state', '$location', '$statePar
   };
 
   if (path.indexOf('class-list') > 0) {
+    getPageParams();
     getAllClasses();
   }
 

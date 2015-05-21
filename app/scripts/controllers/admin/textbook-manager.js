@@ -117,6 +117,7 @@ Site.controller('TextbookManagerCtrl', ['$scope', '$state', '$location', '$state
   };
 
   if (path.indexOf('textbook-list') > 0) {
+    getPageParams();
     getAllTextbooks();
   }
 

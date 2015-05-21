@@ -120,6 +120,7 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
   };
 
   if (path.indexOf('teacher-list') > 0) {
+    getPageParams();
     getAllTeachers();
   }
 
