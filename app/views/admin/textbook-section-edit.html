@@ -11,9 +11,8 @@
                     <div class="form-group">
                         <label for="textbook_id" class="col-sm-2 control-label">教材ID</label>
                         <div class="col-sm-8">
-                            <select name="textbook_id" id="textbook_id" class="form-control input-sm" ng-model="textbookSection.textbook_id">
-                                <option value="1">1111</option>
-                                <option value="2">22222</option>
+                            <select name="textbook_id" id="textbook_id" class="form-control input-sm" ng-model="textbookSection.textbook_id"
+                                    ng-options="item.id as item.name for item in availableTextbooks">
                             </select>
                         </div>
                     </div>
@@ -27,9 +26,8 @@
                         <label for="pre_section_id" class="col-sm-2 control-label">上级章节ID</label>
                         <div class="col-sm-8">
                             <!--<input name="pre_section_id" type="text" class="form-control input-sm" id="pre_section_id" ng-model="textbookSection.pre_section_id">-->
-                            <select name="pre_section_id" id="pre_section_id" class="form-control input-sm" ng-model="textbookSection.pre_section_id">
-                                <option value="1">1111</option>
-                                <option value="2">22222</option>
+                            <select name="pre_section_id" id="pre_section_id" class="form-control input-sm" ng-model="textbookSection.pre_section_id"
+                                    ng-options="item.id as item.name for item in availableTextbookSections">
                             </select>
                         </div>
                     </div>

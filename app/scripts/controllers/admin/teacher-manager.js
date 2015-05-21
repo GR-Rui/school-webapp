@@ -32,7 +32,7 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
 //    object.operId = userId;
     TeacherManagerSrv.insertTeacher(object)
       .then(function (res) {
-        if (res=='true') {
+        if (res == 'true') {
           //var tid = res.data.id;
           $state.go('admin.teacher-list', {id: userId});
         } else {
@@ -46,7 +46,7 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
     var object = $scope.teacher;
     TeacherManagerSrv.updateTeacher(tid, object)
       .then(function (res) {
-        if (res=='true') {
+        if (res == 'true') {
           $state.go('admin.teacher-list', {id: userId});
         } else {
           alert('保存失败！');
@@ -58,7 +58,7 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
   $scope.delete = function (tid) {
     TeacherManagerSrv.deleteTeacher(tid)
       .then(function (res) {
-        if (res=='true') {
+        if (res == 'true') {
 //          var b = res.data;
           $state.go('admin.teacher-list', {id: userId});
         } else {
@@ -90,7 +90,7 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
   TeacherManagerSrv.getTeacherCount()
     .then(function (res) {
       $scope.count = res;
-      $scope.pageNum = Math.ceil($scope.count/$scope.pageSize);
+      $scope.pageNum = Math.ceil($scope.count / $scope.pageSize);
     });
 
   $scope.prePage = function () {
@@ -152,12 +152,12 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
   });
 
   ///////////// test data
-  $scope.teachers = [
+  /*$scope.teachers = [
     {id: 1, "real_name": "122", "roll_no": "222", "signin_password": "222", "security_key": "222", "signup_ip": "2222", "school_id": "2", "discipline": "2222", "position": "22222", "email": "2222", "mobile": "22222", "remark": "2222222"},
     {id: 2, "real_name": "222", "roll_no": "222", "signin_password": "222", "security_key": "222", "signup_ip": "2222", "school_id": "2", "discipline": "2222", "position": "22222", "email": "2222", "mobile": "22222", "remark": "2222222"},
     {id: 3, "real_name": "322", "roll_no": "222", "signin_password": "222", "security_key": "222", "signup_ip": "2222", "school_id": "2", "discipline": "2222", "position": "22222", "email": "2222", "mobile": "22222", "remark": "2222222"}
   ];
-  $scope.teacher = {id: 3, "real_name": "122", "roll_no": "222", "signin_password": "222", "security_key": "222", "signup_ip": "2222", "school_id": "2", "discipline": "2222", "position": "22222", "email": "2222", "mobile": "22222", "remark": "2222222"};
-
+  $scope.teacher = {id: 3, "real_name": "322", "roll_no": "222", "signin_password": "222", "security_key": "222", "signup_ip": "2222", "school_id": 2, "discipline": "2222", "position": "22222", "email": "2222", "mobile": "22222", "remark": "2222222"};
+  */
 }]);
 

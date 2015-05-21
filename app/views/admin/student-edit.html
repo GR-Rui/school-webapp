@@ -41,9 +41,8 @@
                     <div class="form-group">
                         <label for="school_id" class="col-sm-2 control-label">学校ID</label>
                         <div class="col-sm-8">
-                            <select name="school_id" id="school_id" class="form-control input-sm" ng-model="student.student_id">
-                                <option value="1">1111</option>
-                                <option value="2">22222</option>
+                            <select name="school_id" id="school_id" class="form-control input-sm" ng-model="student.school_id"
+                                    ng-options="item.id as item.name for item in availableSchools">
                             </select>
                         </div>
                     </div>

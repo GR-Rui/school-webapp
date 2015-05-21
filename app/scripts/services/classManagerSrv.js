@@ -52,7 +52,18 @@ Site.factory('ClassManagerSrv', ['$http', '$filter', 'ConfigConst', function ($h
         });
     },
 
-    // get all objects
+    // get Available Classes
+    getAvailableClasses: function () {
+      return $http
+        .get(ConfigConst.urls.api + 'GetClassById?id=0', {headers: {}})
+        .then(function (res) {
+          return res.data;
+        }, function (err) {
+          return err;
+        });
+    },
+
+    // get pagination objects
     getAllClasses: function (size, index) {
       return $http
         .get(ConfigConst.urls.api + 'GetClassPager/?pageIndex='+index+'&pageSize='+size, {headers: {}})

@@ -52,7 +52,18 @@ Site.factory('SchoolManagerSrv', ['$http', '$filter', 'ConfigConst', function ($
         });
     },
 
-    // get all objects
+    // get Available Schools
+    getAvailableSchools: function () {
+      return $http
+        .get(ConfigConst.urls.api + 'GetSchoolById?id=0', {headers: {}})
+        .then(function (res) {
+          return res.data;
+        }, function (err) {
+          return err;
+        });
+    },
+
+    // get pagination objects
     getAllSchools: function (size, index) {
       return $http
         .get(ConfigConst.urls.api + 'GetSchoolPager/?pageIndex='+index+'&pageSize='+size, {headers: {}})

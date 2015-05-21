@@ -52,7 +52,18 @@ Site.factory('TextbookManagerSrv', ['$http', '$filter', 'ConfigConst', function 
         });
     },
 
-    // get all objects
+    // get Available Textbooks
+    getAvailableTextbooks: function () {
+      return $http
+        .get(ConfigConst.urls.api + 'GetBookById?id=0', {headers: {}})
+        .then(function (res) {
+          return res.data;
+        }, function (err) {
+          return err;
+        });
+    },
+
+    // get pagination objects
     getAllTextbooks: function (size, index) {
       return $http
         .get(ConfigConst.urls.api + 'GetBookPager/?pageIndex='+index+'&pageSize='+size, {headers: {}})

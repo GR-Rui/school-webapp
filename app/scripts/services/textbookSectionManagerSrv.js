@@ -52,6 +52,17 @@ Site.factory('TextbookSectionManagerSrv', ['$http', '$filter', 'ConfigConst', fu
         });
     },
 
+    // get Available TextbookSection
+    getAvailableTextbookSections: function () {
+      return $http
+        .get(ConfigConst.urls.api + 'GetSectionById?id=0', {headers: {}})
+        .then(function (res) {
+          return res.data;
+        }, function (err) {
+          return err;
+        });
+    },
+
     // get all objects
     getAllTextbookSections: function (size, index) {
       return $http

@@ -52,7 +52,18 @@ Site.factory('TeacherManagerSrv', ['$http', '$filter', 'ConfigConst', function (
         });
     },
 
-    // get all objects
+    // get Available Teachers
+    getAvailableTeachers: function () {
+      return $http
+        .get(ConfigConst.urls.api + 'GetTeacherById?id=0', {headers: {}})
+        .then(function (res) {
+          return res.data;
+        }, function (err) {
+          return err;
+        });
+    },
+
+    // get pagination objects
     getAllTeachers: function (size, index) {
       return $http
         .get(ConfigConst.urls.api + 'GetTeacherPager/?pageIndex='+index+'&pageSize='+size, {headers: {}})

@@ -52,7 +52,18 @@ Site.factory('StudentManagerSrv', ['$http', '$filter', 'ConfigConst', function (
         });
     },
 
-    // get all objects
+    // get Available Students
+    getAvailableStudents: function () {
+      return $http
+        .get(ConfigConst.urls.api + 'GetStudentById?id=0', {headers: {}})
+        .then(function (res) {
+          return res.data;
+        }, function (err) {
+          return err;
+        });
+    },
+
+    // get pagination objects
     getAllStudents: function (size, index) {
       return $http
         .get(ConfigConst.urls.api + 'GetStudentPager/?pageIndex='+index+'&pageSize='+size, {headers: {}})
