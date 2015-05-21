@@ -28,8 +28,8 @@
             </table>
             <nav class="text-right">
                 <ul class="pagination">
-                    <li ng-class="{'disabled': pageIndex==1}"><a href="javascript:void(0)" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                    <li ng-class="{'disabled': pageIndex==pageNum}"><a href="javascript:void(0)" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                    <li ng-class="{'disabled': pageIndex==1}"><a data-ng-click="prePage()" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                    <li ng-class="{'disabled': pageIndex==pageNum}"><a data-ng-click="nextPage()" aria-label="Next"><span aria-hidden="true">»</span></a></li>
                 </ul>
             </nav>
 
