@@ -33,12 +33,12 @@ Site.controller('LoginCtrl', ['$scope', 'AuthSrv', '$state', '$location', functi
   };
 
   $scope.codeValidation = function() {
-    if (!$scope.form || ($scope.form.code.toLocaleUpperCase() != $scope.code && $scope.form.code.length >= 6)) {
+    if (!$scope.form || ($scope.form.code.toLocaleUpperCase() != $scope.code && $scope.form.code.length >= 5)) {
       $scope.codeMsg = '验证码输入不正确！';
     } else {
       $scope.codeMsg = '';
     }
-    if($scope.form && $scope.form.code.length >= 6) {
+    if($scope.form && $scope.form.code.length >= 5) {
       activeSubmitBtn();
     }
   };
@@ -47,7 +47,7 @@ Site.controller('LoginCtrl', ['$scope', 'AuthSrv', '$state', '$location', functi
     if($scope.userMsg=='' && $scope.passMsg=='' && $scope.codeMsg=='') {
       $scope.loginDisabled = false;
     }else{
-      $scope.loginDisabled = false;//TODO true
+      $scope.loginDisabled = true;//TODO true
     }
   };
 

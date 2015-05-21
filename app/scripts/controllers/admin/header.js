@@ -44,16 +44,20 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', 'SchoolManagerSrv'
           {name: "班级－教材关联管理", link: "admin.class-textbook"},
           {name: "教师－班级关联管理", link: "admin.teacher-class"}
         ]
-      },
-      {
-        name: "教学管理",
-        subList: [
-          {name: "视频管理", link: "admin.video-manager"},
-          {name: "视频列表", link: "admin.video-list"},
-          {name: "添加视频", link: "admin.video-add"}
-        ]
       }
     ];
+
+    /*
+     ,
+     {
+     name: "教学管理",
+     subList: [
+     {name: "视频管理", link: "admin.video-manager"},
+     {name: "视频列表", link: "admin.video-list"},
+     {name: "添加视频", link: "admin.video-add"}
+     ]
+     }
+     */
 
     $scope.profile = [
       {name: "个人信息管理", link: "admin.profile"},
