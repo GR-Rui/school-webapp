@@ -128,12 +128,12 @@ Site.controller('TextbookManagerCtrl', ['$scope', '$state', '$location', '$state
   }
 
   ///////////// test data
-  $scope.textbooks = [
+  /*$scope.textbooks = [
     {id:1, "name":"111","press":"111","publishing_date":"111","publishing_edtion":"111","printing_batch":"111","isbn":"1111","level":"PRIMARY_SCHOOL","version":"SUJIAO_VERSION","grade":"GRADE_ONE","discipline":"CHINESE","status":"OPENED","term":"111","remark":"1111"},
     {id:2, "name":"111","press":"111","publishing_date":"111","publishing_edtion":"111","printing_batch":"111","isbn":"1111","level":"PRIMARY_SCHOOL","version":"SUJIAO_VERSION","grade":"GRADE_ONE","discipline":"CHINESE","status":"OPENED","term":"111","remark":"1111"},
     {id:3, "name":"111","press":"111","publishing_date":"111","publishing_edtion":"111","printing_batch":"111","isbn":"1111","level":"PRIMARY_SCHOOL","version":"SUJIAO_VERSION","grade":"GRADE_ONE","discipline":"CHINESE","status":"OPENED","term":"111","remark":"1111"}
   ];
   $scope.textbook = {id:3, "name":"111","press":"111","publishing_date":"111","publishing_edtion":"111","printing_batch":"111","isbn":"1111","level":"PRIMARY_SCHOOL","version":"SUJIAO_VERSION","grade":"GRADE_ONE","discipline":"CHINESE","status":"OPENED","term":"111","remark":"1111"};
-
+*/
 }]);
 

@@ -126,12 +126,12 @@ Site.controller('ClassManagerCtrl', ['$scope', '$state', '$location', '$statePar
   }
 
   ///////////// test data
-  $scope.classes = [
+  /*$scope.classes = [
     {'id': 1, "name": "111", "school_id": "1", "school_code": "111", "grade": "GRADE_ONE","status":"OPENED", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"},
     {'id': 2, "name": "111", "school_id": "1", "school_code": "111", "grade": "GRADE_ONE","status":"OPENED", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"},
     {'id': 3, "name": "111", "school_id": "1", "school_code": "111", "grade": "GRADE_ONE","status":"OPENED", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"}
   ];
   $scope.class = {'id': 1, "name": "111", "school_id": "1", "school_code": "111", "grade": "GRADE_ONE","status":"OPENED", "enter_year": "111", "charge_teacher": "111", "contact_mobile": "111", "remark": "1111"};
-
+*/
 }]);
 
