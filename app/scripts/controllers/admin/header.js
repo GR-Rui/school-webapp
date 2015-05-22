@@ -96,6 +96,45 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', 'SchoolManagerSrv'
         $scope.availableTextbookSections = JSON.parse(temp);
       });
 
+    /*
+     ** Filter list
+     */
+    $scope.textbookLevel = [
+      {id:'PRIMARY_SCHOOL', name:'小学'},
+      {id:'JUNIOR_MIDDLE_SCHOOL', name:'初中'},
+      {id:'SENIOR_MIDDLE_SCHOOL', name:'高中'}
+    ];
+    $scope.textbookVersion = [
+      {id:'SUJIAO_VERSION', name:'苏教版'},
+      {id:'RENJIAO_VERSION', name:'人教版'}
+    ];
+    $scope.grade = [
+      {id:'GRADE_ONE', name:'一年级'},
+      {id:'GRADE_TWO', name:'二年级'},
+      {id:'GRADE_THREE', name:'三年级'},
+      {id:'GRADE_FOUR', name:'四年级'},
+      {id:'GRADE_FIVE', name:'五年级'},
+      {id:'GRADE_SIX', name:'六年级'},
+      {id:'GRADE_SEVEN', name:'七年级'},
+      {id:'GRADE_EIGHT', name:'八年级'},
+      {id:'GRADE_NINE', name:'九年级'}
+    ];
+    $scope.discipline = [
+      {id:'CHINESE', name:'语文'},
+      {id:'MATH', name:'数学'},
+      {id:'ENGLISH', name:'英语'}
+    ];
+    $scope.textbookStatus = [
+      {id:'DISABLED', name:'未启用'},
+      {id:'ENABLED', name:'已启用但不能被前台用户使用'},
+      {id:'OPENED', name:'启用并且开放给前台用户使用'}
+    ];
+    $scope.questionType = [
+      {id:'SINGLE_OPTION', name:'单选题'},
+      {id:'MULTIPLE_OPTION', name:'多选题'},
+      {id:'YES_OR_NO', name:'是非判断题'}
+    ];
+
     // test data
     /*
     $scope.availableSchools = [

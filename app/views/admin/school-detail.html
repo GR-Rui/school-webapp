@@ -24,7 +24,7 @@
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">所属级别</span>
-                    <span class="col-right">{{school.level}}</span>
+                    <span class="col-right">{{school.level | textbookLevelMap}}</span>
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">校长</span>
@@ -72,11 +72,11 @@
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">状态</span>
-                    <span class="col-right">{{school.status}}</span>
+                    <span class="col-right">{{school.status | textbookStatusMap}}</span>
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">删除标记</span>
-                    <span class="col-right">{{school.delete_flag}}</span>
+                    <span class="col-right">{{school.delete_flag | deleteFlag}}</span>
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">创建的系统用户ID</span>

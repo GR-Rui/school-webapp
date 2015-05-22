@@ -63,6 +63,14 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="status" class="col-sm-2 control-label">学生状态</label>
+                        <div class="col-sm-8">
+                            <select name="status" id="status" class="form-control input-sm" ng-model="form.status"
+                                    ng-options="item.id as item.name for item in textbookStatus">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="remark" class="col-sm-2 control-label">备注</label>
                         <div class="col-sm-8">
                             <textarea class="form-control input-sm" id="remark" ng-model="form.remark"></textarea>

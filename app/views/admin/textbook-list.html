@@ -34,10 +34,10 @@
                     <td>{{item.publishing_edtion}}</td>
                     <td>{{item.printing_batch}}</td>
                     <td>{{item.isbn}}</td>
-                    <td>{{item.level}}</td>
-                    <td>{{item.version}}</td>
-                    <td>{{item.grade}}</td>
-                    <td>{{item.discipline}}</td>
+                    <td>{{item.level | textbookLevelMap}}</td>
+                    <td>{{item.version | textbookVersionMap}}</td>
+                    <td>{{item.grade | gradeMap}}</td>
+                    <td>{{item.discipline | disciplineMap}}</td>
                     <td>{{item.term}}</td>
                 </tr>
                 </tbody>

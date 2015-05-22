@@ -27,7 +27,7 @@
                     <td><a ui-sref="admin.teacher-detail({id:userData.id, tid:item.id})" title="详细信息">{{item.real_name}}</a></td>
                     <td>{{item.roll_no}}</td>
                     <td>{{item.school_id}}</td>
-                    <td>{{item.discipline}}</td>
+                    <td>{{item.discipline | disciplineMap}}</td>
                     <td>{{item.position}}</td>
                     <td>{{item.email}}</td>
                     <td>{{item.mobile}}</td>

@@ -40,7 +40,7 @@
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">学科</span>
-                    <span class="col-right">{{teacher.discipline}}</span>
+                    <span class="col-right">{{teacher.discipline | disciplineMap}}</span>
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">职务</span>
@@ -72,15 +72,15 @@
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">状态</span>
-                    <span class="col-right">{{teacher.status}}</span>
+                    <span class="col-right">{{teacher.status | textbookStatusMap}}</span>
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">锁定标记</span>
-                    <span class="col-right">{{teacher.lock_flag}}</span>
+                    <span class="col-right">{{teacher.lock_flag | lockedFlag}}</span>
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">删除标记</span>
-                    <span class="col-right">{{teacher.delete_flag}}</span>
+                    <span class="col-right">{{teacher.delete_flag | deleteFlag}}</span>
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">备注</span>

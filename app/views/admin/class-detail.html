@@ -24,7 +24,7 @@
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">所属年级</span>
-                    <span class="col-right">{{class.grade}}</span>
+                    <span class="col-right">{{class.grade | gradeMap}}</span>
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">入学年份</span>
@@ -40,11 +40,11 @@
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">状态</span>
-                    <span class="col-right">{{class.status}}</span>
+                    <span class="col-right">{{class.status | textbookStatusMap}}</span>
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">删除标记</span>
-                    <span class="col-right">{{class.delete_flag}}</span>
+                    <span class="col-right">{{class.delete_flag | deleteFlag}}</span>
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">创建的系统用户ID</span>

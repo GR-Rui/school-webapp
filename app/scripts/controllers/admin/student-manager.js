@@ -27,6 +27,7 @@ Site.controller('StudentManagerCtrl', ['$scope', '$state', '$location', '$stateP
   // create
   $scope.form = {};
   $scope.form.school_id = 1;
+  $scope.form.status = 'OPENED';
   $scope.create = function () {
     var object = $scope.form;
 //    object.operId = userId;
@@ -151,12 +152,12 @@ Site.controller('StudentManagerCtrl', ['$scope', '$state', '$location', '$stateP
   });
 
   ///////////// test data
-  /*$scope.students = [
-    {id: 1, "real_name":"11","roll_no":"111","signin_password":"111","security_key":"111","signup_ip":"111","school_id":"1111","email":"111","mobile":"111","remark":"1111"},
-    {id: 2, "real_name":"11","roll_no":"111","signin_password":"111","security_key":"111","signup_ip":"111","school_id":"1111","email":"111","mobile":"111","remark":"1111"},
-    {id: 3, "real_name":"11","roll_no":"111","signin_password":"111","security_key":"111","signup_ip":"111","school_id":"1111","email":"111","mobile":"111","remark":"1111"}
+  $scope.students = [
+    {id: 1, "real_name":"11","status":"OPENED","roll_no":"111","signin_password":"111","security_key":"111","signup_ip":"111","school_id":"1111","email":"111","mobile":"111","remark":"1111"},
+    {id: 2, "real_name":"11","status":"OPENED","roll_no":"111","signin_password":"111","security_key":"111","signup_ip":"111","school_id":"1111","email":"111","mobile":"111","remark":"1111"},
+    {id: 3, "real_name":"11","status":"OPENED","roll_no":"111","signin_password":"111","security_key":"111","signup_ip":"111","school_id":"1111","email":"111","mobile":"111","remark":"1111"}
   ];
-  $scope.student = {id: 3, "real_name":"11","roll_no":"111","signin_password":"111","security_key":"111","signup_ip":"111","school_id":"1111","email":"111","mobile":"111","remark":"1111"};
-*/
+  $scope.student = {id: 3, "real_name":"11","status":"OPENED","roll_no":"111","signin_password":"111","security_key":"111","signup_ip":"111","school_id":"1111","email":"111","mobile":"111","remark":"1111"};
+
 }]);
 

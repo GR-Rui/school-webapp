@@ -43,31 +43,47 @@
                     <div class="form-group">
                         <label for="level" class="col-sm-2 control-label">所属级别</label>
                         <div class="col-sm-8">
-                            <input name="level" type="text" class="form-control input-sm" id="level" ng-model="form.level">
+                            <select name="level" id="level" class="form-control input-sm" ng-model="form.level"
+                                    ng-options="item.id as item.name for item in textbookLevel">
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="version" class="col-sm-2 control-label">所属版本</label>
                         <div class="col-sm-8">
-                            <input name="version" type="text" class="form-control input-sm" id="version" ng-model="form.version">
+                            <select name="version" id="version" class="form-control input-sm" ng-model="form.version"
+                                    ng-options="item.id as item.name for item in textbookVersion">
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="grade" class="col-sm-2 control-label">所属年级</label>
                         <div class="col-sm-8">
-                            <input name="grade" type="text" class="form-control input-sm" id="grade" ng-model="form.grade">
+                            <select name="grade" id="grade" class="form-control input-sm" ng-model="form.grade"
+                                    ng-options="item.id as item.name for item in grade">
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="discipline" class="col-sm-2 control-label">所属学科</label>
                         <div class="col-sm-8">
-                            <input name="discipline" type="text" class="form-control input-sm" id="discipline" ng-model="form.discipline">
+                            <select name="discipline" id="discipline" class="form-control input-sm" ng-model="form.discipline"
+                                    ng-options="item.id as item.name for item in discipline">
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="term" class="col-sm-2 control-label">学期</label>
                         <div class="col-sm-8">
                             <input name="term" type="text" class="form-control input-sm" id="term" ng-model="form.term">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="status" class="col-sm-2 control-label">教材状态</label>
+                        <div class="col-sm-8">
+                            <select name="status" id="status" class="form-control input-sm" ng-model="form.status"
+                                    ng-options="item.id as item.name for item in textbookStatus">
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">

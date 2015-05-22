@@ -8,12 +8,14 @@
  *
  * Main module of the application.
  */
+var SiteFilters = angular.module('SiteFilters', []);
 var Site = angular.module('Site', [
   'ngAnimate',
   'ngRoute',
   'ngSanitize',
   'ngCookies',
-  'ui.router'
+  'ui.router',
+  'SiteFilters'
 ]);
 
 Site.config(

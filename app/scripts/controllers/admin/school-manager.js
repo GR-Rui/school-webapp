@@ -25,6 +25,9 @@ Site.controller('SchoolManagerCtrl', ['$scope', '$state', '$location', '$statePa
   }
 
   // create
+  $scope.form = {};
+  $scope.form.level = 'PRIMARY_SCHOOL';
+  $scope.form.status = 'OPENED';
   $scope.create = function () {
     var object = $scope.form;
 //    object.operId = userId;
@@ -122,12 +125,12 @@ Site.controller('SchoolManagerCtrl', ['$scope', '$state', '$location', '$statePa
   }
 
   ///////////// test data
-  /*$scope.schools = [
-    {id: 1, "name":"333","edu_no":"333","code":"333","level":"333","principal":"333","province_id":"333","city_id":"3333","district_id":"33333","official_email":"3333","official_tel":"3333","address":"3333","postal_code":"3333","contact":"3333","contact_mobile":"333","contact_tel":"333","remark":"3333"},
-    {id: 2, "name":"333","edu_no":"333","code":"333","level":"333","principal":"333","province_id":"333","city_id":"3333","district_id":"33333","official_email":"3333","official_tel":"3333","address":"3333","postal_code":"3333","contact":"3333","contact_mobile":"333","contact_tel":"333","remark":"3333"},
-    {id: 3, "name":"333","edu_no":"333","code":"333","level":"333","principal":"333","province_id":"333","city_id":"3333","district_id":"33333","official_email":"3333","official_tel":"3333","address":"3333","postal_code":"3333","contact":"3333","contact_mobile":"333","contact_tel":"333","remark":"3333"}
+  $scope.schools = [
+    {id: 1, "name":"333","edu_no":"333","code":"333","level":"PRIMARY_SCHOOL","status":"OPENED","principal":"333","province_id":"333","city_id":"3333","district_id":"33333","official_email":"3333","official_tel":"3333","address":"3333","postal_code":"3333","contact":"3333","contact_mobile":"333","contact_tel":"333","remark":"3333"},
+    {id: 2, "name":"333","edu_no":"333","code":"333","level":"PRIMARY_SCHOOL","status":"OPENED","principal":"333","province_id":"333","city_id":"3333","district_id":"33333","official_email":"3333","official_tel":"3333","address":"3333","postal_code":"3333","contact":"3333","contact_mobile":"333","contact_tel":"333","remark":"3333"},
+    {id: 3, "name":"333","edu_no":"333","code":"333","level":"PRIMARY_SCHOOL","status":"OPENED","principal":"333","province_id":"333","city_id":"3333","district_id":"33333","official_email":"3333","official_tel":"3333","address":"3333","postal_code":"3333","contact":"3333","contact_mobile":"333","contact_tel":"333","remark":"3333"}
   ];
-  $scope.school = {id: 3, "name":"333","edu_no":"333","code":"333","level":"333","principal":"333","province_id":"333","city_id":"3333","district_id":"33333","official_email":"3333","official_tel":"3333","address":"3333","postal_code":"3333","contact":"3333","contact_mobile":"333","contact_tel":"333","remark":"3333"};
-*/
+  $scope.school = {id: 3, "name":"333","edu_no":"333","code":"333","level":"PRIMARY_SCHOOL","status":"OPENED","principal":"333","province_id":"333","city_id":"3333","district_id":"33333","official_email":"3333","official_tel":"3333","address":"3333","postal_code":"3333","contact":"3333","contact_mobile":"333","contact_tel":"333","remark":"3333"};
+
 }]);
 

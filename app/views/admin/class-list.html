@@ -27,7 +27,7 @@
                     <td><a ui-sref="admin.class-detail({id:userData.id, cid:item.id})" title="详细信息">{{item.name}}</a></td>
                     <td>{{item.school_id}}</td>
                     <td>{{item.school_code}}</td>
-                    <td>{{item.grade}}</td>
+                    <td>{{item.grade | gradeMap}}</td>
                     <td>{{item.enter_year}}</td>
                     <td>{{item.charge_teacher}}</td>
                     <td>{{item.contact_mobile}}</td>

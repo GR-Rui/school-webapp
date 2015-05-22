@@ -25,7 +25,9 @@
                     <div class="form-group">
                         <label for="level" class="col-sm-2 control-label">所属级别</label>
                         <div class="col-sm-8">
-                            <input name="level" type="text" class="form-control input-sm" id="level" ng-model="form.level">
+                            <select name="level" id="level" class="form-control input-sm" ng-model="form.level"
+                                    ng-options="item.id as item.name for item in textbookLevel">
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -92,6 +94,14 @@
                         <label for="contact_tel" class="col-sm-2 control-label">联系人固定电话</label>
                         <div class="col-sm-8">
                             <input name="contact_tel" type="text" class="form-control input-sm" id="contact_tel" ng-model="form.contact_tel">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="status" class="col-sm-2 control-label">学校状态</label>
+                        <div class="col-sm-8">
+                            <select name="status" id="status" class="form-control input-sm" ng-model="form.status"
+                                    ng-options="item.id as item.name for item in textbookStatus">
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">

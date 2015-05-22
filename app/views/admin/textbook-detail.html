@@ -36,19 +36,19 @@
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">所属级别</span>
-                    <span class="col-right">{{textbook.level}}</span>
+                    <span class="col-right">{{textbook.level | textbookLevelMap}}</span>
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">所属版本</span>
-                    <span class="col-right">{{textbook.version}}</span>
+                    <span class="col-right">{{textbook.version | textbookVersionMap}}</span>
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">所属年级</span>
-                    <span class="col-right">{{textbook.grade}}</span>
+                    <span class="col-right">{{textbook.grade | gradeMap}}</span>
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">所属学科</span>
-                    <span class="col-right">{{textbook.discipline}}</span>
+                    <span class="col-right">{{textbook.discipline | disciplineMap}}</span>
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">学期</span>
@@ -56,11 +56,11 @@
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">状态</span>
-                    <span class="col-right">{{textbook.status}}</span>
+                    <span class="col-right">{{textbook.status | textbookStatusMap}}</span>
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">删除标记</span>
-                    <span class="col-right">{{textbook.delete_flag}}</span>
+                    <span class="col-right">{{textbook.delete_flag | deleteFlag}}</span>
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">创建的系统用户ID</span>

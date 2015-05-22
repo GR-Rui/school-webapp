@@ -64,15 +64,15 @@
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">状态</span>
-                    <span class="col-right">{{student.status}}</span>
+                    <span class="col-right">{{student.status | textbookStatusMap}}</span>
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">锁定标记</span>
-                    <span class="col-right">{{student.lock_flag}}</span>
+                    <span class="col-right">{{student.lock_flag | lockedFlag}}</span>
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">删除标记</span>
-                    <span class="col-right">{{student.delete_flag}}</span>
+                    <span class="col-right">{{student.delete_flag | deleteFlag}}</span>
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">备注</span>
