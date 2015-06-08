@@ -7,8 +7,8 @@
  * # HeaderCtrl
  * Controller of the WebappApp
  */
-Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', 'SchoolManagerSrv', 'StudentManagerSrv', 'TeacherManagerSrv', 'TextbookManagerSrv', 'TextbookSectionManagerSrv',
-  function ($scope, AuthSrv, $state, SchoolManagerSrv, StudentManagerSrv, TeacherManagerSrv, TextbookManagerSrv, TextbookSectionManagerSrv) {
+Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', 'SchoolManagerSrv', 'StudentManagerSrv', 'TeacherManagerSrv', 'TextbookManagerSrv', 'TextbookSectionManagerSrv', 'VideoManagerSrv',
+  function ($scope, AuthSrv, $state, SchoolManagerSrv, StudentManagerSrv, TeacherManagerSrv, TextbookManagerSrv, TextbookSectionManagerSrv, VideoManagerSrv) {
     console.log("HeaderCtrl");
 
     $scope.userData = {id: "SG0822888", name: "ruigao", password: "19851012", position: "teacher"};
@@ -43,6 +43,13 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', 'SchoolManagerSrv'
           {name: "教材－章节添加", link: "admin.textbook-section-add"},
           {name: "班级－教材关联管理", link: "admin.class-textbook"},
           {name: "教师－班级关联管理", link: "admin.teacher-class"}
+        ]
+      },
+      {
+        name: "教学管理",
+        subList: [
+          {name: "视频列表", link: "admin.video-list"},
+          {name: "添加视频", link: "admin.video-add"}
         ]
       }
     ];
@@ -82,6 +89,12 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', 'SchoolManagerSrv'
       .then(function (res) {
         var temp = JSON.parse(res);
         $scope.availableSchools = JSON.parse(temp);
+      });
+
+    TeacherManagerSrv.getAvailableTeachers()
+      .then(function (res) {
+        var temp = JSON.parse(res);
+        $scope.availableTeachers = JSON.parse(temp);
       });
 
     TextbookManagerSrv.getAvailableTextbooks()

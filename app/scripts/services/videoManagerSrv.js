@@ -33,7 +33,7 @@ Site.factory('VideoManagerSrv', ['$http', '$filter', 'ConfigConst', function ($h
     // delete
     deleteVideo: function (id) {
       return $http
-        .delete(ConfigConst.urls.api + 'deleteVideo?info=' + id, {headers: {}})
+        .delete(ConfigConst.urls.api + 'DeleteVideoById?info=' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -44,7 +44,7 @@ Site.factory('VideoManagerSrv', ['$http', '$filter', 'ConfigConst', function ($h
     // get one object by id
     getVideoById: function (id) {
       return $http
-        .get(ConfigConst.urls.api + 'OneVideo?info=' + id, {headers: {}})
+        .get(ConfigConst.urls.api + 'GetVideoById?id=' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -52,10 +52,21 @@ Site.factory('VideoManagerSrv', ['$http', '$filter', 'ConfigConst', function ($h
         });
     },
 
-    // get all objects
-    getAllVideos: function () {
+    // get pagination objects
+    getAllVideos: function (size, index) {
       return $http
-        .get(ConfigConst.urls.api + 'AllVideos?info=', {headers: {}})
+        .get(ConfigConst.urls.api + 'GetVideoPager/?pageIndex='+index+'&pageSize='+size, {headers: {}})
+        .then(function (res) {
+          return res.data;
+        }, function (err) {
+          return err;
+        });
+    },
+
+    // get count
+    getVideoCount: function () {
+      return $http
+        .get(ConfigConst.urls.api + 'GetVideoCount', {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {

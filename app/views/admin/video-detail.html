@@ -58,6 +58,18 @@
                     <span class="col-left">封面宽度</span>
                     <span class="col-right">{{video.cover_width}}</span>
                 </li>
+                <li class="list-group-item">
+                    <span class="col-left">老师ID</span>
+                    <span class="col-right">{{video.teacher_id}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">状态</span>
+                    <span class="col-right">{{video.status | textbookStatusMap}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">删除标记</span>
+                    <span class="col-right">{{video.delete_flag | deleteFlag}}</span>
+                </li>
             </ul>
         </div>
     </div>

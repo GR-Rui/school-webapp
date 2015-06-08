@@ -7,7 +7,7 @@
  * # VideoManagerCtrl
  * Controller of the webApp
  */
-Site.controller('VideoManagerCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'VideoManagerSrv', function ($scope, $state, $location, $stateParams, $q, VideoManagerSrv) {
+Site.controller('VideoManagerCtrl', ['$scope', '$state', '$location', '$stateParams', '$route', '$q', 'VideoManagerSrv', function ($scope, $state, $location, $stateParams, $route, $q, VideoManagerSrv) {
   console.log('VideoManagerCtrl');
 
   var vid = $stateParams.vid;
@@ -23,55 +23,38 @@ Site.controller('VideoManagerCtrl', ['$scope', '$state', '$location', '$statePar
     VideoManagerSrv.getVideoById(vid)
       .then(function (res) {
         if (res.ack == 'success') {
-          var object = res.data;
-//          object.createDate = moment().format('LLLL');
-          $scope.video = object;
+          var temp = JSON.parse(res);
+          var obj = JSON.parse(temp);
+          $scope.video = obj[0];
         }
       });
   }
 
-  /*
-   $scope.checkAll = function () {
-   $scope.selectedAll = !$scope.selectedAll;
-   angular.forEach($scope.classes, function (item) {
-   item.selected = $scope.selectedAll;
-   });
-   };
-
-   $scope.deleteItems = function () {
-   var promiseArray = [];
-   var classes = _.filter($scope.classes, {'selected': true});
-   _.forEach(classes, function (item) {
-   promiseArray.push(ClassManagerSrv.deleteClass(item.id));
-   });
-   $q.all(promiseArray)
-   .then(function (responseArray) {
-   if (responseArray.length == classes.length) {
-   $scope.classes = _.xor($scope.classes, classes);
-   }
-   })
-   };*/
-
   // create
+  $scope.form = {};
+  $scope.form.teacher_id = 1;
+  $scope.form.status = 'OPENED';
   $scope.create = function () {
     var object = $scope.form;
-//    object.operId = userId;
     VideoManagerSrv.insertVideo(object)
       .then(function (res) {
-        if (res.ack == 'success') {
-          var vid = res.data.id;
-          $state.go('super-admin.video-detail', {id: userId, cid: vid});
+        if (res=='true') {
+          $state.go('admin.video-detail', {id: userId});
+        } else {
+          alert('保存失败！');
         }
       });
   };
 
   // update
   $scope.update = function (vid) {
-    var object = _.pick($scope.class, ['name', 'description']);
+    var object = $scope.video;
     VideoManagerSrv.update(vid, object)
       .then(function (res) {
-        if (res.ack == 'success') {
-          $state.go('super-admin.video-detail', {id: userId, vid: vid});
+        if (res=='true') {
+          $state.go('super-admin.video-detail', {id: userId});
+        } else {
+          alert('保存失败！');
         }
       });
   };
@@ -80,55 +63,70 @@ Site.controller('VideoManagerCtrl', ['$scope', '$state', '$location', '$statePar
   $scope.delete = function (vid) {
     VideoManagerSrv.deleteClass(vid)
       .then(function (res) {
-        if (res.ack == 'success') {
-          var b = res.data;
+        if (res=='true') {
           $state.go('super-admin.video-list', {id: userId});
+        } else {
+          alert('删除失败！');
         }
       });
   };
 
   function getAllVideos() {
-    VideoManagerSrv.getAllVideos()
+    VideoManagerSrv.getAllVideos($scope.pageSize, $scope.pageIndex)
       .then(function (res) {
-        if (res.ack == 'success') {
-          $scope.videos = res.data;
-          // default sort column
-          $scope.getters = {
-            name: function (value) {
-              //this will sort by the length of the first name string
-              return value.name.length;
-            }
-          };
-        }//if
+        var temp = JSON.parse(res);
+        $scope.videos = JSON.parse(temp);
       });
+  }
+
+  /*
+   ** pagination
+   */
+  function getPageParams() {
+    var params = $location.search();
+    if (!_.isEmpty(params)) {
+      $scope.pageIndex = parseInt(params.pageIndex, 10);
+    } else {
+      $scope.pageIndex = 1;
+    }
+  }
+
+  VideoManagerSrv.getVideoCount()
+    .then(function (res) {
+      $scope.count = res;
+      $scope.pageNum = Math.ceil($scope.count/$scope.pageSize);
+    });
+
+  $scope.prePage = function () {
+    getPageParams();
+    var index = $scope.pageIndex;
+    if (index <= 1) {
+      return;
+    } else {
+      $location.path('/admin/' + userId + '/video-list');
+      $location.search('pageIndex', index - 1);
+      getAllVideos();
+      $route.reload();
+    }
   };
 
-  var uploadObj = $("#fileUploadPost").uploadFile({
-    url: "upload.php",
-    allowedTypes: "png,gif,jpg,jpeg",
-    multiple: true,
-    autoSubmit: false,
-    fileName: "file",
-    maxFileSize: 1024 * 1024 * 20,
-    maxFileCount: 1,
-    showProgress: true,
-    showFileCounter: true,
-    showStatusAfterSuccess: true,
-    uploadButtonClass: "ajax-file-upload-blue",
-    onSubmit: function (files) {
-      $("#eventsmessage").html($("#eventsmessage").html() + "<br/>Submitting:" + JSON.stringify(files));
-    },
-    onSuccess: function (files, data, xhr) {
-
-    },
-    onError: function (files, status, errMsg) {
-      $("#eventsmessage").html($("#eventsmessage").html() + "<br/>Error for: " + JSON.stringify(files));
+  $scope.nextPage = function () {
+    getPageParams();
+    var index = $scope.pageIndex;
+    if (index >= $scope.pageNum) {
+      return;
+    } else {
+      $location.path('/admin/' + userId + '/video-list');
+      $location.search('pageIndex', index + 1);
+      getAllVideos();
+      $route.reload();
     }
-  });
+  };
 
-  $("#startUploadPost").on('click', function () {
-    uploadObj.startUpload();
-  });
+  if (path.indexOf('video-list') > 0) {
+    getPageParams();
+    getAllVideos();
+  }
 
   // test date
   $scope.videos = [
@@ -137,7 +135,7 @@ Site.controller('VideoManagerCtrl', ['$scope', '$state', '$location', '$statePar
     {id: 3, "video_name": "1111", "mime": "1111", "location": "11111", "url": "1111", "tudouUrl": "1111", "duration": "1111", "cover_mime": "111", "cover_location": "111", "cover_url": "1111", "cover_size": "1111", "cover_height": "11111", "cover_width": "1111"}
   ];
   $scope.video = {
-    id: 1, "video_name": "1111", "mime": "1111", "location": "11111", "url": "1111", "tudouUrl": "1111", "duration": "1111", "cover_mime": "111", "cover_location": "111", "cover_url": "1111", "cover_size": "1111", "cover_height": "11111", "cover_width": "1111"
+    id: 1, "video_name": "1111", "status":"OPENED",  "mime": "1111", "location": "11111", "url": "1111", "tudouUrl": "1111", "duration": "1111", "cover_mime": "111", "cover_location": "111", "cover_url": "1111", "cover_size": "1111", "cover_height": "11111", "cover_width": "1111", "teacher_id":1
   }
 
 }]);
