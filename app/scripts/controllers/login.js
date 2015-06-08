@@ -14,7 +14,7 @@ Site.controller('LoginCtrl', ['$scope', 'AuthSrv', '$state', '$location', functi
   $scope.passMsg = undefined;
   $scope.codeMsg = undefined;
 
-  $scope.nameValidation = function() {
+  $scope.nameValidation = function () {
     if (!$scope.form || $scope.form.user == '') {
       $scope.userMsg = '用户名不能为空！';
     } else {
@@ -23,7 +23,7 @@ Site.controller('LoginCtrl', ['$scope', 'AuthSrv', '$state', '$location', functi
     activeSubmitBtn();
   };
 
-  $scope.passValidation = function() {
+  $scope.passValidation = function () {
     if (!$scope.form || $scope.form.pass == '') {
       $scope.passMsg = '密码不能为空！';
     } else {
@@ -32,37 +32,56 @@ Site.controller('LoginCtrl', ['$scope', 'AuthSrv', '$state', '$location', functi
     activeSubmitBtn();
   };
 
-  $scope.codeValidation = function() {
+  $scope.codeValidation = function () {
     if (!$scope.form || ($scope.form.code.toLocaleUpperCase() != $scope.code && $scope.form.code.length >= 5)) {
       $scope.codeMsg = '验证码输入不正确！';
     } else {
       $scope.codeMsg = '';
     }
-    if($scope.form && $scope.form.code.length >= 5) {
+    if ($scope.form && $scope.form.code.length >= 5) {
       activeSubmitBtn();
     }
   };
 
-  var activeSubmitBtn = function() {
-    if($scope.userMsg=='' && $scope.passMsg=='' && $scope.codeMsg=='') {
+  var activeSubmitBtn = function () {
+    if ($scope.userMsg == '' && $scope.passMsg == '' && $scope.codeMsg == '') {
       $scope.loginDisabled = false;
-    }else{
+    } else {
       $scope.loginDisabled = true;//TODO true
     }
   };
 
   $scope.login = function () {
-    AuthSrv.login($scope.form.user, $scope.form.pass)
-      .then(function (session) {
-        var user = session.data;
+    /*AuthSrv.login($scope.form.user, $scope.form.pass)
+     .then(function (session) {
+     var users = session.data;
+     var user = {name: $scope.form.user, pass: $scope.form.pass};
 
-        var redirectUrl = undefined;
-        if (redirectUrl) {
-          $location.path(redirectUrl);
-        } else {
-          $state.go('admin.home', {id: user.userId});
-        }
-      })
+     var redirectUrl = undefined;
+     if (redirectUrl) {
+     $location.path(redirectUrl);
+     } else {
+     var res = _.find(users, function (item) {
+     return item.name == user.name;
+     });
+     if (res && res.length > 0) {
+     $state.go('admin.home', {id: res.id});
+     }
+     }
+     })*/
+    var users = [
+      {id: 1, name: 'admin', pass: 'yjtadmin'},
+      {id: 2, name: 'system', pass: 'yjtsystem'}
+    ];
+    var user = {name: $scope.form.user, pass: $scope.form.pass};
+    var res = _.find(users, function (item) {
+      return item.name == user.name;
+    });
+    if (res && res.id) {
+      $state.go('admin.home', {id: res.id});
+    }else{
+      alert
+    }
   };
 
   $scope.createCode = function () {
