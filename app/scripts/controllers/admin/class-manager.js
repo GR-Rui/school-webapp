@@ -49,7 +49,7 @@ Site.controller('ClassManagerCtrl', ['$scope', '$state', '$location', '$statePar
       ClassManagerSrv.updateClass(cid, object)
       .then(function (res) {
         if (res=='true') {
-          $state.go('super-admin.class-list', {id: userId});
+          $state.go('admin.class-list', {id: userId});
         } else {
           alert('保存失败！');
         }
@@ -61,7 +61,7 @@ Site.controller('ClassManagerCtrl', ['$scope', '$state', '$location', '$statePar
     ClassManagerSrv.deleteClass(cid)
       .then(function (res) {
         if (res=='true') {
-          $state.go('super-admin.class-list', {id: userId});
+          $state.go('admin.class-list', {id: userId});
         } else {
           alert('删除失败！');
         }

@@ -1,0 +1,46 @@
+<div class="" data-ng-controller="TeacherTextbookManagerCtrl">
+    <div class="panel panel-default">
+        <div class="panel-heading"><span class="icon-share2"></span>添加老师－教材</div>
+        <div class="panel-body">
+            <form class="form-horizontal" id="addForm">
+                <fieldset class="col-sm-12">
+                    <div class="form-group">
+                        <label for="teacher_id" class="col-sm-2 control-label">选择老师</label>
+                        <div class="col-sm-8">
+                            <select name="teacher_id" id="teacher_id" class="form-control input-sm" ng-model="form.teacher_id"
+                                    ng-options="item.id as item.real_name for item in availableTeachers">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="textbook_id" class="col-sm-2 control-label">选择教材</label>
+                        <div class="col-sm-8">
+                            <select name="textbook_id" id="textbook_id" class="form-control input-sm" ng-model="form.textbook_id"
+                                    ng-options="item.id as item.name for item in availableTextbooks">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="status" class="col-sm-2 control-label">状态</label>
+                        <div class="col-sm-8">
+                            <select name="status" id="status" class="form-control input-sm" ng-model="form.status"
+                                    ng-options="item.id as item.name for item in tcStatus">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="remark" class="col-sm-2 control-label">备注</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control input-sm" id="remark" ng-model="form.remark"></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="col-lg-12 col-lg-offset-2">
+                    <button type="submit" class="btn btn-primary" data-ng-click="create()">保存</button>
+                    <button type="reset" class="btn btn-default">重置</button>
+                </div>
+            </form>
+        </div>
+        <!--panel-body-->
+    </div>
+</div>

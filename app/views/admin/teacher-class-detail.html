@@ -1,0 +1,40 @@
+<div class="" data-ng-controller="TeacherClassManagerCtrl">
+    <div class="panel panel-default">
+        <div class="panel-heading relative">
+            <span class="icon-share2"></span>老师－班级详细信息
+            <div class="align-right">
+                <a class="text-decoration" ui-sref="admin.teacher-class-edit({id:userData.id, tcid:teacherClass.id})">编辑<span class="icon-pencil"></span></a>
+                <a class="text-decoration" href="javascript:void(0)" data-ng-click="delete(teacherClass.id)">删除<span class="icon-pencil"></span></a>
+                <a class="text-decoration" ui-sref="admin.teacher-class-list({id:userData.id})">返回<span class="icon-forward"></span></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span class="col-left">教师ID</span>
+                    <span class="col-right">{{teacherClass.teacher_id}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">班级ID</span>
+                    <span class="col-right">{{teacherClass.class_id}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">添加时间</span>
+                    <span class="col-right">{{teacherClass.added_time}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">状态</span>
+                    <span class="col-right">{{teacherClass.status | tcStatusMap}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">删除标记</span>
+                    <span class="col-right">{{teacherClass.delete_flag | deleteFlag}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">备注</span>
+                    <span class="col-right">{{teacherClass.remark}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

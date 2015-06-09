@@ -64,6 +64,14 @@ Site.config(
         .state('admin.video-detail', {url: '/video-detail/:vid', templateUrl: 'views/admin/video-detail.html'})
         .state('admin.player', {url: '/video-player/:id', templateUrl: 'views/admin/video.player.html'})
         .state('admin.profile', {url: '/profile', templateUrl: 'views/admin/profile.html'})
+        .state('admin.teacher-class-add', {url: '/teacher-class-add', templateUrl: 'views/admin/teacher-class-add.html'})
+        .state('admin.teacher-class-edit', {url: '/teacher-class-edit/:tcid', templateUrl: 'views/admin/teacher-class-edit.html'})
+        .state('admin.teacher-class-list', {url: '/teacher-class-list', templateUrl: 'views/admin/teacher-class-list.html'})
+        .state('admin.teacher-class-detail', {url: '/teacher-class-detail/:tcid', templateUrl: 'views/admin/teacher-class-detail.html'})
+        .state('admin.teacher-textbook-add', {url: '/teacher-textbook-add', templateUrl: 'views/admin/teacher-textbook-add.html'})
+        .state('admin.teacher-textbook-edit', {url: '/teacher-textbook-edit/:ttid', templateUrl: 'views/admin/teacher-textbook-edit.html'})
+        .state('admin.teacher-textbook-list', {url: '/teacher-textbook-list', templateUrl: 'views/admin/teacher-textbook-list.html'})
+        .state('admin.teacher-textbook-detail', {url: '/teacher-textbook-detail/:ttid', templateUrl: 'views/admin/teacher-textbook-detail.html'})
 
         .state('login', {url: '/login', templateUrl: 'views/login.html', controller: 'LoginCtrl'});
       $urlRouterProvider.otherwise('/login');

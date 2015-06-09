@@ -148,6 +148,25 @@ angular.module('SiteFilters')
   });
 
 angular.module('SiteFilters')
+  .filter('tcStatusMap', function () {
+    return function (value) {
+      var temp = "";
+      switch (value) {
+        case 1:
+          temp = '已退出';
+          break;
+        case 0:
+          temp = '正常';
+          break;
+        default:
+          temp = null;
+          break;
+      }
+      return(temp);
+    }
+  });
+
+angular.module('SiteFilters')
   .filter('questionTypeMap', function () {
     return function (value) {
       var temp = "";

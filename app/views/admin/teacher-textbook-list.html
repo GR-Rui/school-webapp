@@ -1,0 +1,42 @@
+<div class="" data-ng-controller="TeacherTextbookManagerCtrl">
+    <div class="panel panel-default">
+        <div class="panel-heading"><span class="icon-share2"></span>老师－教材信息列表</div>
+        <div class="panel-body">
+            <!--<div class="col-sm-6">-->
+                <!--<div class="input-group">-->
+                    <!--<input type="text" class="form-control" placeholder="请输入要搜索的关键字符">-->
+                      <!--<span class="input-group-btn">-->
+                        <!--<button class="btn btn-default" type="button">搜索</button>-->
+                      <!--</span>-->
+                <!--</div>-->
+            <!--</div>-->
+            <table st-table="teacherTextbooks" class="table table-striped table-hover ">
+                <thead>
+                <tr>
+                    <th st-sort="name" class="col-sm-2 pointer">教师ID</th>
+                    <th class="col-sm-2">教材ID</th>
+                    <th class="col-sm-4">添加时间</th>
+                    <th class="col-sm-4">状态</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in teacherTextbooks">
+                    <td><a ui-sref="admin.teacher-textbook-detail({id:userData.id, ttid:item.id})" title="详细信息">{{item.teacher_id}}</a></td>
+                    <td>{{item.textbook_id}}</td>
+                    <td>{{item.added_time}}</td>
+                    <td>{{item.status | tcStatusMap}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <nav class="text-right">
+                <ul class="pagination">
+                    <li ng-class="{'disabled': pageIndex==1}"><a data-ng-click="prePage()" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                    <li ng-class="{'disabled': pageIndex==pageNum}"><a data-ng-click="nextPage()" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                </ul>
+            </nav>
+
+            <div class="align-right"><a href="javascript:void(0)">查看全部<span class="icon-forward"></span></a></div>
+
+        </div>
+    </div>
+</div>
