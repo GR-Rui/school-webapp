@@ -22,11 +22,9 @@ Site.controller('VideoManagerCtrl', ['$scope', '$state', '$location', '$statePar
   if (vid) {
     VideoManagerSrv.getVideoById(vid)
       .then(function (res) {
-        if (res.ack == 'success') {
-          var temp = JSON.parse(res);
-          var obj = JSON.parse(temp);
-          $scope.video = obj[0];
-        }
+        var temp = JSON.parse(res);
+        var obj = JSON.parse(temp);
+        $scope.video = obj[0];
       });
   }
 
@@ -39,7 +37,7 @@ Site.controller('VideoManagerCtrl', ['$scope', '$state', '$location', '$statePar
     VideoManagerSrv.insertVideo(object)
       .then(function (res) {
         if (res=='true') {
-          $state.go('admin.video-detail', {id: userId});
+          $state.go('admin.video-list', {id: userId});
         } else {
           alert('保存失败！');
         }
@@ -47,12 +45,12 @@ Site.controller('VideoManagerCtrl', ['$scope', '$state', '$location', '$statePar
   };
 
   // update
-  $scope.update = function (vid) {
+  $scope.update = function () {
     var object = $scope.video;
-    VideoManagerSrv.update(vid, object)
+    VideoManagerSrv.updateVideo(vid, object)
       .then(function (res) {
         if (res=='true') {
-          $state.go('super-admin.video-detail', {id: userId});
+          $state.go('admin.video-list', {id: userId});
         } else {
           alert('保存失败！');
         }
@@ -64,7 +62,7 @@ Site.controller('VideoManagerCtrl', ['$scope', '$state', '$location', '$statePar
     VideoManagerSrv.deleteClass(vid)
       .then(function (res) {
         if (res=='true') {
-          $state.go('super-admin.video-list', {id: userId});
+          $state.go('admin.video-list', {id: userId});
         } else {
           alert('删除失败！');
         }
@@ -129,13 +127,13 @@ Site.controller('VideoManagerCtrl', ['$scope', '$state', '$location', '$statePar
   }
 
   // test date
-  /*$scope.videos = [
+  $scope.videos = [
     {id: 1, "video_name": "1111", "mime": "1111", "location": "11111", "url": "1111", "tudouUrl": "1111", "duration": "1111", "cover_mime": "111", "cover_location": "111", "cover_url": "1111", "cover_size": "1111", "cover_height": "11111", "cover_width": "1111"},
     {id: 2, "video_name": "1111", "mime": "1111", "location": "11111", "url": "1111", "tudouUrl": "1111", "duration": "1111", "cover_mime": "111", "cover_location": "111", "cover_url": "1111", "cover_size": "1111", "cover_height": "11111", "cover_width": "1111"},
     {id: 3, "video_name": "1111", "mime": "1111", "location": "11111", "url": "1111", "tudouUrl": "1111", "duration": "1111", "cover_mime": "111", "cover_location": "111", "cover_url": "1111", "cover_size": "1111", "cover_height": "11111", "cover_width": "1111"}
   ];
   $scope.video = {
     id: 1, "video_name": "1111", "status":"OPENED",  "mime": "1111", "location": "11111", "url": "1111", "tudouUrl": "1111", "duration": "1111", "cover_mime": "111", "cover_location": "111", "cover_url": "1111", "cover_size": "1111", "cover_height": "11111", "cover_width": "1111", "teacher_id":1
-  }*/
+  }
 
 }]);

@@ -68,31 +68,31 @@ angular.module('SiteFilters')
     return function (value) {
       var temp = "";
       switch (value) {
-        case 'GRADE_ONE':
+        case 'GRADE_1':
           temp = '一年级';
           break;
-        case 'GRADE_TWO':
+        case 'GRADE_2':
           temp = '二年级';
           break;
-        case 'GRADE_THREE':
+        case 'GRADE_3':
           temp = '三年级';
           break;
-        case 'GRADE_FOUR':
+        case 'GRADE_4':
           temp = '四年级';
           break;
-        case 'GRADE_FIVE':
+        case 'GRADE_5':
           temp = '五年级';
           break;
-        case 'GRADE_SIX':
+        case 'GRADE_6':
           temp = '六年级';
           break;
-        case 'GRADE_SEVEN':
+        case 'GRADE_7':
           temp = '七年级';
           break;
-        case 'GRADE_EIGHT':
+        case 'GRADE_8':
           temp = '八年级';
           break;
-        case 'GRADE_NINE':
+        case 'GRADE_9':
           temp = '九年级';
           break;
         default:

@@ -8,7 +8,7 @@
         <!--panel-body-->
     </div>
     <div class="panel panel-default">
-        <div class="panel-heading relative"><span class="icon-share2"></span>添加视频信息
+        <div class="panel-heading relative"><span class="icon-share2"></span>修改视频信息
             <div class="align-right">
                 <a class="text-decoration" ui-sref="admin.video-detail({id:userData.id, vid:video.id})">返回<span class="icon-forward"></span></a>
             </div>
@@ -19,7 +19,7 @@
                     <div class="form-group">
                         <label for="video_name" class="col-sm-2 control-label">视频名字</label>
                         <div class="col-sm-8">
-                            <input name="video_name" type="text" class="form-control input-sm" id="video_name" ng-model="video.video_name">
+                            <input name="video_name" type="text" class="form-control input-sm" id="video_name" ng-model="video.name">
                         </div>
                     </div>
                     <div class="form-group">
@@ -43,7 +43,7 @@
                     <div class="form-group">
                         <label for="tudouUrl" class="col-sm-2 control-label">土豆网址</label>
                         <div class="col-sm-8">
-                            <input name="tudouUrl" type="text" class="form-control input-sm" id="tudouUrl" ng-model="video.tudouUrl">
+                            <input name="tudouUrl" type="text" class="form-control input-sm" id="tudouUrl" ng-model="video.external_url">
                         </div>
                     </div>
                     <div class="form-group">
