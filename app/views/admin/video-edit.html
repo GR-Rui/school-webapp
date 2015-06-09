@@ -8,7 +8,7 @@
         <!--panel-body-->
     </div>
     <div class="panel panel-default">
-        <div class="panel-heading relative"><span class="icon-share2"></span>修改视频信息
+        <div class="panel-heading relative"><span class="icon-share2"></span>添加视频信息
             <div class="align-right">
                 <a class="text-decoration" ui-sref="admin.video-detail({id:userData.id, vid:video.id})">返回<span class="icon-forward"></span></a>
             </div>
@@ -92,7 +92,7 @@
                         <label for="teacher_id" class="col-sm-2 control-label">老师ID</label>
                         <div class="col-sm-8">
                             <select name="teacher_id" id="teacher_id" class="form-control input-sm" ng-model="video.teacher_id"
-                                    ng-options="item.id as item.name for item in availableTeachers">
+                                    ng-options="item.id as item.real_name for item in availableTeachers">
                             </select>
                         </div>
                     </div>

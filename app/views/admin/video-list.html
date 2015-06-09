@@ -17,18 +17,18 @@
                     <th class="col-sm-2">视频类型</th>
                     <th class="col-sm-3">时长</th>
                     <th class="col-sm-2">访问URL</th>
-                    <th class="col-sm-2">外部链接</th>
+					<th class="col-sm-2">外部链接</th>
                     <th class="col-sm-2">文件路径</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="item in videos">
                     <td><a ui-sref="admin.video-detail({id:userData.id, vid:item.id})"
-                           title="详细信息">{{item.video_name}}</a></td>
+                           title="详细信息">{{item.name}}</a></td>
                     <td>{{item.mime}}</td>
                     <td>{{item.duration}}</td>
                     <td>{{item.url}}</td>
-                    <td>{{item.external_url}}</td>
+					 <td>{{item.external_url}}</td>
                     <td>{{item.location}}</td>
                 </tr>
                 </tbody>

@@ -8,7 +8,7 @@
                         <label for="textbook_id" class="col-sm-2 control-label">教材ID</label>
                         <div class="col-sm-8">
                             <select name="textbook_id" id="textbook_id" class="form-control input-sm" ng-model="form.textbook_id"
-                                    ng-options="item.id as item.name for item in availableTextbooks">
+                                    ng-options="item.id as item.displayName for item in availableTextbooks">
                             </select>
                         </div>
                     </div>
