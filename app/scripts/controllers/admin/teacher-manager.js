@@ -155,11 +155,12 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
   });
 
   ///////////// test data
-  $scope.teachers = [
+  /*$scope.teachers = [
     {id: 1, "real_name": "122", "roll_no": "222", "signin_password": "222", "security_key": "222", "signup_ip": "2222", "school_id": "2", "discipline": "ENGLISH", "status":"OPENED","position": "22222", "email": "2222", "mobile": "22222", "remark": "2222222"},
     {id: 2, "real_name": "222", "roll_no": "222", "signin_password": "222", "security_key": "222", "signup_ip": "2222", "school_id": "2", "discipline": "ENGLISH", "status":"OPENED","position": "22222", "email": "2222", "mobile": "22222", "remark": "2222222"},
     {id: 3, "real_name": "322", "roll_no": "222", "signin_password": "222", "security_key": "222", "signup_ip": "2222", "school_id": "2", "discipline": "ENGLISH", "status":"OPENED","position": "22222", "email": "2222", "mobile": "22222", "remark": "2222222"}
   ];
   $scope.teacher = {id: 3, "delete_flag": "1", "real_name": "322", "roll_no": "222", "signin_password": "222", "security_key": "222", "signup_ip": "2222", "school_id": 2, "discipline": "ENGLISH","status":"OPENED", "position": "22222", "email": "2222", "mobile": "22222", "remark": "2222222"};
+*/
 }]);
 

@@ -125,12 +125,12 @@ Site.controller('TextbookSectionManagerCtrl', ['$scope', '$state', '$location', 
   }
 
   ///////////// test data
-  /*$scope.textbookSections = [
+  $scope.textbookSections = [
     {id:1, "textbook_id":"1","name":"111","pre_section_id":"111","remark":"1111"},
     {id:2, "textbook_id":"1","name":"111","pre_section_id":"111","remark":"1111"},
     {id:3, "textbook_id":"1","name":"111","pre_section_id":"111","remark":"1111"}
   ];
   $scope.textbookSection = {id:3, "textbook_id":"1","name":"111","pre_section_id":"111","remark":"1111"};
-*/
+
 }]);
 

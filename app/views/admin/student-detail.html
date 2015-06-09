@@ -1,7 +1,7 @@
 <div class="" data-ng-controller="StudentManagerCtrl">
     <div class="panel panel-default">
         <div class="panel-heading relative">
-            <span class="icon-share2"></span>老师详细信息
+            <span class="icon-share2"></span>学生详细信息
             <div class="align-right">
                 <a class="text-decoration" ui-sref="admin.student-edit({id:userData.id, sid:student.id})">编辑<span class="icon-pencil"></span></a>
                 <a class="text-decoration" href="javascript:void(0)" data-ng-click="delete(student.id)">删除<span class="icon-pencil"></span></a>
@@ -18,14 +18,14 @@
                     <span class="col-left">学籍号</span>
                     <span class="col-right">{{student.roll_no}}</span>
                 </li>
-                <li class="list-group-item">
-                    <span class="col-left">登录密码</span>
-                    <span>{{student.signin_password}}</span>
-                </li>
-                <li class="list-group-item">
-                    <span class="col-left">安全key</span>
-                    <span class="col-right">{{student.security_key}}</span>
-                </li>
+                <!--<li class="list-group-item">-->
+                    <!--<span class="col-left">登录密码</span>-->
+                    <!--<span>{{student.signin_password}}</span>-->
+                <!--</li>-->
+                <!--<li class="list-group-item">-->
+                    <!--<span class="col-left">安全key</span>-->
+                    <!--<span class="col-right">{{student.security_key}}</span>-->
+                <!--</li>-->
                 <li class="list-group-item">
                     <span class="col-left">注册时间</span>
                     <span class="col-right">{{student.signup_time}}</span>
