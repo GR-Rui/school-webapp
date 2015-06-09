@@ -127,7 +127,7 @@ Site.controller('VideoManagerCtrl', ['$scope', '$state', '$location', '$statePar
   }
 
   // test date
-  $scope.videos = [
+  /*$scope.videos = [
     {id: 1, "name": "1111", "mime": "1111", "location": "11111", "url": "1111", "tudouUrl": "1111", "duration": "1111", "cover_mime": "111", "cover_location": "111", "cover_url": "1111", "cover_size": "1111", "cover_height": "11111", "cover_width": "1111"},
     {id: 2, "name": "1111", "mime": "1111", "location": "11111", "url": "1111", "tudouUrl": "1111", "duration": "1111", "cover_mime": "111", "cover_location": "111", "cover_url": "1111", "cover_size": "1111", "cover_height": "11111", "cover_width": "1111"},
     {id: 3, "name": "1111", "mime": "1111", "location": "11111", "url": "1111", "tudouUrl": "1111", "duration": "1111", "cover_mime": "111", "cover_location": "111", "cover_url": "1111", "cover_size": "1111", "cover_height": "11111", "cover_width": "1111"}
@@ -135,5 +135,5 @@ Site.controller('VideoManagerCtrl', ['$scope', '$state', '$location', '$statePar
   $scope.video = {
     id: 1, "name": "1111", "status":"OPENED",  "mime": "1111", "location": "11111", "url": "1111", "tudouUrl": "1111", "duration": "1111", "cover_mime": "111", "cover_location": "111", "cover_url": "1111", "cover_size": "1111", "cover_height": "11111", "cover_width": "1111", "teacher_id":1
   }
-
+*/
 }]);
