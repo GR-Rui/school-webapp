@@ -19,8 +19,8 @@ Site.controller('TextbookManagerCtrl', ['$scope', '$state', '$location', '$state
     TextbookManagerSrv.getTextbookById(tid)
       .then(function (res) {
         var temp = JSON.parse(res);
-        var textbook = JSON.parse(temp);
-        $scope.teacher = textbook[0];
+        var obj = JSON.parse(temp);
+        $scope.textbook = obj[0];
       });
   }
 

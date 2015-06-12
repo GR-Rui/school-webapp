@@ -72,7 +72,7 @@ Site.controller('TeacherTextbookManagerCtrl', ['$scope', '$state', '$location', 
     TeacherTextbookManagerSrv.getAllTeacherTextbooks($scope.pageSize, $scope.pageIndex)
       .then(function (res) {
         var temp = JSON.parse(res);
-        $scope.teacherTextbookes = JSON.parse(temp);
+        $scope.teacherTextbooks = JSON.parse(temp);
       });
   }
 
