@@ -7,7 +7,7 @@
  * # TeacherClassManagerCtrl
  * Controller of the webApp
  */
-Site.controller('TeacherClassManagerCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'TeacherClassManagerSrv', '$route', function ($scope, $state, $location, $stateParams, $q, TeacherClassManagerSrv, $route) {
+Site.controller('TeacherClassManagerCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'TeacherClassManagerSrv', 'TeacherManagerSrv', 'ClassManagerSrv', '$route', function ($scope, $state, $location, $stateParams, $q, TeacherClassManagerSrv, TeacherManagerSrv, ClassManagerSrv, $route) {
   console.log('TeacherClassManagerCtrl');
 
   var cid = $stateParams.tcid;
@@ -21,14 +21,29 @@ Site.controller('TeacherClassManagerCtrl', ['$scope', '$state', '$location', '$s
         var temp = JSON.parse(res);
         var obj = JSON.parse(temp);
         $scope.teacherClass = obj[0];
+
+        if ($scope.teacherClass && path.indexOf('teacher-class-edit') > 0) {
+          var schoolId = $scope.teacherClass.school_id;
+          TeacherManagerSrv.getTeachersBySchoolId(schoolId)
+            .then(function (res) {
+              var temp = JSON.parse(res);
+              $scope.teachersBySchool = JSON.parse(temp);
+            });
+          ClassManagerSrv.getClassesBySchoolId(schoolId)
+            .then(function (res) {
+              var temp = JSON.parse(res);
+              $scope.classesBySchool = JSON.parse(temp);
+            });
+        }
+
       });
   }
 
   // create
   $scope.form = {};
   $scope.form.school_id = 1;//TODO
-  $scope.form.teacher_id = 1;
-  $scope.form.class_id = 1;
+//  $scope.form.teacher_id = 1;
+//  $scope.form.class_id = 1;
   $scope.form.status = 'OPENED';
   $scope.create = function () {
     if ( !isValid() ) return;
@@ -43,6 +58,7 @@ Site.controller('TeacherClassManagerCtrl', ['$scope', '$state', '$location', '$s
         }
       });
   };
+
 
   // update
   $scope.update = function (cid) {
@@ -76,6 +92,34 @@ Site.controller('TeacherClassManagerCtrl', ['$scope', '$state', '$location', '$s
       .then(function (res) {
         var temp = JSON.parse(res);
         $scope.teacherClasses = JSON.parse(temp);
+      });
+  }
+
+  function getTeachersBySchoolId(schoolId) {
+    TeacherManagerSrv.getTeachersBySchoolId(schoolId)
+      .then(function (res) {
+        var temp = JSON.parse(res);
+        $scope.teachersBySchool = JSON.parse(temp);
+        if ($scope.teachersBySchool && path.indexOf('teacher-class-add') > 0) {
+          $scope.form.teacher_id = $scope.teachersBySchool[0].id;
+        }
+        if ($scope.teachersBySchool && path.indexOf('teacher-class-edit') > 0) {
+          $scope.teacherClass.teacher_id = $scope.teachersBySchool[0].id;
+        }
+      });
+  }
+
+  function getClassesBySchoolId(schoolId) {
+    ClassManagerSrv.getClassesBySchoolId(schoolId)
+      .then(function (res) {
+        var temp = JSON.parse(res);
+        $scope.classesBySchool = JSON.parse(temp);
+        if ($scope.classesBySchool && path.indexOf('teacher-class-add') > 0) {
+          $scope.form.class_id = $scope.classesBySchool[0].id;
+        }
+        if ($scope.classesBySchool && path.indexOf('teacher-class-edit') > 0) {
+          $scope.teacherClass.class_id = $scope.classesBySchool[0].id;
+        }
       });
   }
 
@@ -146,12 +190,43 @@ Site.controller('TeacherClassManagerCtrl', ['$scope', '$state', '$location', '$s
     getAllTeacherClasses();
   }
 
+  if (path.indexOf('teacher-class-add') > 0) {
+    getTeachersBySchoolId($scope.form.school_id);
+    getClassesBySchoolId($scope.form.school_id);
+  }
+
+  $scope.changeSchool = function () {
+    var obj;
+    if($scope.teacherClass) {
+      obj = $scope.teacherClass;
+    }else {
+      obj = $scope.form;
+    }
+    getTeachersBySchoolId(obj.school_id);
+    getClassesBySchoolId(obj.school_id);
+  };
+
   function isValid() {
     var obj;
     var isPassed = true;
+    if($scope.teacherClass) {
+      obj = $scope.teacherClass;
+    }else{
+      obj = $scope.form;
+    }
+    if(typeof obj.teacher_id == 'undefined' || obj.teacher_id.length == 0) {
+      $('#teacher_id').siblings('span.error-msg').html('必填项');
+      isPassed = false;
+      return isPassed;
+    }
+    if(typeof obj.class_id == 'undefined' || obj.class_id.length == 0) {
+      $('#class_id').siblings('span.error-msg').html('必填项');
+      isPassed = false;
+      return isPassed;
+    }
     return isPassed;
   }
-  $('form input').on('input', function(){
+  $('#school_id').on('change', function(){
     $(this).siblings('span.error-msg').html('');
   });
 

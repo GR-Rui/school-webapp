@@ -8,24 +8,29 @@
                         <label for="school_id" class="col-sm-2 control-label">学校ID</label>
                         <div class="col-sm-8">
                             <select name="school_id" id="school_id" class="form-control input-sm" ng-model="form.school_id"
-                                    ng-options="item.id as item.name for item in availableSchools">
+                                    ng-options="item.id as item.name for item in availableSchools" ng-change="changeSchool()">
                             </select>
+                            <span class="required-msg">*</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="teacher_id" class="col-sm-2 control-label">选择老师</label>
                         <div class="col-sm-8">
+                            <span class="error-msg"></span>
                             <select name="teacher_id" id="teacher_id" class="form-control input-sm" ng-model="form.teacher_id"
-                                    ng-options="item.id as item.real_name for item in availableTeachers">
+                                    ng-options="item.id as item.real_name for item in teachersBySchool">
                             </select>
+                            <span class="required-msg">*</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="class_id" class="col-sm-2 control-label">选择班级</label>
                         <div class="col-sm-8">
+                            <span class="error-msg"></span>
                             <select name="class_id" id="class_id" class="form-control input-sm" ng-model="form.class_id"
-                                    ng-options="item.id as item.name for item in availableClasses">
+                                    ng-options="item.id as item.name for item in classesBySchool">
                             </select>
+                            <span class="required-msg">*</span>
                         </div>
                     </div>
                     <div class="form-group">

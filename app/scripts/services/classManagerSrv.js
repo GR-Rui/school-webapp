@@ -63,6 +63,17 @@ Site.factory('ClassManagerSrv', ['$http', '$filter', 'ConfigConst', function ($h
         });
     },
 
+    // get Available Classes by school id
+    getClassesBySchoolId: function (schoolId) {
+      return $http
+        .get(ConfigConst.urls.api + 'GetClassPager/?schoolID=' + schoolId, {headers: {}})
+        .then(function (res) {
+          return res.data;
+        }, function (err) {
+          return err;
+        });
+    },
+
     // get pagination objects
     getAllClasses: function (size, index) {
       return $http
