@@ -14,10 +14,6 @@ Site.controller('VideoManagerCtrl', ['$scope', '$state', '$location', '$statePar
   var path = $location.path();
   var userId = $scope.userData.id;
 
-  if (path.indexOf('video-list') > 0) {
-    getAllVideos();
-  }
-
   //
   if (vid) {
     VideoManagerSrv.getVideoById(vid)
