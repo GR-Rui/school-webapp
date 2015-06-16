@@ -28,10 +28,11 @@ Site.controller('TextbookManagerCtrl', ['$scope', '$state', '$location', '$state
   $scope.form = {};
   $scope.form.level = 'PRIMARY_SCHOOL';
   $scope.form.version = 'SUJIAO_VERSION';
-  $scope.form.grade = 'GRADE_ONE';
+  $scope.form.grade = 'GRADE_1';
   $scope.form.discipline = 'ENGLISH';
   $scope.form.status = 'OPENED';
   $scope.create = function () {
+    if ( !isValid() ) return;
     var object = $scope.form;
 //    object.operId = userId;
     TextbookManagerSrv.insertTextbook(object)
@@ -47,6 +48,7 @@ Site.controller('TextbookManagerCtrl', ['$scope', '$state', '$location', '$state
   // update
   $scope.update = function (tid) {
 //    var object = _.pick($scope.textbook, ['name', 'description']);
+    if ( !isValid() ) return;
     var object = $scope.textbook;
       TextbookManagerSrv.updateTextbook(tid, object)
       .then(function (res) {
@@ -97,35 +99,77 @@ Site.controller('TextbookManagerCtrl', ['$scope', '$state', '$location', '$state
     });
 
   $scope.prePage = function () {
-    getPageParams();
+//    getPageParams();
     var index = $scope.pageIndex;
     if (index <= 1) {
       return;
     } else {
       $location.path('/admin/' + userId + '/textbook-list');
       $location.search('pageIndex', index - 1);
+      $scope.pageIndex = index - 1;
       getAllTextbooks();
       $route.reload();
     }
   };
 
   $scope.nextPage = function () {
-    getPageParams();
+//    getPageParams();
     var index = $scope.pageIndex;
     if (index >= $scope.pageNum) {
       return;
     } else {
       $location.path('/admin/' + userId + '/textbook-list');
       $location.search('pageIndex', index + 1);
+      $scope.pageIndex = index + 1;
       getAllTextbooks();
       $route.reload();
     }
+  };
+
+  $scope.lastPage = function () {
+    $scope.pageIndex = $scope.pageNum;
+    $location.path('/admin/' + userId + '/textbook-list');
+    $location.search('pageIndex', $scope.pageIndex);
+    getAllTextbooks();
+    $route.reload();
+  };
+
+  $scope.firstPage = function () {
+    $scope.pageIndex = 1;
+    $location.path('/admin/' + userId + '/textbook-list');
+    $location.search('pageIndex', $scope.pageIndex);
+    getAllTextbooks();
+    $route.reload();
   };
 
   if (path.indexOf('textbook-list') > 0) {
     getPageParams();
     getAllTextbooks();
   }
+
+  function isValid() {
+    var obj;
+    var isPassed = true;
+    if($scope.textbook) {
+      obj = $scope.textbook;
+    }else{
+      obj = $scope.form;
+    }
+    if(typeof obj.name == 'undefined' || obj.name.length == 0) {
+      $('#name').siblings('span.error-msg').html('必填项');
+      isPassed = false;
+      return isPassed;
+    }
+    if(typeof obj.term == 'undefined' || obj.term.length == 0) {
+      $('#term').siblings('span.error-msg').html('必填项');
+      isPassed = false;
+      return isPassed;
+    }
+    return isPassed;
+  }
+  $('form input').on('input', function(){
+    $(this).siblings('span.error-msg').html('');
+  });
 
   ///////////// test data
   /*$scope.textbooks = [

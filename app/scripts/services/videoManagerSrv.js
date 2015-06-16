@@ -22,7 +22,7 @@ Site.factory('VideoManagerSrv', ['$http', '$filter', 'ConfigConst', function ($h
     updateVideo: function (id, data) {
       var jsonStr = JSON.stringify(data);
       return $http
-        .put(ConfigConst.urls.api + 'UpdateVideo?info=' + jsonStr, data, {headers: {}})
+        .post(ConfigConst.urls.api + 'UpdateVideo?info=' + jsonStr, data, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -33,7 +33,7 @@ Site.factory('VideoManagerSrv', ['$http', '$filter', 'ConfigConst', function ($h
     // delete
     deleteVideo: function (id) {
       return $http
-        .delete(ConfigConst.urls.api + 'DeleteVideoById?info=' + id, {headers: {}})
+        .post(ConfigConst.urls.api + 'DeleteVideoById?info=' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {

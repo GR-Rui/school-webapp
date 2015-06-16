@@ -148,8 +148,8 @@ Site.controller('ClassManagerCtrl', ['$scope', '$state', '$location', '$statePar
   function isValid() {
     var obj;
     var isPassed = true;
-    if($scope.teacher) {
-      obj = $scope.teacher;
+    if($scope.class) {
+      obj = $scope.class;
     }else{
       obj = $scope.form;
     }

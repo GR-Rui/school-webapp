@@ -14,28 +14,35 @@
                 <thead>
                 <tr>
                     <th st-sort="name" class="col-sm-2 pointer">教师ID</th>
+                    <th class="col-sm-2">教师姓名</th>
                     <th class="col-sm-2">班级ID</th>
-                    <th class="col-sm-4">添加时间</th>
-                    <th class="col-sm-4">状态</th>
+                    <th class="col-sm-2">班级名字</th>
+                    <th class="col-sm-2">添加时间</th>
+                    <th class="col-sm-2">状态</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="item in teacherClasses">
                     <td><a ui-sref="admin.teacher-class-detail({id:userData.id, tcid:item.id})" title="详细信息">{{item.teacher_id}}</a></td>
+                    <td>{{item.real_name}}</td>
                     <td>{{item.class_id}}</td>
+                    <td>{{item.name}}</td>
                     <td>{{item.added_time}}</td>
                     <td>{{item.status | tcStatusMap}}</td>
                 </tr>
                 </tbody>
             </table>
-            <nav class="text-right">
-                <ul class="pagination">
-                    <li ng-class="{'disabled': pageIndex==1}"><a data-ng-click="prePage()" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                    <li ng-class="{'disabled': pageIndex==pageNum}"><a data-ng-click="nextPage()" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+            <nav class="text-left col-sm-6">
+                <div>当前页：{{pageIndex}}</div>
+            </nav>
+            <nav class="text-right col-sm-6">
+                <ul class="pagination" style="margin-top: 0;">
+                    <li><a class="pointer" data-ng-click="firstPage()" aria-label="first"><span aria-hidden="true">首页</span></a></li>
+                    <li ng-class="{'disabled': pageIndex==1}"><a class="pointer" data-ng-click="prePage()" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                    <li ng-class="{'disabled': pageIndex==pageNum}"><a class="pointer" data-ng-click="nextPage()" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                    <li><a class="pointer" data-ng-click="lastPage()" aria-label="last"><span aria-hidden="true">末页</span></a></li>
                 </ul>
             </nav>
-
-            <div class="align-right"><a href="javascript:void(0)">查看全部<span class="icon-forward"></span></a></div>
 
         </div>
     </div>

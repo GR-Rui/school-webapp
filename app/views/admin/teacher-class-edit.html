@@ -5,6 +5,14 @@
             <form class="form-horizontal" id="addForm">
                 <fieldset class="col-sm-12">
                     <div class="form-group">
+                        <label for="school_id" class="col-sm-2 control-label">学校ID</label>
+                        <div class="col-sm-8">
+                            <select name="school_id" id="school_id" class="form-control input-sm" ng-model="teacherClass.school_id"
+                                    ng-options="item.id as item.name for item in availableSchools">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="teacher_id" class="col-sm-2 control-label">选择老师</label>
                         <div class="col-sm-8">
                             <select name="teacher_id" id="teacher_id" class="form-control input-sm" ng-model="teacherClass.teacher_id"

@@ -11,37 +11,47 @@
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">名称</label>
                         <div class="col-sm-8">
-                            <input name="name" type="text" class="form-control input-sm" id="name" ng-model="textbook.name">
+                            <span class="error-msg"></span>
+                            <input name="name" type="text" maxlength="50" class="form-control input-sm" id="name" ng-model="textbook.name">
+                            <span class="required-msg">*</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="term" class="col-sm-2 control-label">学期</label>
+                        <div class="col-sm-8">
+                            <span class="error-msg"></span>
+                            <input name="term" type="text" maxlength="50" class="form-control input-sm" id="term" ng-model="textbook.term">
+                            <span class="required-msg">*</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="press" class="col-sm-2 control-label">出版社</label>
                         <div class="col-sm-8">
-                            <input name="press" type="text" class="form-control input-sm" id="press" ng-model="textbook.press">
+                            <input name="press" type="text" maxlength="50" class="form-control input-sm" id="press" ng-model="textbook.press">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="publishing_date" class="col-sm-2 control-label">出版日期</label>
                         <div class="col-sm-8">
-                            <input name="publishing_date" type="text" class="form-control input-sm" id="publishing_date" ng-model="textbook.publishing_date">
+                            <input name="publishing_date" type="text" maxlength="50" class="form-control input-sm" id="publishing_date" ng-model="textbook.publishing_date">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="publishing_edtion" class="col-sm-2 control-label">出版版次</label>
                         <div class="col-sm-8">
-                            <input name="publishing_edtion" type="text" class="form-control input-sm" id="publishing_edtion" ng-model="textbook.publishing_edtion">
+                            <input name="publishing_edtion" type="text" maxlength="50" class="form-control input-sm" id="publishing_edtion" ng-model="textbook.publishing_edtion">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="printing_batch" class="col-sm-2 control-label">印刷批次</label>
                         <div class="col-sm-8">
-                            <input name="printing_batch" type="text" class="form-control input-sm" id="printing_batch" ng-model="textbook.printing_batch">
+                            <input name="printing_batch" type="text" maxlength="50" class="form-control input-sm" id="printing_batch" ng-model="textbook.printing_batch">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="isbn" class="col-sm-2 control-label">书号</label>
                         <div class="col-sm-8">
-                            <input name="isbn" type="text" class="form-control input-sm" id="isbn" ng-model="textbook.isbn">
+                            <input name="isbn" type="text" maxlength="50" class="form-control input-sm" id="isbn" ng-model="textbook.isbn">
                         </div>
                     </div>
                     <div class="form-group">
@@ -74,12 +84,6 @@
                             <select name="discipline" id="discipline" class="form-control input-sm" ng-model="textbook.discipline"
                                     ng-options="item.id as item.name for item in discipline">
                             </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="term" class="col-sm-2 control-label">学期</label>
-                        <div class="col-sm-8">
-                            <input name="term" type="text" class="form-control input-sm" id="term" ng-model="textbook.term">
                         </div>
                     </div>
                     <div class="form-group">

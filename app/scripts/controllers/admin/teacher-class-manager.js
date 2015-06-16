@@ -26,10 +26,12 @@ Site.controller('TeacherClassManagerCtrl', ['$scope', '$state', '$location', '$s
 
   // create
   $scope.form = {};
+  $scope.form.school_id = 1;//TODO
   $scope.form.teacher_id = 1;
   $scope.form.class_id = 1;
   $scope.form.status = 0;
   $scope.create = function () {
+    if ( !isValid() ) return;
     var object = $scope.form;
 //    object.operId = userId;
     TeacherClassManagerSrv.insertTeacherClass(object)
@@ -45,6 +47,7 @@ Site.controller('TeacherClassManagerCtrl', ['$scope', '$state', '$location', '$s
   // update
   $scope.update = function (cid) {
 //    var object = _.pick($scope.class, ['name', 'description']);
+    if ( !isValid() ) return;
     var object = $scope.teacherClass;
     TeacherClassManagerSrv.updateTeacherClass(cid, object)
       .then(function (res) {
@@ -95,35 +98,62 @@ Site.controller('TeacherClassManagerCtrl', ['$scope', '$state', '$location', '$s
     });
 
   $scope.prePage = function () {
-    getPageParams();
+//    getPageParams();
     var index = $scope.pageIndex;
     if (index <= 1) {
       return;
     } else {
       $location.path('/admin/' + userId + '/teacher-class-list');
       $location.search('pageIndex', index - 1);
+      $scope.pageIndex = index - 1;
       getAllTeacherClasses();
       $route.reload();
     }
   };
 
   $scope.nextPage = function () {
-    getPageParams();
+//    getPageParams();
     var index = $scope.pageIndex;
     if (index >= $scope.pageNum) {
       return;
     } else {
       $location.path('/admin/' + userId + '/teacher-class-list');
       $location.search('pageIndex', index + 1);
+      $scope.pageIndex = index + 1;
       getAllTeacherClasses();
       $route.reload();
     }
+  };
+
+  $scope.lastPage = function () {
+    $scope.pageIndex = $scope.pageNum;
+    $location.path('/admin/' + userId + '/teacher-class-list');
+    $location.search('pageIndex', $scope.pageIndex);
+    getAllTeacherClasses();
+    $route.reload();
+  };
+
+  $scope.firstPage = function () {
+    $scope.pageIndex = 1;
+    $location.path('/admin/' + userId + '/teacher-class-list');
+    $location.search('pageIndex', $scope.pageIndex);
+    getAllTeacherClasses();
+    $route.reload();
   };
 
   if (path.indexOf('teacher-class-list') > 0) {
     getPageParams();
     getAllTeacherClasses();
   }
+
+  function isValid() {
+    var obj;
+    var isPassed = true;
+    return isPassed;
+  }
+  $('form input').on('input', function(){
+    $(this).siblings('span.error-msg').html('');
+  });
 
   ///////////// test data
   /*$scope.teacherClasses = [

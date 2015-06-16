@@ -22,7 +22,7 @@ Site.factory('TextbookSectionManagerSrv', ['$http', '$filter', 'ConfigConst', fu
     updateTextbookSection: function (id, data) {
       var jsonStr = JSON.stringify(data);
       return $http
-        .put(ConfigConst.urls.api + 'UpdateSection?info=' + jsonStr, data, {headers: {}})
+        .post(ConfigConst.urls.api + 'UpdateSection?info=' + jsonStr, data, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -33,7 +33,7 @@ Site.factory('TextbookSectionManagerSrv', ['$http', '$filter', 'ConfigConst', fu
     // delete
     deleteTextbookSection: function (id) {
       return $http
-        .delete(ConfigConst.urls.api + 'DeleteSectionById?id=' + id, {headers: {}})
+        .post(ConfigConst.urls.api + 'DeleteSectionById?id=' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {

@@ -22,7 +22,7 @@ Site.factory('TeacherClassManagerSrv', ['$http', '$filter', 'ConfigConst', funct
     updateTeacherClass: function (id, data) {
       var jsonStr = JSON.stringify(data);
       return $http
-        .put(ConfigConst.urls.api + 'UpdateTeacherClass?info=' + jsonStr, data, {headers: {}})
+        .post(ConfigConst.urls.api + 'UpdateTeacherClass?info=' + jsonStr, data, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -33,7 +33,7 @@ Site.factory('TeacherClassManagerSrv', ['$http', '$filter', 'ConfigConst', funct
     // delete
     deleteTeacherClass: function (id) {
       return $http
-        .delete(ConfigConst.urls.api + 'DeleteTeacherClassById?id=' + id, {headers: {}})
+        .post(ConfigConst.urls.api + 'DeleteTeacherClassById?id=' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {

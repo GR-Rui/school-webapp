@@ -22,7 +22,7 @@ Site.factory('TeacherTextbookManagerSrv', ['$http', '$filter', 'ConfigConst', fu
     updateTeacherTextbook: function (id, data) {
       var jsonStr = JSON.stringify(data);
       return $http
-        .put(ConfigConst.urls.api + 'UpdateTeacherTextbook?info=' + jsonStr, data, {headers: {}})
+        .post(ConfigConst.urls.api + 'UpdateTeacherTextbook?info=' + jsonStr, data, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -33,7 +33,7 @@ Site.factory('TeacherTextbookManagerSrv', ['$http', '$filter', 'ConfigConst', fu
     // delete
     deleteTeacherTextbook: function (id) {
       return $http
-        .delete(ConfigConst.urls.api + 'DeleteTeacherTextbookById?id=' + id, {headers: {}})
+        .post(ConfigConst.urls.api + 'DeleteTeacherTextbookById?id=' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {

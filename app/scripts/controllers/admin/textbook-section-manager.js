@@ -29,6 +29,7 @@ Site.controller('TextbookSectionManagerCtrl', ['$scope', '$state', '$location', 
   $scope.form.textbook_id = 1;
   $scope.form.pre_section_id = 1;
   $scope.create = function () {
+    if ( !isValid() ) return;
     var object = $scope.form;
 //    object.operId = userId;
     TextbookSectionManagerSrv.insertTextbookSection(object)
@@ -44,6 +45,7 @@ Site.controller('TextbookSectionManagerCtrl', ['$scope', '$state', '$location', 
   // update
   $scope.update = function (tsid) {
 //    var object = _.pick($scope.textbook, ['name', 'description']);
+    if ( !isValid() ) return;
     var object = $scope.textbook;
       TextbookSectionManagerSrv.updateTextbookSection(tsid, object)
       .then(function (res) {
@@ -94,35 +96,72 @@ Site.controller('TextbookSectionManagerCtrl', ['$scope', '$state', '$location', 
     });
 
   $scope.prePage = function () {
-    getPageParams();
+//    getPageParams();
     var index = $scope.pageIndex;
     if (index <= 1) {
       return;
     } else {
       $location.path('/admin/' + userId + '/textbook-section-list');
       $location.search('pageIndex', index - 1);
+      $scope.pageIndex = index - 1;
       getAllTextbookSections();
       $route.reload();
     }
   };
 
   $scope.nextPage = function () {
-    getPageParams();
+//    getPageParams();
     var index = $scope.pageIndex;
     if (index >= $scope.pageNum) {
       return;
     } else {
       $location.path('/admin/' + userId + '/textbook-section-list');
       $location.search('pageIndex', index + 1);
+      $scope.pageIndex = index + 1;
       getAllTextbookSections();
       $route.reload();
     }
+  };
+
+  $scope.lastPage = function () {
+    $scope.pageIndex = $scope.pageNum;
+    $location.path('/admin/' + userId + '/textbook-section-list');
+    $location.search('pageIndex', $scope.pageIndex);
+    getAllTextbookSections();
+    $route.reload();
+  };
+
+  $scope.firstPage = function () {
+    $scope.pageIndex = 1;
+    $location.path('/admin/' + userId + '/textbook-section-list');
+    $location.search('pageIndex', $scope.pageIndex);
+    getAllTextbookSections();
+    $route.reload();
   };
 
   if (path.indexOf('textbook-section-list') > 0) {
     getPageParams();
     getAllTextbookSections();
   }
+
+  function isValid() {
+    var obj;
+    var isPassed = true;
+    if($scope.textbookSection) {
+      obj = $scope.textbookSection;
+    }else{
+      obj = $scope.form;
+    }
+    if(typeof obj.name == 'undefined' || obj.name.length == 0) {
+      $('#name').siblings('span.error-msg').html('必填项');
+      isPassed = false;
+      return isPassed;
+    }
+    return isPassed;
+  }
+  $('form input').on('input', function(){
+    $(this).siblings('span.error-msg').html('');
+  });
 
   ///////////// test data
   /*$scope.textbookSections = [
