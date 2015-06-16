@@ -61,7 +61,7 @@ Site.controller('VideoManagerCtrl', ['$scope', '$state', '$location', '$statePar
 
   // Delete
   $scope.delete = function (vid) {
-    VideoManagerSrv.deleteClass(vid)
+    VideoManagerSrv.deleteVideo(vid)
       .then(function (res) {
         if (res=='true') {
           $state.go('admin.video-list', {id: userId});

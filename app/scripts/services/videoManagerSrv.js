@@ -33,7 +33,7 @@ Site.factory('VideoManagerSrv', ['$http', '$filter', 'ConfigConst', function ($h
     // delete
     deleteVideo: function (id) {
       return $http
-        .post(ConfigConst.urls.api + 'DeleteVideoById?info=' + id, {headers: {}})
+        .post(ConfigConst.urls.api + 'DeleteVideoById?id=' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
