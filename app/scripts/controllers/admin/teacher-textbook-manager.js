@@ -28,7 +28,7 @@ Site.controller('TeacherTextbookManagerCtrl', ['$scope', '$state', '$location', 
   $scope.form = {};
   $scope.form.teacher_id = 1;
   $scope.form.textbook_id = 1;
-  $scope.form.status = 0;
+  $scope.form.status = 'OPENED';
   $scope.create = function () {
     var object = $scope.form;
 //    object.operId = userId;
@@ -95,29 +95,47 @@ Site.controller('TeacherTextbookManagerCtrl', ['$scope', '$state', '$location', 
     });
 
   $scope.prePage = function () {
-    getPageParams();
+//    getPageParams();
     var index = $scope.pageIndex;
     if (index <= 1) {
       return;
     } else {
       $location.path('/admin/' + userId + '/teacher-textbook-list');
       $location.search('pageIndex', index - 1);
+      $scope.pageIndex = index - 1;
       getAllTeacherTextbooks();
       $route.reload();
     }
   };
 
   $scope.nextPage = function () {
-    getPageParams();
+//    getPageParams();
     var index = $scope.pageIndex;
     if (index >= $scope.pageNum) {
       return;
     } else {
       $location.path('/admin/' + userId + '/teacher-textbook-list');
       $location.search('pageIndex', index + 1);
+      $scope.pageIndex = index + 1;
       getAllTeacherTextbooks();
       $route.reload();
     }
+  };
+
+  $scope.lastPage = function () {
+    $scope.pageIndex = $scope.pageNum;
+    $location.path('/admin/' + userId + '/teacher-textbook-list');
+    $location.search('pageIndex', $scope.pageIndex);
+    getAllTeacherTextbooks();
+    $route.reload();
+  };
+
+  $scope.firstPage = function () {
+    $scope.pageIndex = 1;
+    $location.path('/admin/' + userId + '/teacher-textbook-list');
+    $location.search('pageIndex', $scope.pageIndex);
+    getAllTeacherTextbooks();
+    $route.reload();
   };
 
   if (path.indexOf('teacher-textbook-list') > 0) {

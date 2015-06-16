@@ -15,8 +15,16 @@
                     <span class="col-right">{{teacherTextbook.teacher_id}}</span>
                 </li>
                 <li class="list-group-item">
+                    <span class="col-left">教师姓名</span>
+                    <span class="col-right">{{teacherTextbook.real_name}}</span>
+                </li>
+                <li class="list-group-item">
                     <span class="col-left">教材ID</span>
                     <span class="col-right">{{teacherTextbook.textbook_id}}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-left">教材名字</span>
+                    <span class="col-right">{{teacherTextbook.name}}</span>
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">添加时间</span>
@@ -24,7 +32,7 @@
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">状态</span>
-                    <span class="col-right">{{teacherTextbook.status | tcStatusMap}}</span>
+                    <span class="col-right">{{teacherTextbook.status | textbookStatusMap}}</span>
                 </li>
                 <li class="list-group-item">
                     <span class="col-left">删除标记</span>

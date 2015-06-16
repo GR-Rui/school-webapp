@@ -29,7 +29,7 @@ Site.controller('TeacherClassManagerCtrl', ['$scope', '$state', '$location', '$s
   $scope.form.school_id = 1;//TODO
   $scope.form.teacher_id = 1;
   $scope.form.class_id = 1;
-  $scope.form.status = 0;
+  $scope.form.status = 'OPENED';
   $scope.create = function () {
     if ( !isValid() ) return;
     var object = $scope.form;
