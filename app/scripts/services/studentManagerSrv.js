@@ -22,7 +22,7 @@ Site.factory('StudentManagerSrv', ['$http', '$filter', 'ConfigConst', function (
     updateStudent: function (id, data) {
       var jsonStr = JSON.stringify(data);
       return $http
-        .put(ConfigConst.urls.api + 'UpdateStudent?info=' + jsonStr, data, {headers: {}})
+        .post(ConfigConst.urls.api + 'UpdateStudent?info=' + jsonStr, data, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -33,7 +33,7 @@ Site.factory('StudentManagerSrv', ['$http', '$filter', 'ConfigConst', function (
     // delete
     deleteStudent: function (id) {
       return $http
-        .delete(ConfigConst.urls.api + 'DeleteStudentById?id=' + id, {headers: {}})
+        .post(ConfigConst.urls.api + 'DeleteStudentById?id=' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {

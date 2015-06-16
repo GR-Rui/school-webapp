@@ -39,8 +39,10 @@
             </nav>
             <nav class="text-right col-sm-6">
                 <ul class="pagination" style="margin-top: 0;">
+                    <li><a class="pointer" data-ng-click="firstPage()" aria-label="first"><span aria-hidden="true">首页</span></a></li>
                     <li ng-class="{'disabled': pageIndex==1}"><a class="pointer" data-ng-click="prePage()" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
                     <li ng-class="{'disabled': pageIndex==pageNum}"><a class="pointer" data-ng-click="nextPage()" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                    <li><a class="pointer" data-ng-click="lastPage()" aria-label="last"><span aria-hidden="true">末页</span></a></li>
                 </ul>
             </nav>
 

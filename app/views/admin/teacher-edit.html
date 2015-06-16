@@ -11,13 +11,17 @@
                     <div class="form-group">
                         <label for="real_name" class="col-sm-2 control-label">真实姓名</label>
                         <div class="col-sm-8">
-                            <input name="real_name" type="text" class="form-control input-sm" id="real_name" ng-model="teacher.real_name">
+                            <span class="error-msg"></span>
+                            <input name="real_name" type="text" maxlength="4" class="form-control input-sm" id="real_name" ng-model="teacher.real_name">
+                            <span class="required-msg">*</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="roll_no" class="col-sm-2 control-label">教师编号</label>
                         <div class="col-sm-8">
-                            <input name="roll_no" type="text" class="form-control input-sm" id="roll_no" ng-model="teacher.roll_no">
+                            <span class="error-msg"></span>
+                            <input name="roll_no" type="text" maxlength="30" class="form-control input-sm" id="roll_no" ng-model="teacher.roll_no">
+                            <span class="required-msg">*</span>
                         </div>
                     </div>
                     <!--<div class="form-group">-->
@@ -35,7 +39,9 @@
                     <div class="form-group">
                         <label for="signup_ip" class="col-sm-2 control-label">注册IP地址</label>
                         <div class="col-sm-8">
-                            <input name="signup_ip" type="text" class="form-control input-sm" id="signup_ip" ng-model="teacher.signup_ip">
+                            <span class="error-msg"></span>
+                            <input name="signup_ip" type="text" maxlength="16" class="form-control input-sm" id="signup_ip" ng-model="teacher.signup_ip">
+                            <span class="required-msg">*</span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -57,19 +63,23 @@
                     <div class="form-group">
                         <label for="position" class="col-sm-2 control-label">职务</label>
                         <div class="col-sm-8">
-                            <input name="position" type="text" class="form-control input-sm" id="position" ng-model="teacher.position">
+                            <input name="position" type="text" maxlength="30" class="form-control input-sm" id="position" ng-model="teacher.position">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email" class="col-sm-2 control-label">电子邮箱</label>
                         <div class="col-sm-8">
-                            <input name="email" type="text" class="form-control input-sm" id="email" ng-model="teacher.email">
+                            <span class="error-msg"></span>
+                            <input name="email" type="text" maxlength="30" class="form-control input-sm" id="email" ng-model="teacher.email">
+                            <span class="required-msg">*</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="mobile" class="col-sm-2 control-label">手机号码</label>
                         <div class="col-sm-8">
-                            <input name="mobile" type="text" class="form-control input-sm" id="mobile" ng-model="teacher.mobile">
+                            <span class="error-msg"></span>
+                            <input name="mobile" type="text" maxlength="16" class="form-control input-sm" id="mobile" ng-model="teacher.mobile">
+                            <span class="required-msg">*</span>
                         </div>
                     </div>
                     <div class="form-group">

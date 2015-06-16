@@ -125,6 +125,22 @@ Site.controller('TeacherManagerCtrl', ['$scope', '$state', '$location', '$stateP
     }
   };
 
+  $scope.lastPage = function () {
+    $scope.pageIndex = $scope.pageNum;
+    $location.path('/admin/' + userId + '/teacher-list');
+    $location.search('pageIndex', $scope.pageIndex);
+    getAllTeachers();
+    $route.reload();
+  };
+
+  $scope.firstPage = function () {
+    $scope.pageIndex = 1;
+    $location.path('/admin/' + userId + '/teacher-list');
+    $location.search('pageIndex', $scope.pageIndex);
+    getAllTeachers();
+    $route.reload();
+  };
+
   if (path.indexOf('teacher-list') > 0) {
     getPageParams();
     getAllTeachers();
