@@ -11,7 +11,9 @@
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">名字</label>
                         <div class="col-sm-8">
-                            <input name="name" type="text" class="form-control input-sm" id="name" ng-model="class.name">
+                            <span class="error-msg"></span>
+                            <input name="name" type="text" maxlength="50" class="form-control input-sm" id="name" ng-model="class.name">
+                            <span class="required-msg">*</span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -26,7 +28,9 @@
                     <div class="form-group">
                         <label for="school_code" class="col-sm-2 control-label">学校代码</label>
                         <div class="col-sm-8">
-                            <input name="school_code" type="text" class="form-control input-sm" id="school_code" ng-model="class.school_code">
+                            <span class="error-msg"></span>
+                            <input name="school_code" type="text" maxlength="50" class="form-control input-sm" id="school_code" ng-model="class.school_code">
+                            <span class="required-msg">*</span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -40,19 +44,24 @@
                     <div class="form-group">
                         <label for="enter_year" class="col-sm-2 control-label">入学年份</label>
                         <div class="col-sm-8">
-                            <input name="enter_year" type="text" class="form-control input-sm" id="enter_year" ng-model="class.enter_year">
+                            <span class="error-msg"></span>
+                            <input name="enter_year" type="text" maxlength="4" class="form-control input-sm" id="enter_year" ng-model="class.enter_year">
+                            <span class="required-msg">*</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="charge_teacher" class="col-sm-2 control-label">校长姓名</label>
                         <div class="col-sm-8">
-                            <input name="charge_teacher" type="text" class="form-control input-sm" id="charge_teacher" ng-model="class.charge_teacher">
+                            <span class="error-msg"></span>
+                            <input name="charge_teacher" type="text" maxlength="50" class="form-control input-sm" id="charge_teacher" ng-model="class.charge_teacher">
+                            <span class="required-msg">*</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="contact_mobile" class="col-sm-2 control-label">联系方式</label>
                         <div class="col-sm-8">
-                            <input name="contact_mobile" type="text" class="form-control input-sm" id="contact_mobile" ng-model="class.contact_mobile">
+                            <span class="error-msg"></span>
+                            <input name="contact_mobile" type="text" maxlength="64" class="form-control input-sm" id="contact_mobile" ng-model="class.contact_mobile">
                         </div>
                     </div>
                     <div class="form-group">
@@ -71,7 +80,7 @@
                     </div>
                 </fieldset>
                 <div class="col-lg-12 col-lg-offset-2">
-                    <button type="submit" class="btn btn-primary" data-ng-click="updateClass()">保存</button>
+                    <button type="submit" class="btn btn-primary" data-ng-click="update()">保存</button>
                     <!--<button type="reset" class="btn btn-default">重置</button>-->
                 </div>
             </form>

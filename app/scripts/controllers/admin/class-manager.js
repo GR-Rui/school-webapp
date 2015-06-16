@@ -27,9 +27,10 @@ Site.controller('ClassManagerCtrl', ['$scope', '$state', '$location', '$statePar
   // create
   $scope.form = {};
   $scope.form.school_id = 1;
-  $scope.form.grade = 'GRADE_ONE';
+  $scope.form.grade = 'GRADE_1';
   $scope.form.status = 'OPENED';
   $scope.create = function () {
+    if ( !isValid() ) return;
     var object = $scope.form;
 //    object.operId = userId;
     ClassManagerSrv.insertClass(object)
@@ -45,6 +46,7 @@ Site.controller('ClassManagerCtrl', ['$scope', '$state', '$location', '$statePar
   // update
   $scope.update = function (cid) {
 //    var object = _.pick($scope.class, ['name', 'description']);
+    if ( !isValid() ) return;
     var object = $scope.class;
       ClassManagerSrv.updateClass(cid, object)
       .then(function (res) {
@@ -95,35 +97,107 @@ Site.controller('ClassManagerCtrl', ['$scope', '$state', '$location', '$statePar
     });
 
   $scope.prePage = function () {
-    getPageParams();
+//    getPageParams();
     var index = $scope.pageIndex;
     if (index <= 1) {
       return;
     } else {
       $location.path('/admin/' + userId + '/class-list');
       $location.search('pageIndex', index - 1);
+      $scope.pageIndex = index - 1;
       getAllClasses();
       $route.reload();
     }
   };
 
   $scope.nextPage = function () {
-    getPageParams();
+//    getPageParams();
     var index = $scope.pageIndex;
     if (index >= $scope.pageNum) {
       return;
     } else {
       $location.path('/admin/' + userId + '/class-list');
       $location.search('pageIndex', index + 1);
+      $scope.pageIndex = index + 1;
       getAllClasses();
       $route.reload();
     }
+  };
+
+  $scope.lastPage = function () {
+    $scope.pageIndex = $scope.pageNum;
+    $location.path('/admin/' + userId + '/class-list');
+    $location.search('pageIndex', $scope.pageIndex);
+    getAllClasses();
+    $route.reload();
+  };
+
+  $scope.firstPage = function () {
+    $scope.pageIndex = 1;
+    $location.path('/admin/' + userId + '/class-list');
+    $location.search('pageIndex', $scope.pageIndex);
+    getAllClasses();
+    $route.reload();
   };
 
   if (path.indexOf('class-list') > 0) {
     getPageParams();
     getAllClasses();
   }
+
+  function isValid() {
+    var obj;
+    var isPassed = true;
+    if($scope.teacher) {
+      obj = $scope.teacher;
+    }else{
+      obj = $scope.form;
+    }
+    if(typeof obj.name == 'undefined' || obj.name.length == 0) {
+      $('#name').siblings('span.error-msg').html('必填项');
+      isPassed = false;
+      return isPassed;
+    }
+    if(typeof obj.school_code == 'undefined' || obj.school_code.length == 0) {
+      $('#school_code').siblings('span.error-msg').html('必填项');
+      isPassed = false;
+      return isPassed;
+    }
+    if(typeof obj.enter_year == 'undefined' || obj.enter_year.length == 0) {
+      $('#enter_year').siblings('span.error-msg').html('必填项');
+      isPassed = false;
+      return isPassed;
+    }
+    if(typeof obj.charge_teacher == 'undefined' || obj.charge_teacher.length == 0) {
+      $('#charge_teacher').siblings('span.error-msg').html('必填项');
+      isPassed = false;
+      return isPassed;
+    }
+    if(obj.school_code.length > 0 && !/^[A-Za-z0-9]+$/.test(obj.school_code)) {
+      $('#school_code').siblings('span.error-msg').html('编号只能包含字母和数值');
+      isPassed = false;
+      return isPassed;
+    }
+    if(obj.enter_year.length > 0 && !/^[0-9]+$/.test(obj.enter_year)) {
+      $('#enter_year').siblings('span.error-msg').html('请输入正确的年份，如2014');
+      isPassed = false;
+      return isPassed;
+    }
+//    if(obj.charge_teacher.length > 0 && !/^[\u0391-\uFFE5]+$/.test(obj.charge_teacher)) {
+//      $('#charge_teacher').siblings('span.error-msg').html('姓名只能包含汉字');
+//      isPassed = false;
+//      return isPassed;
+//    }
+    if(obj.contact_mobile && obj.contact_mobile.length > 0 && !/^0?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/.test(obj.contact_mobile)) {
+      $('#contact_mobile').siblings('span.error-msg').html('手机号码格式不合法');
+      isPassed = false;
+      return isPassed;
+    }
+    return isPassed;
+  }
+  $('form input').on('input', function(){
+    $(this).siblings('span.error-msg').html('');
+  });
 
   ///////////// test data
   /*$scope.classes = [

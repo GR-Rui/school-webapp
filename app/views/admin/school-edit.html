@@ -10,19 +10,25 @@
                 <div class="form-group">
                     <label for="name" class="col-sm-2 control-label">名称</label>
                     <div class="col-sm-8">
-                        <input name="name" type="text" class="form-control input-sm" id="name" ng-model="school.name">
+                        <span class="error-msg"></span>
+                        <input name="name" type="text" maxlength="50" class="form-control input-sm" id="name" ng-model="school.name">
+                        <span class="required-msg">*</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="edu_no" class="col-sm-2 control-label">教育编号</label>
                     <div class="col-sm-8">
-                        <input name="edu_no" type="text" class="form-control input-sm" id="edu_no" ng-model="school.edu_no">
+                        <span class="error-msg"></span>
+                        <input name="edu_no" type="text" maxlength="64" class="form-control input-sm" id="edu_no" ng-model="school.edu_no">
+                        <span class="required-msg">*</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="code" class="col-sm-2 control-label">学校代码</label>
                     <div class="col-sm-8">
-                        <input name="code" type="text" class="form-control input-sm" id="code" ng-model="school.code">
+                        <span class="error-msg"></span>
+                        <input name="code" type="text" maxlength="50" class="form-control input-sm" id="code" ng-model="school.code">
+                        <span class="required-msg">*</span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -36,67 +42,89 @@
                 <div class="form-group">
                     <label for="principal" class="col-sm-2 control-label">校长</label>
                     <div class="col-sm-8">
-                        <input name="principal" type="text" class="form-control input-sm" id="principal" ng-model="school.principal">
+                        <span class="error-msg"></span>
+                        <input name="principal" type="text" maxlength="50" class="form-control input-sm" id="principal" ng-model="school.principal">
+                        <span class="required-msg">*</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="province_id" class="col-sm-2 control-label">省份</label>
                     <div class="col-sm-8">
-                        <input name="province_id" type="text" class="form-control input-sm" id="province_id" ng-model="school.province_id">
+                        <span class="error-msg"></span>
+                        <input name="province_id" type="text" maxlength="50" class="form-control input-sm" id="province_id" ng-model="school.province_id">
+                        <span class="required-msg">*</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="city_id" class="col-sm-2 control-label">城市</label>
                     <div class="col-sm-8">
-                        <input name="city_id" type="text" class="form-control input-sm" id="city_id" ng-model="school.city_id">
+                        <span class="error-msg"></span>
+                        <input name="city_id" type="text" maxlength="50" class="form-control input-sm" id="city_id" ng-model="school.city_id">
+                        <span class="required-msg">*</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="district_id" class="col-sm-2 control-label">区县</label>
                     <div class="col-sm-8">
-                        <input name="district_id" type="text" class="form-control input-sm" id="district_id" ng-model="school.district_id">
+                        <span class="error-msg"></span>
+                        <input name="district_id" type="text" maxlength="50" class="form-control input-sm" id="district_id" ng-model="school.district_id">
+                        <span class="required-msg">*</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="official_email" class="col-sm-2 control-label">官方电子邮箱</label>
                     <div class="col-sm-8">
-                        <input name="official_email" type="text" class="form-control input-sm" id="official_email" ng-model="school.official_email">
+                        <span class="error-msg"></span>
+                        <input name="official_email" type="text" maxlength="50" class="form-control input-sm" id="official_email" ng-model="school.official_email">
+                        <span class="required-msg">*</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="official_tel" class="col-sm-2 control-label">官方固定电话</label>
                     <div class="col-sm-8">
-                        <input name="official_tel" type="text" class="form-control input-sm" id="official_tel" ng-model="school.official_tel">
+                        <span class="error-msg"></span>
+                        <input name="official_tel" type="text" maxlength="64" class="form-control input-sm" id="official_tel" ng-model="school.official_tel">
+                        <span class="required-msg">*</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="address" class="col-sm-2 control-label">地址</label>
                     <div class="col-sm-8">
-                        <input name="address" type="text" class="form-control input-sm" id="address" ng-model="school.address">
+                        <span class="error-msg"></span>
+                        <input name="address" type="text" maxlength="150" class="form-control input-sm" id="address" ng-model="school.address">
+                        <span class="required-msg">*</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="postal_code" class="col-sm-2 control-label">邮政编码</label>
                     <div class="col-sm-8">
-                        <input name="postal_code" type="text" class="form-control input-sm" id="postal_code" ng-model="school.postal_code">
+                        <span class="error-msg"></span>
+                        <input name="postal_code" type="text" maxlength="6" class="form-control input-sm" id="postal_code" ng-model="school.postal_code">
+                        <span class="required-msg">*</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="contact" class="col-sm-2 control-label">联系人</label>
                     <div class="col-sm-8">
-                        <input name="contact" type="text" class="form-control input-sm" id="contact" ng-model="school.contact">
+                        <span class="error-msg"></span>
+                        <input name="contact" type="text" maxlength="50" class="form-control input-sm" id="contact" ng-model="school.contact">
+                        <span class="required-msg">*</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="contact_mobile" class="col-sm-2 control-label">联系人移动电话</label>
                     <div class="col-sm-8">
-                        <input name="contact_mobile" type="text" class="form-control input-sm" id="contact_mobile" ng-model="school.contact_mobile">
+                        <span class="error-msg"></span>
+                        <input name="contact_mobile" type="text" maxlength="64" class="form-control input-sm" id="contact_mobile" ng-model="school.contact_mobile">
+                        <span class="required-msg">*</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="contact_tel" class="col-sm-2 control-label">联系人固定电话</label>
                     <div class="col-sm-8">
-                        <input name="contact_tel" type="text" class="form-control input-sm" id="contact_tel" ng-model="school.contact_tel">
+                        <span class="error-msg"></span>
+                        <input name="contact_tel" type="text" maxlength="64" class="form-control input-sm" id="contact_tel" ng-model="school.contact_tel">
+                        <span class="required-msg">*</span>
                     </div>
                 </div>
                 <div class="form-group">

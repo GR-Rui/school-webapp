@@ -22,7 +22,7 @@ Site.factory('ClassManagerSrv', ['$http', '$filter', 'ConfigConst', function ($h
     updateClass: function (id, data) {
       var jsonStr = JSON.stringify(data);
       return $http
-        .put(ConfigConst.urls.api + 'UpdateClass?info=' + jsonStr, data, {headers: {}})
+        .post(ConfigConst.urls.api + 'UpdateClass?info=' + jsonStr, data, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -33,7 +33,7 @@ Site.factory('ClassManagerSrv', ['$http', '$filter', 'ConfigConst', function ($h
     // delete
     deleteClass: function (id) {
       return $http
-        .delete(ConfigConst.urls.api + 'DeleteClassById?id=' + id, {headers: {}})
+        .post(ConfigConst.urls.api + 'DeleteClassById?id=' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
