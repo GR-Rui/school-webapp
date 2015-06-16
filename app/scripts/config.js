@@ -6,7 +6,7 @@ Site.constant('ConfigConst', (function () {
   var _env = 'dev';  //DEV or PRD
 
   var _devURLs = {
-    api: 'http://localhost:8078/data/api/',
+    api: 'http://vmwin2k8.chinacloudapp.cn/ManageService.svc/',
     baseUrl: 'http://localhost:8078/'
   };
 

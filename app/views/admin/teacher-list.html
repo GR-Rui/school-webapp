@@ -34,14 +34,15 @@
                 </tr>
                 </tbody>
             </table>
-            <nav class="text-right">
-                <ul class="pagination">
-                    <li ng-class="{'disabled': pageIndex==1}"><a data-ng-click="prePage()" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                    <li ng-class="{'disabled': pageIndex==pageNum}"><a data-ng-click="nextPage()" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+            <nav class="text-left col-sm-6">
+                <div>当前页：{{pageIndex}}</div>
+            </nav>
+            <nav class="text-right col-sm-6">
+                <ul class="pagination" style="margin-top: 0;">
+                    <li ng-class="{'disabled': pageIndex==1}"><a class="pointer" data-ng-click="prePage()" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                    <li ng-class="{'disabled': pageIndex==pageNum}"><a class="pointer" data-ng-click="nextPage()" aria-label="Next"><span aria-hidden="true">»</span></a></li>
                 </ul>
             </nav>
-
-            <div class="align-right"><a href="javascript:void(0)">查看全部<span class="icon-forward"></span></a></div>
 
         </div>
     </div>

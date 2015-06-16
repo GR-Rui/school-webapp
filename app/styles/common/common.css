@@ -12,6 +12,9 @@ body {
 .relative {
     position: relative;
 }
+.absolute {
+    position: absolute;;
+}
 .pointer {
     cursor: pointer;
 }
